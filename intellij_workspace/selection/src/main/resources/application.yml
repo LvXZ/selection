@@ -1,0 +1,66 @@
+# 后端配置
+server:
+  port: 1314
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    context-path: /lvxz
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      exclude: src/main/resources
+  http:
+    encoding:
+      force: false
+      charset: UTF-8
+      enabled: true
+
+  messages:
+    encoding: UTF-8
+  thymeleaf:
+    cache: true
+    prefix: classpath:/templates/
+    suffic: .html
+    mode: HTML5
+    encoding: UTF-8
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/selection?characterEncoding=utf8&useSSL=true
+    username: root
+    password: 12345678
+
+mybatis:
+  mapper-locations: classpath:mybatis/dao/*.xml
+  type-aliases-package: com.njfu.selection.entity
+  configuration:
+    mapUnderscoreToCamelCase: true
+    useColumnLabel: true
+
+logging:
+  config: classpath:logback.xml
+
+
+  # 后端配置获取常量配置
+message:
+  login:
+    success:
+      code: 101
+      msg: 登录成功
+    failure:
+      code: -101
+      msg: 登录失败，账号或密码存在错误，请重新输入
+
+  add:
+    success:
+      code: 102
+      msg: 添加成功
+    failure:
+      code: -102
+      msg: 添加失败，账号已存在
+
+
+

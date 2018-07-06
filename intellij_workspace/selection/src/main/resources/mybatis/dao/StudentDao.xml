@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.njfu.selection.dao.StudentDao">
+
+    <select id="queryStudentPasswordById" parameterType="Long" resultType="com.njfu.selection.entity.Student">
+        SELECT student_id, student_name, password
+        FROM tb_student
+        WHERE student_id = #{student_id}
+    </select>
+
+
+</mapper>

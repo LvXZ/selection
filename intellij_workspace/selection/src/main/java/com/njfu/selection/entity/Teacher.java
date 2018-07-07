@@ -6,44 +6,43 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.Date;
 
 /**
- * @ClassName: Student
- * @Description: 用户学生类表
+ * @ClassName: Teacher
+ * @Description: 用户教师类表
  * @Author: lvxz
- * @Date: 2018-07-06  10:51
+ * @Date: 2018-07-07  14:55
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Student {
+public class Teacher {
 
-    private Long studentID;
-    private String studentName;
+    private Long teacherID;
+    private String teacherName;
     @JsonIgnore
     private String password;
     private String academy;
-    private String studentClass;
     private String profileImg;
     private Date birthday;
     private String gender;
     private String phone;
-    private Long studentQQ;
+    private Long teacherQQ;
     private Integer enable_status;
 
-    public Student() {
+    public Teacher() {
     }
 
-    public Long getStudentID() {
-        return studentID;
+    public Long getTeacherID() {
+        return teacherID;
     }
 
-    public void setStudentID(Long studentID) {
-        this.studentID = studentID;
+    public void setTeacherID(Long teacherID) {
+        this.teacherID = teacherID;
     }
 
-    public String getStudentName() {
-        return studentName;
+    public String getTeacherName() {
+        return teacherName;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
     }
 
     public String getPassword() {
@@ -60,14 +59,6 @@ public class Student {
 
     public void setAcademy(String academy) {
         this.academy = academy;
-    }
-
-    public String getStudentClass() {
-        return studentClass;
-    }
-
-    public void setStudentClass(String studentClass) {
-        this.studentClass = studentClass;
     }
 
     public String getProfileImg() {
@@ -102,12 +93,12 @@ public class Student {
         this.phone = phone;
     }
 
-    public Long getStudentQQ() {
-        return studentQQ;
+    public Long getTeacherQQ() {
+        return teacherQQ;
     }
 
-    public void setStudentQQ(Long studentQQ) {
-        this.studentQQ = studentQQ;
+    public void setTeacherQQ(Long teacherQQ) {
+        this.teacherQQ = teacherQQ;
     }
 
     public Integer getEnable_status() {
@@ -120,17 +111,16 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "studentID=" + studentID +
-                ", studentName='" + studentName + '\'' +
+        return "Teacher{" +
+                "teacherID=" + teacherID +
+                ", teacherName='" + teacherName + '\'' +
                 ", password='" + password + '\'' +
                 ", academy='" + academy + '\'' +
-                ", studentClass='" + studentClass + '\'' +
                 ", profileImg='" + profileImg + '\'' +
                 ", birthday=" + birthday +
                 ", gender='" + gender + '\'' +
                 ", phone='" + phone + '\'' +
-                ", studentQQ=" + studentQQ +
+                ", teacherQQ=" + teacherQQ +
                 ", enable_status=" + enable_status +
                 '}';
     }

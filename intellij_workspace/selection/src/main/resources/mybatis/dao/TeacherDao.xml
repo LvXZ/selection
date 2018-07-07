@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.njfu.selection.dao.TeacherDao">
+
+    <select id="queryTeacherPasswordById" parameterType="Long" resultType="com.njfu.selection.entity.Teacher">
+        SELECT teacher_id, teacher_name, password
+        FROM tb_teacher
+        WHERE teacher_id = #{teacherID}
+    </select>
+
+    <select id="queryTeacherInfoById" parameterType="Long" resultType="com.njfu.selection.entity.Teacher">
+        SELECT teacher_id, teacher_name, password, academy, profile_img, birthday, gender, phone, teacher_qq, enable_status
+        FROM tb_teacher
+        WHERE teacher_id = #{teacherID}
+    </select>
+
+    <update id="updateTeacherPasswordById" parameterType="com.njfu.selection.entity.Teacher">
+        UPDATE tb_teacher SET password = #{password}
+        WHERE teacher_id = #{teacherID}
+    </update>
+
+    <update id="updateTeacherPasswordByOther" parameterType="com.njfu.selection.entity.Teacher">
+        UPDATE tb_teacher SET password = #{password}
+        WHERE teacher_id = #{teacherID} AND teacher_name = #{teacherName} AND phone = #{phone}
+    </update>
+
+    <update id="updateTeacherInfoById" parameterType="com.njfu.selection.entity.Teacher">
+        UPDATE tb_teacher
+        <set>
+            <if test="birthday != null" >
+                birthday = #{birthday,jdbcType=DATETIME},
+            </if>
+            <if test="phone != null" >
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="studentQQ != null" >
+                teacher_qq = #{teacherQQ,jdbcType=VARCHAR},
+            </if>
+        </set>
+        WHERE teacher_id = #{teacherID}
+    </update>
+
+
+</mapper>

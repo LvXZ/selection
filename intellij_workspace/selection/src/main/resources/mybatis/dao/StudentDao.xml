@@ -6,8 +6,40 @@
     <select id="queryStudentPasswordById" parameterType="Long" resultType="com.njfu.selection.entity.Student">
         SELECT student_id, student_name, password
         FROM tb_student
-        WHERE student_id = #{student_id}
+        WHERE student_id = #{studentID}
     </select>
+
+    <select id="queryStudentInfoById" parameterType="Long" resultType="com.njfu.selection.entity.Student">
+        SELECT student_id, student_name, password, academy, student_class, profile_img, birthday, gender, phone, student_qq, enable_status
+        FROM tb_student
+        WHERE student_id = #{studentID}
+    </select>
+
+    <update id="updateStudentPasswordById" parameterType="com.njfu.selection.entity.Student">
+        UPDATE tb_student SET password = #{password}
+        WHERE student_id = #{studentID}
+    </update>
+
+    <update id="updateStudentPasswordByOther" parameterType="com.njfu.selection.entity.Student">
+        UPDATE tb_student SET password = #{password}
+        WHERE student_id = #{studentID} AND student_name = #{studentName} AND phone = #{phone}
+    </update>
+
+    <update id="updateStudentInfoById" parameterType="com.njfu.selection.entity.Student">
+        UPDATE tb_student
+        <set>
+            <if test="birthday != null" >
+                birthday = #{birthday,jdbcType=DATETIME},
+            </if>
+            <if test="phone != null" >
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="studentQQ != null" >
+                student_qq = #{studentQQ,jdbcType=VARCHAR},
+            </if>
+        </set>
+        WHERE student_id = #{studentID}
+    </update>
 
 
 </mapper>

@@ -29,13 +29,13 @@
         UPDATE tb_teacher
         <set>
             <if test="birthday != null" >
-                birthday = #{birthday,jdbcType=DATETIME},
+                birthday = #{birthday},
             </if>
             <if test="phone != null" >
-                phone = #{phone,jdbcType=VARCHAR},
+                phone = #{phone},
             </if>
-            <if test="studentQQ != null" >
-                teacher_qq = #{teacherQQ,jdbcType=VARCHAR},
+            <if test="teacherQQ != null" >
+                teacher_qq = #{teacherQQ},
             </if>
         </set>
         WHERE teacher_id = #{teacherID}

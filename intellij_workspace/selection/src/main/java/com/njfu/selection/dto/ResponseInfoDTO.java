@@ -14,6 +14,10 @@ public class ResponseInfoDTO<T> extends MessageInfoDTO {
     public ResponseInfoDTO() {
     }
 
+    public ResponseInfoDTO(int code, String msg) {
+        super(code, msg);
+    }
+
     public ResponseInfoDTO(int code, String msg, T data) {
         super(code, msg);
         this.data = data;

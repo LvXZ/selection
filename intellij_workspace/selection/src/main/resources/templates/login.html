@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+
+    <link rel="shortcut icon" href="../static/images/logo.ico" th:href="@{images/logo.ico}" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{css/login.css}">
+    <script src="../static/js/constant.js" th:src="@{js/constant.js}"></script>
+
+    <!--<link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="webjars/jquery/3.1.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+
+    <link rel="stylesheet" type="text/css" href="../static/resources/bootstrap-3.3.7/css/bootstrap.min.css" th:href="@{resources/bootstrap-3.3.7/css/bootstrap.min.css}">
+    <script src="../static/js/jquery-3.2.1.min.js" th:src="@{js/jquery-3.2.1.min.js}"></script>
+    <script src="../static/resources/bootstrap-3.3.7/js/bootstrap.min.js" th:src="@{resources/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+
+    <style>
+        @font-face {
+            font-family: 'iconfont';  /* project id 738044 */
+            src: url('//at.alicdn.com/t/font_738044_1h9as89pc37.eot');
+            src: url('//at.alicdn.com/t/font_738044_1h9as89pc37.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_738044_1h9as89pc37.woff') format('woff'),
+            url('//at.alicdn.com/t/font_738044_1h9as89pc37.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_738044_1h9as89pc37.svg#iconfont') format('svg');
+        }
+
+        .iconfont {/*对阿里图标进行修饰*/
+            /*color: #c12e2a;*/
+            font-family:"iconfont" !important;
+            font-style:normal;
+            /* font-weight: bold;!*加粗*!*/
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+
+    <title>登录界面</title>
+</head>
+<body style="background-color: #39221e">
+
+    <div class="container">
+        <div class="row clearfix">
+
+            <div class="login-box-body">
+                <h1 class="text-center">
+                    <i class="iconfont">&#xe606;</i>&nbsp;毕业设计网上选题系统
+                </h1>
+                <h6 class="text-right">
+                    created by lvxz
+                </h6>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-md-8 column">
+                    <div class="jumbotron">
+                        <h2>
+                            2018届毕业论文选题啦......快来呀！
+                        </h2>
+                        <h3 class="text-right">
+                            [5月20号截止......]
+                        </h3>
+                        <p>
+                            This is a template for a simple marketing or informational website.  created by lvxz
+                        </p>
+                        <p>
+                            <a class="btn btn-primary" href="#">Learn more</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 column">
+                    <div class="login-box-body">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" id="user_id" type="number" placeholder="ID"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input class="form-control" id="user_password" type="password" placeholder="密码"/>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="radio-inline">
+                                <input type="radio" name="radio" id="radio1" value="student" checked> 学生
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="radio" id="radio2"  value="teacher"> 老师
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="radio" id="radio3"  value="admin"> 管理员
+                            </label>
+                        </div>
+                        <div class="input-group"><button id="login_button" onclick="userLogin();" type="submit" class="btn btn-primary">登陆</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function(){
+            $("#user_id").keydown(function(event){
+                if(event.which === 13)
+                    $("#user_password")[0].focus();
+            });
+            $("#user_password").keydown(function(event){
+                if(event.which === 13)
+                    $("#login_button").click(userLogin());
+            });
+        });
+
+        function userLogin() {
+
+            var userID = $('#user_id').val(),
+                userPassword = $('#user_password').val(),
+                userRadio = $('input[name="radio"]:checked').val();
+
+            if(userID.length!=0  && userPassword.length!=0 ) {
+
+                var loginURL = "http://"+ getLocalIP() +":1314/lvxz/"+ userRadio +"/login";
+                var openURL = "http://"+ getLocalIP() +":1314/lvxz/index_"+ userRadio;
+                var objJson;
+
+                switch (userRadio) {
+                    case "student":{
+                        objJson = {
+                            "studentID":parseInt(userID),
+                            "password":userPassword
+                        };
+                    }break;
+
+                    case "teacher":{
+                        objJson = {
+                            "teacherID":parseInt(userID),
+                            "password":userPassword
+                        };
+                    }break;
+
+                    case "admin":{
+                        objJson = {
+                            "adminID":parseInt(userID),
+                            "password":userPassword
+                        };
+                    }break;
+
+                }
+
+                $.ajax({
+                    type:"POST",
+                    url: loginURL,
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify(objJson),
+                    async:true,
+                    success: function (response) {
+                        if(response.code == 101){
+                            alert(response.msg);
+                            window.open(openURL, "_self");
+                        } else {
+                            alert(response.msg);
+                        }
+                    },
+                    error: function (data){
+                        alert("访问失败，请检查网络、路径......");
+                    }
+                });
+
+
+            } else {
+                alert("存在输入为空！");
+            }
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

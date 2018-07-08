@@ -1,0 +1,131 @@
+.code {
+    background: url(../images/logo.ico);
+    font-family: Arial;
+    font-style: italic;
+    color: blue;
+    font-size: 30px;
+    border: 0;
+    padding: 2px 3px;
+    letter-spacing: 3px;
+    font-weight: bolder;
+    float: left;
+    cursor: pointer;
+    width: 100px;
+    height: 45px;
+    line-height: 60px;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+.jumbotron2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eee;
+    border-radius: 8px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #288bc4;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.login-box {
+    max-width: 400px;
+    margin: 5% auto;
+    padding: 20px;
+}
+
+#top-logo {
+    width: 90px;
+    height: 90px;
+    float: left;
+    margin: 10px 30px 10px 10px;
+}
+
+#logo-text {
+    margin: 20px;
+    color: rgb(50, 150, 230);
+}
+
+#logo-text-en {
+    font-size: 40px;
+    line-height: 40px;
+}
+
+#logo-text-cn {
+    font-size: 32px;
+    line-height: 32px;
+}
+
+.login-title {
+    padding: 10px;
+    text-align: center;
+}
+
+.login-title h3 {
+    margin: 0;
+}
+
+.login-box-body {
+    background-color: #eeeeee;
+    padding: 20px;
+    border:2px solid #eeeeee;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+#user_password, #user_id{
+    text-indent: 10px;
+}
+
+#old_password, #new_password, #birthday, #phone, #student_qq {
+
+    text-align: center;/*水平居中*/
+    font-size: 15px;/*字体大小*/
+
+}
+
+#update_studentPasswordId, #update_studentInfoId{
+    border: none;
+    text-align: right;
+    font-size: 15px;/*字体大小*/
+    font-weight: bold;/*加粗*/
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+
+.input-group {
+    padding: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px;
+    height: 1rem;
+
+}
+
+.input-group button {
+width: 100px;
+}
+
+
+
+.checkbox {
+padding-left: 20px;
+}
+
+#login-alert {
+display: none;
+}

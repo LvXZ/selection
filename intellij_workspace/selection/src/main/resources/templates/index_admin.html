@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../static/images/logo.ico" th:href="@{images/logo.ico}" type="image/x-icon"/>
+    <link rel="stylesheet" href="../static/resources/materialize/css/materialize.min.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.min.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{css/login.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{css/index.css}">
+    <script src="../static/js/constant.js" th:src="@{js/constant.js}"></script>
+
+
+    <!--<link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="webjars/jquery/3.1.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+
+    <link rel="stylesheet" type="text/css" href="../static/resources/bootstrap-3.3.7/css/bootstrap.min.css" th:href="@{resources/bootstrap-3.3.7/css/bootstrap.min.css}">
+    <script src="../static/js/jquery-3.2.1.min.js" th:src="@{js/jquery-3.2.1.min.js}"></script>
+    <script src="../static/resources/bootstrap-3.3.7/js/bootstrap.min.js" th:src="@{resources/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+
+    <title>管理员界面</title>
+</head>
+
+<body style="background-color:#39221e">
+
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-4 column pull-left" id="logo-title">
+                <h1>
+                    管理员管理界面
+                </h1>
+            </div>
+
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <ul class="nav nav-pills">
+                    <li class="active">
+                        <a href="#">首页</a>
+                    </li>
+                    <li>
+                        <a href="upload_teacher.html">布置作业</a>
+                    </li>
+                    <li>
+                        <a href="download_teacher.html">审批作业</a>
+                    </li>
+                    <li class="dropdown pull-right">
+                        <input id="user_name" value="未登录" readonly="true"/>
+                    </li>
+                    <li class="dropdown pull-right">
+                        <input id="user_id" value="" readonly="true"/>
+                    </li>
+                    <li class="dropdown pull-right disabled">
+                        <a href="#"></a>
+                    </li>
+                    <li class="dropdown pull-right">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">个人设置<strong class="caret"></strong></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">修改信息</a>
+                            </li>
+                            <li>
+                                <a href="update_pwd.html">修改密码</a>
+                            </li>
+                            <li class="divider">
+                            </li>
+                            <li>
+                                <a onclick="deleteCookies()">退出登录</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-md-2 column">
+            </div>
+            <div class="col-md-8 column">
+                <div class="jumbotron">
+                    <h1>
+                        PRD Tech
+                    </h1>
+                    <p>
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                    </p>
+                    <p>
+                        <a class="btn" href="#">View details »</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-2 column">
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

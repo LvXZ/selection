@@ -18,14 +18,6 @@
 
 }
 
-.jumbotron2 {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-    color: inherit;
-    background-color: #eee;
-    border-radius: 8px;
-}
 
 a {
     text-decoration: none;
@@ -86,14 +78,14 @@ a:hover {
     text-indent: 10px;
 }
 
-#old_password, #new_password, #birthday, #phone, #student_qq {
+#old_password, #new_password, #birthday, #phone, #qq{
 
     text-align: center;/*水平居中*/
     font-size: 15px;/*字体大小*/
 
 }
 
-#update_studentPasswordId, #update_studentInfoId{
+#update_PasswordId, #update_InfoId{
     border: none;
     text-align: right;
     font-size: 15px;/*字体大小*/

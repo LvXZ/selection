@@ -3,10 +3,11 @@
 #top-nav{background:linear-gradient(90deg,rgb(35,10,15),rgb(60,0,40));}
 #root-menu-bar{border:none;background-color:#fff;width:100%;height:6ex;margin-bottom: 0px;}
 #user_name,#user_id{
-    width: 80px;/*宽度*/
+
+    width: 100px;/*宽度*/
     text-align: center;/*水平居中*/
     border: none;/*划线*/
-    font-size: 15px;/*字体大小*/
+    font-size: 13px;/*字体大小*/
     color: #0f0f0f;/*颜色*/
     font-weight: bold;/*加粗*/
 }

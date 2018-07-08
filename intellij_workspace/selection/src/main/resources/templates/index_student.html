@@ -20,11 +20,12 @@
     <script src="../static/js/jquery-3.2.1.min.js" th:src="@{js/jquery-3.2.1.min.js}"></script>
     <script src="../static/resources/bootstrap-3.3.7/js/bootstrap.min.js" th:src="@{resources/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
 
+    <script src="../static/js/js.cookie.js" th:src="@{js/js.cookie.js}"></script>
 
     <title>学生界面</title>
 </head>
 
-<body style="background-color:#39221e">
+<body onload="jumpLogin()" style="background-color:#39221e">
 
     <div class="container">
 
@@ -106,9 +107,8 @@
                             <div class="login-box-body">
 
                                 <div class="input">
-                                    <input  class="form-control" id="update_studentInfoId" type="text" name="未登录" value="未登录" />
+                                    <input  class="form-control" id="update_InfoId" type="text" name="未登录" value="未登录" />
                                 </div>
-
                                 <div class="input">
                                     <input class="form-control" id="birthday" type="date" placeholder="出生日期"/>
                                 </div>
@@ -116,7 +116,7 @@
                                     <input  class="form-control" id="phone" type="number" placeholder="手机"/>
                                 </div>
                                 <div class="input">
-                                    <input  class="form-control" id="student_qq" type="number" placeholder="QQ"/>
+                                    <input  class="form-control" id="qq" type="number" placeholder="QQ"/>
                                 </div>
 
                                 <div class="input" style="text-align:center">
@@ -143,7 +143,7 @@
                             <div class="login-box-body">
 
                                 <div class="input">
-                                    <input  class="form-control" id="update_studentPasswordId" type="text" name="未登录" value="未登录" />
+                                    <input  class="form-control" id="update_PasswordId" type="text" name="未登录" value="未登录" />
                                 </div>
 
                                 <div class="input">
@@ -174,6 +174,28 @@
 
     <script>
 
+        /*网页生成时，验证是否登录的跳传*/
+        function jumpLogin() {
+
+
+
+            if(!Cookies.get('student_ObjJson')){
+                alert("您还未登陆！请登陆");
+                window.open("http://"+ getLocalIP() +":1314/lvxz/login",'_self');
+            }else{
+                var jsonValue = JSON.parse(Cookies.get('student_ObjJson'));
+
+                getUser(jsonValue);
+            }
+
+        }
+
+        <!-- 获取登录信息，并修改登录栏-->
+        function getUser(jsonValue){
+            $('#user_name').val(jsonValue.studentName);
+            $('#user_id').val(jsonValue.studentID);
+        }
+
         /*修改个人信息框出现*/
         function showStudentInfo() {
             $('#modal-container-287888').modal('show');
@@ -181,11 +203,11 @@
 
         /*修改个人信息函数*/
         function updateStudentInfo() {
-            //var studentID = $('#update_studentInfoId').attr("name");//id放入name
-            var studentID = $('#update_studentInfoId').val();
+            //var studentID = $('#update_InfoId').attr("name");//id放入name
+            var studentID = $('#update_InfoId').val();
             var birthday = $('#birthday').val();
             var phone = $('#phone').val();
-            var studentQq = $('#student_qq').val();
+            var qq = $('#qq').val();
 
             if(studentID.length!=0){
 
@@ -194,7 +216,7 @@
                     "studentID":parseInt(studentID),
                     "birthday":birthday,
                     "phone":phone,
-                    "studentQQ":studentQq,
+                    "studentQQ":qq,
                 };
 
                 $.ajax({
@@ -231,8 +253,8 @@
         /*修改密码函数*/
         function updateStudentPassword(){
 
-            //var studentID = $('#update_studentPasswordId').attr("name");//id放入name
-            var studentID = $('#update_studentPasswordId').val();
+            //var studentID = $('#update_PasswordId').attr("name");//id放入name
+            var studentID = $('#update_PasswordId').val();
             var oldPassword = $('#old_password').val();
             var newPassword = $('#new_password').val();
 

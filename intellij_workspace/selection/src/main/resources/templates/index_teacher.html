@@ -19,11 +19,12 @@
     <script src="../static/js/jquery-3.2.1.min.js" th:src="@{js/jquery-3.2.1.min.js}"></script>
     <script src="../static/resources/bootstrap-3.3.7/js/bootstrap.min.js" th:src="@{resources/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
 
+    <script src="../static/js/js.cookie.js" th:src="@{js/js.cookie.js}"></script>
 
     <title>教师界面</title>
 </head>
 
-<body style="background-color:#39221e">
+<body onload="jumpLogin()" style="background-color:#39221e">
 
     <div class="container">
         <div class="row clearfix">
@@ -59,15 +60,15 @@
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">个人设置<strong class="caret"></strong></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">修改信息</a>
+                                <a onclick="showTeacherInfo()">修改信息</a>
                             </li>
                             <li>
-                                <a href="update_pwd.html">修改密码</a>
+                                <a onclick="showTeacherPassword()">修改密码</a>
                             </li>
                             <li class="divider">
                             </li>
                             <li>
-                                <a onclick="deleteCookies()">退出登录</a>
+                                <a onclick="showDeleteCookies()">退出登录</a>
                             </li>
                         </ul>
                     </li>
@@ -92,53 +93,221 @@
                 </div>
             </div>
             <div class="col-md-2 column">
-            </div>
-        </div>
-    </div>
 
 
-
-    <!--修改密码-->
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <button type="button" class="btn btn-default" onclick="make_evaluate()">按钮</button>
-        </div>
-
-
-        <div class="modal fade" id="modal-container-287808" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-            <div class="modal-dialog" role="document">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3 class="modal-title" id="myModalLabel">
-                        密码修改
-                    </h3>
-                </div>
-
-                <div class="modal-body">
-                    <div class="login-box-body">
-
-                        <div class="input">
-                            <input  class="form-control" id="update_id" type="text" placeholder="未登录" readonly/>
+                <!--修改个人信息框-->
+                <div class="modal fade" id="modal-container-287888" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 class="modal-title">
+                                信息修改
+                            </h3>
                         </div>
 
-                        <div class="input">
-                            <input class="form-control" id="old_password" type="text" placeholder="旧密码"/>
-                        </div>
-                        <div class="input">
-                            <input  class="form-control" id="new_password" type="password" placeholder="新密码"/>
-                        </div>
+                        <div class="modal-body">
+                            <div class="login-box-body">
 
-                        <div class="input" style="text-align:center">
-                            <button class="btn btn-default btn-center" data-dismiss="modal">取消</button>
-                            <button class="btn btn-primary btn-center" onclick="true_evaluate()">修改</button>
+                                <div class="input">
+                                    <input  class="form-control" id="update_InfoId" type="text" name="未登录" value="未登录" />
+                                </div>
+
+                                <div class="input">
+                                    <input class="form-control" id="birthday" type="date" placeholder="出生日期"/>
+                                </div>
+                                <div class="input">
+                                    <input  class="form-control" id="phone" type="number" placeholder="手机"/>
+                                </div>
+                                <div class="input">
+                                    <input  class="form-control" id="qq" type="number" placeholder="QQ"/>
+                                </div>
+
+                                <div class="input" style="text-align:center">
+                                    <button class="btn btn-default btn-center" data-dismiss="modal">取消</button>
+                                    <button class="btn btn-primary btn-center" onclick="updateTeacherInfo()">修改</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!--修改密码框-->
+                <div class="modal fade" id="modal-container-287808" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 class="modal-title">
+                                密码修改
+                            </h3>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="login-box-body">
+
+                                <div class="input">
+                                    <input  class="form-control" id="update_PasswordId" type="text" name="未登录" value="未登录" />
+                                </div>
+
+                                <div class="input">
+                                    <input class="form-control" id="old_password" type="password" placeholder="旧密码"/>
+                                </div>
+                                <div class="input">
+                                    <input  class="form-control" id="new_password" type="password" placeholder="新密码"/>
+                                </div>
+
+                                <div class="input" style="text-align:center">
+                                    <button class="btn btn-default btn-center" data-dismiss="modal">取消</button>
+                                    <button class="btn btn-primary btn-center" onclick="updateTeacherPassword()">修改</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
 
+
 </body>
+
+    <script>
+
+        /*网页生成时，验证是否登录的跳传*/
+        function jumpLogin() {
+
+            if(!Cookies.get('teacher_ObjJson')){
+                alert("您还未登陆！请登陆");
+                window.open("http://"+ getLocalIP() +":1314/lvxz/login",'_self');
+            }else{
+                var jsonValue = JSON.parse(Cookies.get('teacher_ObjJson'));
+                getUser(jsonValue);
+            }
+
+        }
+
+        <!-- 获取登录信息，并修改登录栏-->
+        function getUser(jsonValue){
+            $('#user_name').val(jsonValue.teacherName);
+            $('#user_id').val(jsonValue.teacherID);
+        }
+
+
+        /*修改个人信息框出现*/
+        function showTeacherInfo() {
+            $('#modal-container-287888').modal('show');
+        }
+
+        /*修改个人信息函数*/
+        function updateTeacherInfo() {
+            //var teacherID = $('#update_InfoId').attr("name");//id放入name
+            var teacherID = $('#update_InfoId').val();
+            var birthday = $('#birthday').val();
+            var phone = $('#phone').val();
+            var qq = $('#qq').val();
+
+            if(teacherID.length!=0){
+
+                var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/teacher/update_info";
+                var objJson = {
+                    "teacherID":parseInt(teacherID),
+                    "birthday":birthday,
+                    "phone":phone,
+                    "teacherQQ":qq,
+                };
+
+                $.ajax({
+                    type:"POST",
+                    url: updatePasswordURL,
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify(objJson),
+                    async:true,
+                    success: function (response) {
+                        if(response.code == 104){
+                            alert(response.msg);
+                            location.reload();//重新加载
+                        } else {
+                            alert(response.msg);
+                        }
+                    },
+                    error: function (data){
+                        alert("访问失败，请检查网络、路径......");
+                    }
+                });
+
+            } else {
+                alert("未登录！");
+            }
+        }
+
+        /*修改密码框出现*/
+        function showTeacherPassword(){
+            $('#modal-container-287808').modal('show');
+        }
+
+        /*修改密码函数*/
+        function updateTeacherPassword(){
+
+            //var teacherID = $('#update_PasswordId').attr("name");//id放入name
+            var teacherID = $('#update_PasswordId').val();
+            var oldPassword = $('#old_password').val();
+            var newPassword = $('#new_password').val();
+
+            if(teacherID.length!=0  && oldPassword.length!=0 && newPassword.length!=0) {
+
+                var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/teacher/update_password";
+
+                var objJson = {
+                    "teacherID":parseInt(teacherID),
+                    "password":oldPassword,
+                    "new_password":newPassword
+                };
+
+                $.ajax({
+                    type:"POST",
+                    url: updatePasswordURL,
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify(objJson),
+                    async:true,
+                    success: function (response) {
+                        if(response.code == 103){
+                            alert(response.msg);
+                            location.reload();//重新加载
+                        } else {
+                            alert(response.msg);
+                        }
+                    },
+                    error: function (data){
+                        alert("访问失败，请检查网络、路径......");
+                    }
+                });
+
+            } else {
+                alert("存在输入为空！");
+            }
+        }
+
+        /*提示出现退出*/
+        function showDeleteCookies() {
+            if(confirm("您确定退出！")) {
+                deleteCookies();
+            }else{
+
+            }
+        }
+
+        /*退出登录，消除cookies*/
+        function deleteCookies() {
+            //Cookies.remove('s_id', { path: '' });
+            //Cookies.remove('s_account', { path: '' });
+            //window.open('login.html','_self');
+            alert("已注销");
+        }
+
+    </script>
 
 
 </html>

@@ -17,6 +17,8 @@
     <script src="../static/js/jquery-3.2.1.min.js" th:src="@{js/jquery-3.2.1.min.js}"></script>
     <script src="../static/resources/bootstrap-3.3.7/js/bootstrap.min.js" th:src="@{resources/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
 
+    <script src="../static/js/js.cookie.js" th:src="@{js/js.cookie.js}"></script>
+
     <style>
         @font-face {
             font-family: 'iconfont';  /* project id 738044 */
@@ -158,6 +160,7 @@
                     success: function (response) {
                         if(response.code == 101){
                             alert(response.msg);
+                            Cookies.set(userRadio+"_ObjJson", response.data, { expires: 7, path: '' });
                             window.open(openURL, "_self");
                         } else {
                             alert(response.msg);

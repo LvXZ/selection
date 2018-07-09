@@ -26,7 +26,7 @@ import java.io.IOException;
 @Service
 public class TeacherServiceImpl implements TeacherService {
 
-    private final static Logger logger = LoggerFactory.getLogger(StudentServiceImpl.class);
+    private final static Logger logger = LoggerFactory.getLogger(TeacherServiceImpl.class);
 
     @Autowired
     private TeacherDao teacherDao;

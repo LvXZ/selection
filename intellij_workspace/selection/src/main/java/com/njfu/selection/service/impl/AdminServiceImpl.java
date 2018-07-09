@@ -28,7 +28,7 @@ import java.io.IOException;
 @Service
 public class AdminServiceImpl implements AdminService {
 
-    private final static Logger logger = LoggerFactory.getLogger(StudentServiceImpl.class);
+    private final static Logger logger = LoggerFactory.getLogger(AdminServiceImpl.class);
 
     @Autowired
     private AdminDao adminDao;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../static/images/logo.ico" th:href="@{images/logo.ico}" type="image/x-icon"/>
@@ -108,7 +108,7 @@
                             <div class="login-box-body">
 
                                 <div class="input">
-                                    <input  class="form-control" id="update_InfoId" type="text" name="未登录" value="未登录" />
+                                    <input  class="form-control" id="update_InfoId" type="text" value="未登录" readonly="true"/>
                                 </div>
                                 <div class="input">
                                     <input class="form-control" id="birthday" type="date" placeholder="出生日期"/>
@@ -143,7 +143,7 @@
                             <div class="login-box-body">
 
                                 <div class="input">
-                                    <input  class="form-control" id="update_PasswordId" type="text" name="未登录" value="未登录" />
+                                    <input  class="form-control" id="update_PasswordId" type="text" value="未登录" readonly="true"/>
                                 </div>
 
                                 <div class="input">
@@ -193,13 +193,16 @@
 
         /*修改个人信息框出现*/
         function showAdminInfo() {
+
+            $('#update_InfoId').val($('#user_id').val()+"   "+$('#user_name').val());
+
             $('#modal-container-287888').modal('show');
         }
 
         /*修改个人信息函数*/
         function updateAdminInfo() {
-            //var studentID = $('#update_InfoId').attr("name");//id放入name
-            var adminID = $('#update_InfoId').val();
+
+            var adminID = $('#user_id').val();
             var birthday = $('#birthday').val();
             var phone = $('#phone').val();
 
@@ -241,14 +244,16 @@
 
         /*修改密码框出现*/
         function showAdminPassword(){
+
+            $('#update_PasswordId').val($('#user_id').val()+"   "+$('#user_name').val());
+
             $('#modal-container-287808').modal('show');
         }
 
         /*修改密码函数*/
         function updateAdminPassword(){
 
-            //var adminID = $('#update_PasswordId').attr("name");//id放入name
-            var adminID = $('#update_PasswordId').val();
+            var adminID = $('#user_id').val();
             var oldPassword = $('#old_password').val();
             var newPassword = $('#new_password').val();
 

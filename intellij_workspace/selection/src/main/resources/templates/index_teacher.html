@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
 
@@ -109,7 +109,7 @@
                             <div class="login-box-body">
 
                                 <div class="input">
-                                    <input  class="form-control" id="update_InfoId" type="text" name="未登录" value="未登录" />
+                                    <input  class="form-control" id="update_InfoId" type="text" value="未登录" readonly="true"/>
                                 </div>
 
                                 <div class="input">
@@ -145,7 +145,7 @@
                             <div class="login-box-body">
 
                                 <div class="input">
-                                    <input  class="form-control" id="update_PasswordId" type="text" name="未登录" value="未登录" />
+                                    <input  class="form-control" id="update_PasswordId" type="text" value="未登录" readonly="true"/>
                                 </div>
 
                                 <div class="input">
@@ -196,13 +196,14 @@
 
         /*修改个人信息框出现*/
         function showTeacherInfo() {
+            $('#update_InfoId').val($('#user_id').val()+"   "+$('#user_name').val());
             $('#modal-container-287888').modal('show');
         }
 
         /*修改个人信息函数*/
         function updateTeacherInfo() {
-            //var teacherID = $('#update_InfoId').attr("name");//id放入name
-            var teacherID = $('#update_InfoId').val();
+
+            var teacherID = $('#user_id').val();
             var birthday = $('#birthday').val();
             var phone = $('#phone').val();
             var qq = $('#qq').val();
@@ -244,14 +245,14 @@
 
         /*修改密码框出现*/
         function showTeacherPassword(){
+            $('#update_PasswordId').val($('#user_id').val()+"   "+$('#user_name').val());
             $('#modal-container-287808').modal('show');
         }
 
         /*修改密码函数*/
         function updateTeacherPassword(){
 
-            //var teacherID = $('#update_PasswordId').attr("name");//id放入name
-            var teacherID = $('#update_PasswordId').val();
+            var teacherID = $('#user_id').val();
             var oldPassword = $('#old_password').val();
             var newPassword = $('#new_password').val();
 

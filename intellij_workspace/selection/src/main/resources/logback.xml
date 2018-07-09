@@ -66,7 +66,7 @@
     </appender>
 
     <!-- 控制台配置 -->
-    <logger name="com.njfu.third" level="${log.level}" additivity="true">
+    <logger name="com.njfu.selection" level="${log.level}" additivity="true">
         <appender-ref ref="debugAppender"/>
         <appender-ref ref="infoAppender"/>
         <appender-ref ref="errorAppender"/>

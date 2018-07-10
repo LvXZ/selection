@@ -48,4 +48,34 @@ public interface AdminService {
      * @return
      */
     ResponseInfoDTO<Admin> updateAdminPasswordByOther(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 获取教师申请信息
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> adminGetTeacherDesign(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 管理员确定教师申请
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> updateAdminEnsureDesign(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 管理员驳回教师申请
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> updateAdminOpposeDesign(String params, HttpServletRequest request, HttpServletResponse response);
+
+
+
 }

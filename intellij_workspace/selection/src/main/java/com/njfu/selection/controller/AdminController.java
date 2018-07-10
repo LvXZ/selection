@@ -21,7 +21,7 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    /**********************************student登陆、更新密码、更新个人信息、忘记密码**********************************/
+    /**********************************admin登陆、更新密码、更新个人信息、忘记密码**********************************/
     /**
      * 登陆
      * adminID,password
@@ -60,6 +60,38 @@ public class AdminController {
     @CrossOrigin(allowCredentials = "false")
     public ResponseInfoDTO<Admin> adminForgetPassword(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
         return adminService.updateAdminPasswordByOther(params, request, response);
+    }
+
+
+    /**********************************admin获取教师申请信息、确定教师申请、驳回教师申请**********************************/
+    /**
+     * 获取教师申请信息
+     * adminID,adminName
+     */
+    @PostMapping(value = "/get_design", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> adminGetDesign(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return adminService.adminGetTeacherDesign(params, request, response);
+    }
+
+    /**
+     * 管理员确定教师申请
+     * adminID,adminName
+     */
+    @PostMapping(value = "/ensure_design", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> adminEnsureDesign(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return adminService.updateAdminEnsureDesign(params, request, response);
+    }
+
+    /**
+     * 管理员驳回教师申请
+     * adminID,adminName
+     */
+    @PostMapping(value = "/oppose_design", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> adminOpposeDesign(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return adminService.updateAdminOpposeDesign(params, request, response);
     }
 
 

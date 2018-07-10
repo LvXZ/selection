@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../static/images/logo.ico" th:href="@{images/logo.ico}" type="image/x-icon"/>
+    <link rel="stylesheet" href="../static/resources/materialize/css/materialize.min.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.min.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{css/login.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{css/index.css}">
+    <script src="../static/js/constant.js" th:src="@{js/constant.js}"></script>
+
+
+    <!--<link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="webjars/jquery/3.1.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+
+    <link rel="stylesheet" type="text/css" href="../static/resources/bootstrap-3.3.7/css/bootstrap.min.css" th:href="@{resources/bootstrap-3.3.7/css/bootstrap.min.css}">
+    <script src="../static/js/jquery-3.2.1.min.js" th:src="@{js/jquery-3.2.1.min.js}"></script>
+    <script src="../static/resources/bootstrap-3.3.7/js/bootstrap.min.js" th:src="@{resources/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+
+    <script src="../static/js/js.cookie.js" th:src="@{js/js.cookie.js}"></script>
+
+    <title>管理员界面</title>
+</head>
+
+<body onload="jumpLogin()" style="background-color:#39221e">
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-4 column pull-left" id="logo-title">
+            <h1>
+                管理员管理界面
+            </h1>
+        </div>
+
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <ul class="nav nav-pills">
+                <li>
+                    <a href="#">首页</a>
+                </li>
+                <li class="active">
+                    <a href="#">审查毕设申请</a>
+                </li>
+                <li>
+                    <a href="download_teacher.html">审批作业</a>
+                </li>
+                <li class="dropdown pull-right">
+                    <input id="user_name" value="未登录" readonly="true"/>
+                </li>
+                <li class="dropdown pull-right">
+                    <input id="user_id" value="" readonly="true"/>
+                </li>
+                <li class="dropdown pull-right disabled">
+                    <a href="#"></a>
+                </li>
+                <li class="dropdown pull-right">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">个人设置<strong class="caret"></strong></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a onclick="showAdminInfo()">修改信息</a>
+                        </li>
+                        <li>
+                            <a onclick="showAdminPassword()">修改密码</a>
+                        </li>
+                        <li class="divider">
+                        </li>
+                        <li>
+                            <a onclick="showDeleteCookies()">退出登录</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-md-1 column">
+        </div>
+        <div class="col-md-10 column">
+            <div class="jumbotron">
+                <bbbb>
+
+                </bbbb>
+            </div>
+        </div>
+        <div class="col-md-1 column">
+
+
+            <!--修改个人信息框-->
+            <div class="modal fade" id="modal-container-287888" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 class="modal-title">
+                            信息修改
+                        </h3>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="login-box-body">
+
+                            <div class="input">
+                                <input  class="form-control" id="update_InfoId" type="text" value="未登录" readonly="true"/>
+                            </div>
+                            <div class="input">
+                                <input class="form-control" id="birthday" type="date" placeholder="出生日期"/>
+                            </div>
+                            <div class="input">
+                                <input  class="form-control" id="phone" type="number" placeholder="手机"/>
+                            </div>
+
+
+                            <div class="input" style="text-align:center">
+                                <button class="btn btn-default btn-center" data-dismiss="modal">取消</button>
+                                <button class="btn btn-primary btn-center" onclick="updateAdminInfo()">修改</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--修改密码框-->
+            <div class="modal fade" id="modal-container-287808" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 class="modal-title">
+                            密码修改
+                        </h3>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="login-box-body">
+
+                            <div class="input">
+                                <input  class="form-control" id="update_PasswordId" type="text" value="未登录" readonly="true"/>
+                            </div>
+
+                            <div class="input">
+                                <input class="form-control" id="old_password" type="password" placeholder="旧密码"/>
+                            </div>
+                            <div class="input">
+                                <input  class="form-control" id="new_password" type="password" placeholder="新密码"/>
+                            </div>
+
+                            <div class="input" style="text-align:center">
+                                <button class="btn btn-default btn-center" data-dismiss="modal">取消</button>
+                                <button class="btn btn-primary btn-center" onclick="updateAdminPassword()">修改</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+
+<script>
+
+
+    /*网页生成时，验证是否登录的跳传*/
+    function jumpLogin() {
+
+        if(!Cookies.get('admin_ObjJson')){
+            alert("您还未登陆！请登陆");
+            window.open("http://"+ getLocalIP() +":1314/lvxz/login",'_self');
+        }else{
+            var jsonValue = JSON.parse(Cookies.get('admin_ObjJson'));
+            getUser(jsonValue);
+
+            getTeacherDesignInfo();
+        }
+
+    }
+
+    <!-- 获取登录信息，并修改登录栏-->
+    function getUser(jsonValue){
+        $('#user_name').val(jsonValue.adminName);
+        $('#user_id').val(jsonValue.adminID);
+    }
+
+    /*修改个人信息框出现*/
+    function showAdminInfo() {
+
+        $('#update_InfoId').val($('#user_id').val()+"   "+$('#user_name').val());
+
+        $('#modal-container-287888').modal('show');
+    }
+
+    /*修改个人信息函数*/
+    function updateAdminInfo() {
+
+        var adminID = $('#user_id').val();
+        var birthday = $('#birthday').val();
+        var phone = $('#phone').val();
+
+        if(adminID.length!=0){
+
+            var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/admin/update_info";
+            var objJson = {
+                "adminID":parseInt(adminID),
+                "birthday":birthday,
+                "phone":phone
+            };
+
+            $.ajax({
+                type:"POST",
+                url: updatePasswordURL,
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(objJson),
+                async:true,
+                success: function (response) {
+                    if(response.code == 104){
+                        alert(response.msg);
+                        location.reload();//重新加载
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function (data){
+                    alert("访问失败，请检查网络、路径......");
+                }
+            });
+
+        } else {
+            alert("未登录！");
+        }
+    }
+
+
+
+    /*修改密码框出现*/
+    function showAdminPassword(){
+
+        $('#update_PasswordId').val($('#user_id').val()+"   "+$('#user_name').val());
+
+        $('#modal-container-287808').modal('show');
+    }
+
+    /*修改密码函数*/
+    function updateAdminPassword(){
+
+        var adminID = $('#user_id').val();
+        var oldPassword = $('#old_password').val();
+        var newPassword = $('#new_password').val();
+
+        if(adminID.length!=0  && oldPassword.length!=0 && newPassword.length!=0) {
+
+            var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/admin/update_password";
+
+            var objJson = {
+                "adminID":parseInt(adminID),
+                "password":oldPassword,
+                "new_password":newPassword
+            };
+
+            $.ajax({
+                type:"POST",
+                url: updatePasswordURL,
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(objJson),
+                async:true,
+                success: function (response) {
+                    if(response.code == 103){
+                        alert(response.msg);
+                        location.reload();//重新加载
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function (data){
+                    alert("访问失败，请检查网络、路径......");
+                }
+            });
+
+        } else {
+            alert("存在输入为空！");
+        }
+    }
+
+
+    /*提示出现退出*/
+    function showDeleteCookies() {
+        if(confirm("您确定退出！")) {
+            deleteCookies();
+        }else{
+
+        }
+    }
+
+    /*退出登录，消除cookies*/
+    function deleteCookies() {
+        //Cookies.remove('s_id', { path: '' });
+        //Cookies.remove('s_account', { path: '' });
+        //window.open('login.html','_self');
+        alert("已注销");
+    }
+
+
+
+
+
+    /*生成老师申请毕设的表格,只显示 驳回、待申请毕设*/
+    function getTable_Info(data){
+
+        var $table=$('<table class="table table-bordered  table-condensed" id="table_design"></table>');
+        $("bbbb").append($table);
+
+        var $thead=$('<thead></thead>');
+        var $trs=$('<tr class="info"></tr>');
+
+        var $th2=$('<th>毕设编码</th>');
+        var $th3=$('<th>毕设名称</th>');
+        var $th4=$('<th>申请时间</th>');
+        var $th33=$('<th>申请教师</th>');
+        var $th5=$('<th>详细信息</th>');
+        var $th6=$('<th>当前状态</th>');
+        var $th7=$('<th>操作</th>');
+        var $tbody=$('<tbody></tbody>');
+
+        $trs.append($th2);
+        $trs.append($th3);
+        $trs.append($th33);
+        $trs.append($th4);
+
+        $trs.append($th5);
+        $trs.append($th6);
+        $trs.append($th7);
+        $thead.append($trs);
+        $table.append($thead);
+        $table.append($tbody);
+
+        var count = 0;//表格颜色控制
+        for(var i=0;i<data.length;i++){
+
+            if(count%2==0){
+                var $tr=$('<tr></tr>');
+            }else{
+                var $tr=$('<tr class="success"></tr>');
+            }
+            $table.append($tr);
+
+            var $td2=$('<td>'+data[i]['designID']+'</td>');
+            $tr.append($td2);
+            var $td3=$('<td>'+data[i]['designName']+'</td>');
+            $tr.append($td3);
+            var $td33=$('<td>'+data[i]['fileAddress']+'</td>');
+            $tr.append($td33);
+            var $td4=$('<td>'+data[i]['createTime'].substring(0,10)+'</td>');
+            $tr.append($td4);
+            var $td5=$('<td>' +
+                '<button  id="'+ data[i]['teacherID'] +'/'+ data[i]['designID'] +'/' +'" name="'+ data[i]['fileName']+'" onclick="Start_Download(this)" type="submit" class="btn btn-small btn-warning" ' +
+                ' title="下载提示" data-container="body" data-toggle="popover" data-placement="right" data-content="文件正在下载" >' +
+                '<i class="glyphicon glyphicon-save">下载</i></button></td>');
+            $tr.append($td5);
+
+
+            var $td6;
+            var $td7;
+
+            switch(data[i]['enableStatus']){
+
+                case -1:{
+                    //被驳回
+                    $td6=$('<td>被驳回</td>');
+                    $td7=$('<td><button id="'+ data[i]['designID'] +'"  onclick="ensure_design(this);" type="submit" class="btn btn-small btn-warning">' +
+                        '<i class="glyphicon glyphicon-ok">重新确定</i>');
+                }break;
+
+                case 0:{
+                    //等待审批
+                    $td6=$('<td>等待审批</td>');
+                    $td7=$('<td>' +
+                                '<button id="'+ data[i]['designID'] +'" type="button" class="btn btn-small btn-warning" data-toggle="tooltip"' +
+                                        'data-placement="left" title="驳回申请" onclick="oppose_design(this);">' +
+                                    '<i class="glyphicon glyphicon-remove"></i>' +
+                                '</button>&nbsp;' +
+                                '<button id="'+ data[i]['designID'] +'" type="button" class="btn btn-small btn-warning" data-toggle="tooltip"' +
+                                        'data-placement="right" title="申请通过" onclick="ensure_design(this);">' +
+                                    '<i class="glyphicon glyphicon-ok"></i>' +
+                                '</button>' +
+                            '</td>');
+                }break;
+
+
+
+            }
+
+            $tr.append($td6);
+            $tr.append($td7);
+            count++;
+        }
+
+    }
+
+    $(function () { $("[data-toggle='tooltip']").tooltip('show'); });
+
+    <!--管理员获取老师上传的毕设，只获取 驳回、待申请毕设-->
+    function getTeacherDesignInfo() {
+
+        var admin_ObjJson = Cookies.get('admin_ObjJson');
+
+        if(admin_ObjJson!=null){
+
+            $.ajax({
+                type:"POST",
+                url: "http://"+ getLocalIP() +":1314/lvxz/admin/get_design",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: admin_ObjJson,
+                async:true,
+                success: function (response) {
+                    if(response.code == 901){
+                        console.log(response);
+                        getTable_Info(response.data);
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function (data){
+                    alert("访问失败，请检查网络、路径......");
+                }
+            });
+
+
+        }else{
+            alert("关键输入为空！");
+        }
+    }
+
+    <!-- 获取文件下载url，下载-->
+    function Start_Download(obj) {
+
+        var fileURL = obj.id;
+        var fileName = obj.name;
+        var newURL = "http://"+ getLocalIP() +":8081/download/" + fileURL + fileName;
+
+        $("[data-toggle='popover']").popover();
+
+        var a = document.createElement('a');
+        a.setAttribute('href', newURL);
+        a.setAttribute('download', fileName);
+        a.click();
+        //设置时间关闭popover
+        setTimeout(function(){$("[data-toggle='popover']").popover('hide');},3500);
+    }
+    
+    
+    //确定通过申请
+    function ensure_design(obj) {
+
+        var designID = obj.id;
+
+        if(designID.length!=0 ){
+            var objJson = {
+                "designID":designID
+            };
+
+            $.ajax({
+                type:"POST",
+                url: "http://"+ getLocalIP() +":1314/lvxz/admin/ensure_design",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(objJson),
+                async:true,
+                success: function (response) {
+                    if(response.code == 802){
+                        alert(response.msg);
+
+                        $('#table_design').remove();
+                        getTeacherDesignInfo();//重新加载教师毕设
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function (data){
+                    alert("访问失败，请检查网络、路径......");
+                }
+            });
+        }else{
+            alert("提交失败");
+        }
+
+
+        
+    }
+
+    //驳回申请
+    function oppose_design(obj) {
+
+        var designID = obj.id;
+
+        if(designID.length!=0 ){
+            var objJson = {
+                "designID":designID
+            };
+
+            $.ajax({
+                type:"POST",
+                url: "http://"+ getLocalIP() +":1314/lvxz/admin/oppose_design",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(objJson),
+                async:true,
+                success: function (response) {
+                    if(response.code == 803){
+                        alert(response.msg);
+
+                        $('#table_design').remove();
+                        getTeacherDesignInfo();//重新加载教师毕设
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function (data){
+                    alert("访问失败，请检查网络、路径......");
+                }
+            });
+        }else{
+            alert("提交失败");
+        }
+
+    }
+
+</script>
+
+</html>

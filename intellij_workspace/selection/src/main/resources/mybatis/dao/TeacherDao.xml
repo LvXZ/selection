@@ -3,6 +3,12 @@
 
 <mapper namespace="com.njfu.selection.dao.TeacherDao">
 
+    <select id="queryTeacherNameById" parameterType="Long" resultType="String">
+        SELECT teacher_name
+        FROM tb_teacher
+        WHERE teacher_id = #{teacherID}
+    </select>
+
     <select id="queryTeacherPasswordById" parameterType="Long" resultType="com.njfu.selection.entity.Teacher">
         SELECT teacher_id, teacher_name, password
         FROM tb_teacher

@@ -16,12 +16,14 @@
     </select>
 
     <update id="updateStudentPasswordById" parameterType="com.njfu.selection.entity.Student">
-        UPDATE tb_student SET password = #{password}
+        UPDATE tb_student
+        SET password = #{password}
         WHERE student_id = #{studentID}
     </update>
 
     <update id="updateStudentPasswordByOther" parameterType="com.njfu.selection.entity.Student">
-        UPDATE tb_student SET password = #{password}
+        UPDATE tb_student
+        SET password = #{password}
         WHERE student_id = #{studentID} AND student_name = #{studentName} AND phone = #{phone}
     </update>
 

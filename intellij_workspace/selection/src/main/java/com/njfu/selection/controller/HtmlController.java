@@ -38,5 +38,13 @@ public class HtmlController {
         return "/index_admin.html";
     }
 
+    @RequestMapping("/apply_teacher")
+    public String applyTeacherPage() {
+        return "/apply_teacher.html";
+    }
 
+    @RequestMapping("/inspect_admin")
+    public String inspectTeacherPage() {
+        return "/inspect_admin.html";
+    }
 }

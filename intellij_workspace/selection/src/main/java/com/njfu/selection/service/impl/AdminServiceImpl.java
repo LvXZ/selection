@@ -4,9 +4,12 @@ import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.njfu.selection.dao.AdminDao;
+import com.njfu.selection.dao.DesignDao;
 import com.njfu.selection.dao.StudentDao;
+import com.njfu.selection.dao.TeacherDao;
 import com.njfu.selection.dto.ResponseInfoDTO;
 import com.njfu.selection.entity.Admin;
+import com.njfu.selection.entity.Design;
 import com.njfu.selection.entity.Student;
 import com.njfu.selection.service.AdminService;
 import com.njfu.selection.utils.MessageYmlUtil;
@@ -18,6 +21,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @ClassName: AdminServiceImpl
@@ -32,6 +36,12 @@ public class AdminServiceImpl implements AdminService {
 
     @Autowired
     private AdminDao adminDao;
+
+    @Autowired
+    private DesignDao designDao;
+
+    @Autowired
+    private TeacherDao teacherDao;
 
     @Autowired
     private MessageYmlUtil ymlUtil;
@@ -128,6 +138,80 @@ public class AdminServiceImpl implements AdminService {
         } else {
             responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getUpdate().get("password.failure_3.code")), ymlUtil.getUpdate().get("password.failure_3.msg"));
         }
+        return responseInfoDTO;
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> adminGetTeacherDesign(String params, HttpServletRequest request, HttpServletResponse response) {
+
+        logger.debug("<----------updateAdminEnsureDesign---------->");
+        Admin admin = JSON.parseObject(params, Admin.class);
+
+        Admin getAdmin = adminDao.queryAdminPasswordById(admin.getAdminID());
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+        if(getAdmin == null){
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("admin.failure_2.code")), ymlUtil.getHelp().get("admin.failure_2.msg"));
+        }else{
+            List<Design> designList = designDao.queryAllDesignByEnableStatus10();
+
+            if(designList.size() == 0){
+                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("admin.failure_1.code")), ymlUtil.getHelp().get("admin.failure_1.msg"));
+            }else{
+                //有缺陷
+                for(Design design:designList){
+                    design.setFileAddress(teacherDao.queryTeacherNameById(design.getTeacherID()));
+                }
+
+                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("admin.success.code")), ymlUtil.getHelp().get("admin.success.msg"),designList);
+            }
+        }
+
+        return responseInfoDTO;
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> updateAdminEnsureDesign(String params, HttpServletRequest request, HttpServletResponse response) {
+
+        logger.debug("<----------updateAdminEnsureDesign---------->");
+        Design design = JSON.parseObject(params, Design.class);
+        design.setEnableStatus(1);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+
+        int flag = designDao.updateDesignEnableStatusByDesignId(design);
+
+        if(flag == 1){
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.success_1.code")), ymlUtil.getDesign().get("update.success_1.msg"));
+
+        }else{
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.failure_1.code")), ymlUtil.getDesign().get("update.failure_1.msg"));
+        }
+
+        return responseInfoDTO;
+
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> updateAdminOpposeDesign(String params, HttpServletRequest request, HttpServletResponse response) {
+        logger.debug("<----------updateAdminEnsureDesign---------->");
+        Design design = JSON.parseObject(params, Design.class);
+        design.setEnableStatus(-1);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+
+        int flag = designDao.updateDesignEnableStatusByDesignId(design);
+
+        if(flag == 1){
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.success_2.code")), ymlUtil.getDesign().get("update.success_2.msg"));
+
+        }else{
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.failure_2.code")), ymlUtil.getDesign().get("update.failure_2.msg"));
+        }
+
         return responseInfoDTO;
     }
 }

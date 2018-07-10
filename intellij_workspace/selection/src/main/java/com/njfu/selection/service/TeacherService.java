@@ -50,4 +50,41 @@ public interface TeacherService {
      * @return
      */
     ResponseInfoDTO<Teacher> updateTeacherPasswordByOther(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 申请发布毕业设计
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> teacherApplyDesign(HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 删除申请的毕业设计
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> teacherDeleteDesign(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 正式发布毕业设计
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> teacherPublishDesign(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 查询教师自己毕业设计
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> teacherMyselfDesign(String params, HttpServletRequest request, HttpServletResponse response);
+
+
 }

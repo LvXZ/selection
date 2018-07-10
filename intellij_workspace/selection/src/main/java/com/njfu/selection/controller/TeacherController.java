@@ -63,4 +63,47 @@ public class TeacherController {
     public ResponseInfoDTO<Teacher> teacherForgetPassword(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
         return teacherService.updateTeacherPasswordByOther(params, request, response);
     }
+
+
+    /**********************************teacher申请发布毕业设计、删除申请的毕业设计、正式发布毕业设计、查询教师自己毕业设计*********************************/
+    /**
+     * 申请发布毕业设计
+     * designName,teacherID,file
+     */
+    @PostMapping(value = "/apply_design", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> teacherApplyDesign(HttpServletRequest request, HttpServletResponse response) {
+        return teacherService.teacherApplyDesign(request, response);
+    }
+
+    /**
+     * 删除申请的毕业设计
+     * designID, teacherID
+     */
+    @PostMapping(value = "/delete_design", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> teacherDeleteDesign(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return teacherService.teacherDeleteDesign(params, request, response);
+    }
+
+    /**
+     * 正式发布毕业设计
+     *
+     */
+    @PostMapping(value = "/publish_design", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> teacherPublishDesign(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return teacherService.teacherPublishDesign(params, request, response);
+    }
+
+    /**
+     * 查询教师自己毕业设计
+     *
+     */
+    @PostMapping(value = "/myself_design", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> teacherMyselfDesign(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return teacherService.teacherMyselfDesign(params, request, response);
+    }
+
 }

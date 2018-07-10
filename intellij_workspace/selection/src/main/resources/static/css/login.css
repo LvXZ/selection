@@ -78,14 +78,14 @@ a:hover {
     text-indent: 10px;
 }
 
-#old_password, #new_password, #birthday, #phone, #qq{
+#old_password, #new_password, #birthday, #phone, #qq, #designName{
 
     text-align: center;/*水平居中*/
     font-size: 15px;/*字体大小*/
 
 }
 
-#update_PasswordId, #update_InfoId{
+#update_PasswordId, #update_InfoId, #now_date{
     border: none;
     text-align: right;
     font-size: 15px;/*字体大小*/

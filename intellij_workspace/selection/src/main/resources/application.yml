@@ -51,7 +51,7 @@ logging:
 message:
   mysql_error:
     code: -9999
-    msg: 数据库操作发生，等待恢复
+    msg: 数据库操作发生错误，等待恢复
 
   login:
     success:
@@ -94,3 +94,70 @@ message:
         code: -104
         msg: 更新信息失败，用户不存在
 
+  file:
+    upload:
+      success:
+        code: 601
+        msg: 上传成功
+      failure_1:
+        code: -601
+        msg: 上传失败，
+      failure_2:
+        code: -602
+        msg: 上传失败，文件为空
+      failure_3:
+        code: -603
+        msg: 上传失败，文件不存在
+      failure_4:
+        code: -604
+        msg: 上传失败，老师账号不存在
+      failure_5:
+        code: -605
+        msg: 上传失败，学生账号不存在
+      failure_6:
+        code: -606
+        msg: 上传失败，执行dao错误
+
+  design:
+    update:
+      success_1:
+        code: 802
+        msg: 确定通过成功
+      failure_1:
+        code: -802
+        msg: 确定通过失败
+      success_2:
+        code: 803
+        msg: 驳回申请成功
+      failure_2:
+        code: -803
+        msg: 驳回申请失败
+    delete:
+      success:
+        code: 801
+        msg: 删除毕设成功
+      failure_1:
+        code: -801
+        msg: 删除毕设失败
+
+
+
+  help:
+    teacher:
+      success:
+        code: 900
+        msg: 教师自己毕设信息已接收
+      failure:
+        code: -900
+        msg: 教师自己没有毕设信息
+
+    admin:
+      success:
+        code: 901
+        msg: 教师毕设信息已接收
+      failure_1:
+        code: -9011
+        msg: 教师没有毕设信息
+      failure_2:
+        code: -9012
+        msg: 管理员不存在

@@ -25,6 +25,14 @@ public class MessageYmlUtil {
 
     private Map<String, String> update = new HashMap<>();
 
+    private Map<String, String> file = new HashMap<>();
+
+    private Map<String, String> help = new HashMap<>();
+
+    private Map<String, String> design = new HashMap<>();
+
+
+
 
     public Map<String, String> getMysql_error() {
         return mysql_error;
@@ -58,4 +66,27 @@ public class MessageYmlUtil {
         this.update = update;
     }
 
+    public Map<String, String> getFile() {
+        return file;
+    }
+
+    public void setFile(Map<String, String> file) {
+        this.file = file;
+    }
+
+    public Map<String, String> getHelp() {
+        return help;
+    }
+
+    public void setHelp(Map<String, String> help) {
+        this.help = help;
+    }
+
+    public Map<String, String> getDesign() {
+        return design;
+    }
+
+    public void setDesign(Map<String, String> design) {
+        this.design = design;
+    }
 }

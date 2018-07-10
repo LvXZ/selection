@@ -12,6 +12,9 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface TeacherDao {
 
+
+    String queryTeacherNameById(@Param("teacherID") Long teacherID);
+
     /**
      * 通过id查找teacherPassword
      *

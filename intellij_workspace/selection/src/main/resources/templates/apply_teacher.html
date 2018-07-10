@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="shortcut icon" href="../static/images/logo.ico" th:href="@{images/logo.ico}" type="image/x-icon"/>
+    <link rel="stylesheet" href="../static/resources/materialize/css/materialize.min.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.min.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{css/login.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{css/index.css}">
+    <script src="../static/js/constant.js" th:src="@{js/constant.js}"></script>
+
+
+    <!--<link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="webjars/jquery/3.1.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+
+    <link rel="stylesheet" type="text/css" href="../static/resources/bootstrap-3.3.7/css/bootstrap.min.css" th:href="@{resources/bootstrap-3.3.7/css/bootstrap.min.css}">
+    <script src="../static/js/jquery-3.2.1.min.js" th:src="@{js/jquery-3.2.1.min.js}"></script>
+    <script src="../static/resources/bootstrap-3.3.7/js/bootstrap.min.js" th:src="@{resources/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+
+    <!--<script src="../static/resources/materialize/js/materialize.min.js" th:src="@{resources/materialize/js/materialize.min.js}"></script>
+    --><script src="../static/js/js.cookie.js" th:src="@{js/js.cookie.js}"></script>
+    <script src="../static/js/jquery.form.min.js" crossorigin="anonymous" th:src="@{js/jquery.form.min.js}"></script>
+
+    <title>教师界面</title>
+</head>
+
+<body onload="jumpLogin()" style="background-color:#39221e">
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-4 column pull-left" id="logo-title">
+            <h1>
+                老师管理界面
+            </h1>
+        </div>
+
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <ul class="nav nav-pills">
+                <li>
+                    <a href="/index_teacher.html">首页</a>
+                </li>
+                <li class="active">
+                    <a href="#">发布毕业课设</a>
+                </li>
+                <li>
+                    <a href="download_teacher.html">审批作业</a>
+                </li>
+                <li class="dropdown pull-right">
+                    <input id="user_name" value="未登录" readonly="true"/>
+                </li>
+                <li class="dropdown pull-right">
+                    <input id="user_id" value="" readonly="true"/>
+                </li>
+                <li class="dropdown pull-right disabled">
+                    <a href="#"></a>
+                </li>
+                <li class="dropdown pull-right">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">个人设置<strong class="caret"></strong></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a onclick="showTeacherInfo()">修改信息</a>
+                        </li>
+                        <li>
+                            <a onclick="showTeacherPassword()">修改密码</a>
+                        </li>
+                        <li class="divider">
+                        </li>
+                        <li>
+                            <a onclick="showDeleteCookies()">退出登录</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+            <div class="jumbotron">
+                <aaa>
+
+                </aaa>
+            </div>
+        </div>
+        <div class="col-md-4 column">
+
+            <form id="form1" role="form" method="POST" enctype="multipart/form-data" action="http://127.0.0.1:1314/lvxz/teacher/apply_design">
+                <div class="jumbotron">
+
+                    <div class="input">
+                        <input  class="form-control" id="now_date" type="text" value="" readonly="true"/>
+                    </div>
+
+                    <div class="input">
+                        <input  class="form-control" id="designName" name="designName" type="text" placeholder="毕业设计名称">
+                    </div>
+
+                    <div class="input">
+                        <input  class="form-control" id="teacherID" name="teacherID" type="hidden" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <input name="file" id="file" type="file" accept="application/x-zip-compressed,application/x-rar-compressed" value="选择压缩包" data-toggle="tooltip"
+                               data-placement="left" title="仅支持zip,rar压缩包"/></div>
+                    <div class="input-group" style="padding:16px;margin-left:auto;margin-right:auto;">
+                        <button type="submit" class="btn btn-primary" id="login_button" onclick="applyUpload()">
+                            <i class="glyphicon glyphicon-cloud-upload">申请发布</i>
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+
+            <!--修改个人信息框-->
+            <div class="modal fade" id="modal-container-287888" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 class="modal-title">
+                            信息修改
+                        </h3>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="login-box-body">
+
+                            <div class="input">
+                                <input  class="form-control" id="update_InfoId" type="text" value="未登录" readonly="true"/>
+                            </div>
+
+                            <div class="input">
+                                <input class="form-control" id="birthday" type="date" placeholder="出生日期"/>
+                            </div>
+                            <div class="input">
+                                <input  class="form-control" id="phone" type="number" placeholder="手机"/>
+                            </div>
+                            <div class="input">
+                                <input  class="form-control" id="qq" type="number" placeholder="QQ"/>
+                            </div>
+
+                            <div class="input" style="text-align:center">
+                                <button class="btn btn-default btn-center" data-dismiss="modal">取消</button>
+                                <button class="btn btn-primary btn-center" onclick="updateTeacherInfo()">修改</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--修改密码框-->
+            <div class="modal fade" id="modal-container-287808" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 class="modal-title">
+                            密码修改
+                        </h3>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="login-box-body">
+
+                            <div class="input">
+                                <input  class="form-control" id="update_PasswordId" type="text" value="未登录" readonly="true"/>
+                            </div>
+
+                            <div class="input">
+                                <input class="form-control" id="old_password" type="password" placeholder="旧密码"/>
+                            </div>
+                            <div class="input">
+                                <input  class="form-control" id="new_password" type="password" placeholder="新密码"/>
+                            </div>
+
+                            <div class="input" style="text-align:center">
+                                <button class="btn btn-default btn-center" data-dismiss="modal">取消</button>
+                                <button class="btn btn-primary btn-center" onclick="updateTeacherPassword()">修改</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+
+<script>
+
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+
+
+    /*网页生成时，验证是否登录的跳传*/
+    function jumpLogin() {
+
+
+
+
+        if(!Cookies.get('teacher_ObjJson')){
+            alert("您还未登陆！请登陆");
+            window.open("http://"+ getLocalIP() +":1314/lvxz/login",'_self');
+        }else{
+            var jsonValue = JSON.parse(Cookies.get('teacher_ObjJson'));
+            getUser(jsonValue);
+
+            getUpload_Info();
+
+        }
+
+    }
+
+
+    <!-- 获取登录信息，并修改登录栏-->
+    function getUser(jsonValue){
+        $('#user_name').val(jsonValue.teacherName);
+        $('#user_id').val(jsonValue.teacherID);
+
+        var myDate = new Date();//获取系统当前时间
+        $('#now_date').val(myDate.toLocaleDateString());
+
+        $('#teacherID').val($('#user_id').val());
+    }
+
+
+    /*修改个人信息框出现*/
+    function showTeacherInfo() {
+        $('#update_InfoId').val($('#user_id').val()+"   "+$('#user_name').val());
+        $('#modal-container-287888').modal('show');
+    }
+
+    /*修改个人信息函数*/
+    function updateTeacherInfo() {
+
+        var teacherID = $('#user_id').val();
+        var birthday = $('#birthday').val();
+        var phone = $('#phone').val();
+        var qq = $('#qq').val();
+
+        if(teacherID.length!=0){
+
+            var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/teacher/update_info";
+            var objJson = {
+                "teacherID":parseInt(teacherID),
+                "birthday":birthday,
+                "phone":phone,
+                "teacherQQ":qq,
+            };
+
+            $.ajax({
+                type:"POST",
+                url: updatePasswordURL,
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(objJson),
+                async:true,
+                success: function (response) {
+                    if(response.code == 104){
+                        alert(response.msg);
+                        location.reload();//重新加载
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function (data){
+                    alert("访问失败，请检查网络、路径......");
+                }
+            });
+
+        } else {
+            alert("未登录！");
+        }
+    }
+
+    /*修改密码框出现*/
+    function showTeacherPassword(){
+        $('#update_PasswordId').val($('#user_id').val()+"   "+$('#user_name').val());
+        $('#modal-container-287808').modal('show');
+    }
+
+    /*修改密码函数*/
+    function updateTeacherPassword(){
+
+        var teacherID = $('#user_id').val();
+        var oldPassword = $('#old_password').val();
+        var newPassword = $('#new_password').val();
+
+        if(teacherID.length!=0  && oldPassword.length!=0 && newPassword.length!=0) {
+
+            var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/teacher/update_password";
+
+            var objJson = {
+                "teacherID":parseInt(teacherID),
+                "password":oldPassword,
+                "new_password":newPassword
+            };
+
+            $.ajax({
+                type:"POST",
+                url: updatePasswordURL,
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(objJson),
+                async:true,
+                success: function (response) {
+                    if(response.code == 103){
+                        alert(response.msg);
+                        location.reload();//重新加载
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function (data){
+                    alert("访问失败，请检查网络、路径......");
+                }
+            });
+
+        } else {
+            alert("存在输入为空！");
+        }
+    }
+
+    /*提示出现退出*/
+    function showDeleteCookies() {
+        if(confirm("您确定退出！")) {
+            deleteCookies();
+        }else{
+
+        }
+    }
+
+    /*退出登录，消除cookies*/
+    function deleteCookies() {
+        //Cookies.remove('s_id', { path: '' });
+        //Cookies.remove('s_account', { path: '' });
+        //window.open('login.html','_self');
+        alert("已注销");
+    }
+
+
+
+
+
+
+
+
+
+    <!-- 生成老师之前申请毕设的表格-->
+    function getTable_Info(data){
+
+        var $table=$('<table class="table table-bordered  table-condensed" id="table_design"></table>');
+        $("aaa").append($table);
+
+        var $thead=$('<thead></thead>');
+        var $trs=$('<tr class="info"></tr>');
+
+        var $th2=$('<th>毕设编码</th>');
+        var $th3=$('<th>毕设名称</th>');
+        var $th4=$('<th>申请时间</th>');
+        var $th5=$('<th>相关文件</th>');
+        var $th6=$('<th>当前状态</th>');
+        var $th7=$('<th>操作</th>');
+        var $tbody=$('<tbody></tbody>');
+
+        $trs.append($th2);
+        $trs.append($th3);
+        $trs.append($th4);
+        $trs.append($th5);
+        $trs.append($th6);
+        $trs.append($th7);
+        $thead.append($trs);
+        $table.append($thead);
+        $table.append($tbody);
+
+        var count = 0;//表格颜色控制
+        for(var i=0;i<data.length;i++){
+
+            if(count%2==0){
+                var $tr=$('<tr></tr>');
+            }else{
+                var $tr=$('<tr class="success"></tr>');
+            }
+            $table.append($tr);
+
+            var $td2=$('<td>'+data[i]['designID']+'</td>');
+            $tr.append($td2);
+            var $td3=$('<td>'+data[i]['designName']+'</td>');
+            $tr.append($td3);
+            var $td4=$('<td>'+data[i]['createTime'].substring(0,10)+'</td>');
+            $tr.append($td4);
+            var $td5=$('<td>'+data[i]['fileName']+'</td>');
+            $tr.append($td5);
+            var $td6;
+            var $td7;
+
+            switch(data[i]['enableStatus']){
+
+                case -1:{
+                    //被驳回
+                    $td6=$('<td>被驳回</td>');
+                    $td7=$('<td><button id="'+ data[i]['designID'] +'"  onclick="teacher_delete(this);" type="submit" class="btn btn-small btn-warning">' +
+                        '<i class="glyphicon glyphicon-remove">删除申请</i></button></td>');
+                }break;
+
+                case 0:{
+                    //等待审批
+                    $td6=$('<td>等待审批</td>');
+                    $td7=$('<td><button id="'+ data[i]['designID'] +'"  onclick="teacher_delete(this);" type="submit" class="btn btn-small btn-warning">' +
+                        '<i class="glyphicon glyphicon-remove">取消申请</i></button></td>');
+                }break;
+
+                case 1:{
+                    //发布成功
+                    $td6=$('<td>申请成功</td>');
+                    $td7=$('<td><button id="'+ data[i]['designID'] +'"  onclick="teacher_publish(this);" type="submit" class="btn btn-small btn-success">' +
+                        '<i class="glyphicon glyphicon-ok">正式发布</i></button></td>');
+                }break;
+
+                case 2:{
+                    //等待选择
+                    $td6=$('<td>等待选择</td>');
+                    $td7=$('<td><button id="'+ data[i]['enableStatus'] +'"  onclick="teacher_stop(this);" type="submit" class="btn btn-small btn-warning">' +
+                        '<i class="glyphicon glyphicon-ban-circle">停止选择</i></button></td>');
+                }break;
+
+                case 3:{
+                    //选择截止
+                    $td6=$('<td>选择截止</td>');
+                    $td7=$('<td><button id="'+ data[i]['designID'] +'"  onclick="teacher_end(this);" type="submit" class="btn btn-small btn-danger">' +
+                        '<i class="glyphicon glyphicon-off">完结毕设</i></button></td>');
+                }break;
+
+                case 4:{
+                    //已完结
+                    $td6=$('<td>项目完结</td>');
+                    $td7=$('<td><button id="'+ data[i]['designID'] +'" onclick="alert('+"项目已经完结"+');" type="submit" class="btn btn-small btn-danger">' +
+                        '<i class="glyphicon glyphicon-warning-sign">项目完结</i></button></td>');
+                }break;
+
+            }
+
+            $tr.append($td6);
+            $tr.append($td7);
+            count++;
+        }
+
+    }
+
+
+    <!-- 上传文件表单，后端返回的信息处理-->
+    function applyUpload(){
+
+        //alert("testUpload");
+        $("#form1").ajaxForm(function(response){
+            if(response.code==601){
+                alert(response.msg);
+
+                $('#table_design').remove();
+                getUpload_Info();//重新加载教师毕设
+
+            }else{
+                alert(response.msg);
+            }
+        });
+    }
+
+
+    <!--老师获取自己上传的毕设-->
+    function getUpload_Info() {
+
+        var teacher_ObjJson = Cookies.get('teacher_ObjJson');
+
+        if(teacher_ObjJson!=null){
+
+            $.ajax({
+                type:"POST",
+                url: "http://"+ getLocalIP() +":1314/lvxz/teacher/myself_design",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: teacher_ObjJson,
+                async:true,
+                success: function (response) {
+                    if(response.code == 900){
+                        console.log(response);
+                        getTable_Info(response.data);
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function (data){
+                    alert("访问失败，请检查网络、路径......");
+                }
+            });
+
+
+        }else{
+            alert("关键输入为空！");
+        }
+    }
+
+
+    <!--老师删除自己上传毕设记录-->
+    function teacher_delete(obj) {
+
+        var designID = obj.id;
+        var teacherID = $('#user_id').val();
+        var objJson = {
+            "designID":designID,
+            "teacherID":teacherID
+        };
+        console.log(designID);
+
+        $.ajax({
+            type:"POST",
+            url: "http://"+ getLocalIP() +":1314/lvxz/teacher/delete_design",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(objJson),
+            async:true,
+            success: function (response) {
+                if(response.code == 801){
+                    console.log(response);
+
+                    $('#table_design').remove();
+                    getUpload_Info();//重新加载教师毕设
+
+                } else {
+                    alert(response.msg);
+
+                }
+            },
+            error: function (data){
+                alert("访问失败，请检查网络、路径......");
+            }
+        });
+
+
+    }
+
+    //教师正式发布毕设
+    function teacher_publish() {
+
+    }
+
+    //教师停止该毕设的选择
+    function teacher_stop() {
+
+    }
+
+    //教师完结该毕设
+    function teacher_end() {
+
+    }
+
+
+
+</script>
+
+
+</html>

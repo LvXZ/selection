@@ -65,7 +65,7 @@ public class StudentController {
 
 
 
-    /**********************************student获取教师发布毕设信息、申请教师发布毕设、查看自己的申请、删除自己的申请*********************************/
+    /**********************************student获取教师发布毕设信息、申请教师发布毕设、查看自己的申请、删除自己的申请、学生上传毕业设计*********************************/
     /**
      * 获取教师发布毕设信息
      * studentID
@@ -99,8 +99,6 @@ public class StudentController {
     }
 
 
-
-
     /**
      * 删除自己的申请
      * studentID,designID,projectID
@@ -109,6 +107,17 @@ public class StudentController {
     @CrossOrigin(allowCredentials = "false")
     public ResponseInfoDTO<Object> studentDeleteApplyDesignInfo(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
         return studentService.studentDeleteApplyDesignInfo(params, request, response);
+    }
+
+
+    /**
+     * 学生上传毕业设计
+     * projectID,studentID,file
+     */
+    @PostMapping(value = "/upload_project", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> studentUploadProject(HttpServletRequest request, HttpServletResponse response) {
+        return studentService.studentUploadProject(request, response);
     }
 
 

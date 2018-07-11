@@ -9,6 +9,12 @@
         WHERE student_id = #{studentID}
     </select>
 
+    <select id="queryStudentNameById" parameterType="Long" resultType="String">
+        SELECT student_name
+        FROM tb_student
+        WHERE student_id = #{studentID}
+    </select>
+
     <select id="queryStudentInfoById" parameterType="Long" resultType="com.njfu.selection.entity.Student">
         SELECT student_id, student_name, password, academy, student_class, profile_img, birthday, gender, phone, student_qq, enable_status
         FROM tb_student

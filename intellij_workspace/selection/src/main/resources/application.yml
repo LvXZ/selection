@@ -125,20 +125,20 @@ message:
         msg: 确定通过成功
       failure_1:
         code: -802
-        msg: 确定通过失败
+        msg: 确定通过失败，申请已经不存在
       success_2:
         code: 803
         msg: 驳回申请成功
       failure_2:
         code: -803
-        msg: 驳回申请失败
+        msg: 驳回申请失败，申请已经不存在
 
       success_3:
         code: 804
         msg: 正式发布成功
       failure_3:
         code: -804
-        msg: 正式发布失败
+        msg: 正式发布失败，申请已经不存在
 
       success_4:
         code: 805
@@ -191,15 +191,34 @@ message:
       failure:
         code: -703
         msg: 学生没有毕设项目信息
+    update:
+      success_1:
+        code: 7051
+        msg: 确定通过成功
+      failure_1:
+        code: -7051
+        msg: 确定通过失败，申请已经不存在
+      success_2:
+        code: 7052
+        msg: 驳回申请成功
+      failure_2:
+        code: -7052
+        msg: 驳回申请失败，申请已经不存在
 
   help:
     teacher:
       success:
         code: 900
         msg: 教师自己毕设信息已接收
+      success_1:
+        code: 9001
+        msg: 学生申请毕设信息已接收
       failure:
         code: -900
         msg: 教师自己没有毕设信息
+      failure_1:
+        code: -9001
+        msg: 没有学生申请毕设信息
 
     admin:
       success:

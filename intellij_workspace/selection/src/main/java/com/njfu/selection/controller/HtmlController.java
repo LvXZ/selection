@@ -44,7 +44,7 @@ public class HtmlController {
     }
 
     @RequestMapping("/inspect_admin")
-    public String inspectTeacherPage() {
+    public String inspectAdminPage() {
         return "/inspect_admin.html";
     }
 
@@ -56,5 +56,10 @@ public class HtmlController {
     @RequestMapping("/upload_student")
     public String uploadStudentPage() {
         return "/upload_student.html";
+    }
+
+    @RequestMapping("/inspect_teacher")
+    public String inspectTeacherPage() {
+        return "/inspect_teacher.html";
     }
 }

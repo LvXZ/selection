@@ -104,5 +104,31 @@ public interface TeacherService {
      */
     ResponseInfoDTO<Object> teacherEndDesign(String params, HttpServletRequest request, HttpServletResponse response);
 
+    /**
+     * 获取学生申请毕设等信息
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> getStudentProject(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 批准学生申请
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> ensureStudentProject(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 驳回学生申请
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> opposeStudentProject(String params, HttpServletRequest request, HttpServletResponse response);
 
 }

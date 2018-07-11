@@ -11,6 +11,9 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface StudentDao {
 
+
+    String queryStudentNameById(@Param("studentID") Long studentID);
+
     /**
      * 通过id查找studentPassword
      *

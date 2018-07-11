@@ -4,8 +4,8 @@
 <mapper namespace="com.njfu.selection.dao.ProjectDao">
 
     <insert id="addProject" parameterType="com.njfu.selection.entity.Project">
-        INSERT INTO tb_project (project_id, design_id, student_id, create_time, file_address, file_name, enable_status)
-        VALUES (#{projectID}, #{designID}, #{studentID}, #{createTime}, #{fileAddress}, #{fileName}, #{enableStatus})
+        INSERT INTO tb_project (project_id, design_id, student_id, create_time, file_address, file_name, enable_status, last_edit_time)
+        VALUES (#{projectID}, #{designID}, #{studentID}, #{createTime}, #{fileAddress}, #{fileName}, #{enableStatus}, #{lastEditTime})
     </insert>
 
     <delete id="deleteProjectBypProjectIDDesignIdAndStudentID" parameterType="com.njfu.selection.entity.Project">
@@ -14,11 +14,28 @@
     </delete>
 
     <select id="queryProjectByStudentID" parameterType="Long" resultType="com.njfu.selection.entity.Project">
-        SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status
+        SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status, last_edit_time
         FROM tb_project
         WHERE student_id = #{studentID}
     </select>
 
+    <select id="queryProjectByDesignID" parameterType="String" resultType="com.njfu.selection.entity.Project">
+        SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status, last_edit_time
+        FROM tb_project
+        WHERE design_id = #{designID}
+    </select>
+
+    <update id="updateProjectEnableStatusByProjectId" parameterType="com.njfu.selection.entity.Project">
+        UPDATE tb_project
+        SET enable_status = #{enableStatus}
+        WHERE project_id = #{projectID}
+    </update>
+
+    <update id="updateAllProject" parameterType="com.njfu.selection.entity.Project">
+        UPDATE tb_project
+        SET file_address = #{fileAddress}, file_name = #{fileName}, last_edit_time = #{lastEditTime}, enable_status = #{enableStatus}
+        WHERE project_id = #{projectID} AND student_id = #{studentID}
+    </update>
 
 
 

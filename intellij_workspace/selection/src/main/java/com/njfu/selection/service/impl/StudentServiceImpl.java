@@ -19,8 +19,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -271,6 +277,96 @@ public class StudentServiceImpl implements StudentService {
         } else {
             responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getProject().get("delete.failure.code")), ymlUtil.getProject().get("delete.failure.msg"));
         }
+        return responseInfoDTO;
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> studentUploadProject(HttpServletRequest request, HttpServletResponse response) {
+
+        logger.debug("<----------studentUploadProject---------->");
+
+        String projectID = request.getParameter("projectID");
+        String studentID = request.getParameter("studentID");
+        //获取多个文件，此处默认接收一个打包文件
+        List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
+
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+
+        Project getProject = projectDao.queryProjectByStudentID(Long.valueOf(studentID));
+        if(!getProject.getProjectID().equals(projectID)){
+
+            responseInfoDTO = new ResponseInfoDTO(-1, "不存在该project");
+            return responseInfoDTO;
+        }
+
+        Long teacherID = designDao.queryTeacherIDByDesignId(getProject.getDesignID());
+
+
+        MultipartFile file;
+        BufferedOutputStream stream;
+
+        //设置保存路径D:/download/教师/毕业开设号/教师相关介绍文件
+        String filePath = "D://download//"+ teacherID +"//"+ getProject.getDesignID() +"//"+ getProject.getStudentID() +"//";
+        File file_isExists = new File(filePath);
+        //不存在该文件夹时，就创建
+        if( !file_isExists.exists()){
+            file_isExists.mkdirs();
+        }
+
+        if (files.size() > 0) {
+
+            for (int i = 0; i < files.size(); ++i) {
+                file = files.get(i);
+
+                if (!file.isEmpty()) {
+                    System.out.println(file.getOriginalFilename());
+                    try {
+
+                        //是否存在文件
+                        if(getProject.getEnableStatus() != 1){
+                            File testFile = new File(getProject.getFileAddress());
+                            testFile.delete();//删除文件
+                        }
+
+
+                        byte[] bytes = file.getBytes();
+                        String fileName = file.getOriginalFilename();
+                        //设置文件路径及名字
+                        stream = new BufferedOutputStream(new FileOutputStream(new File(filePath + fileName)));
+
+                        //getProject对象
+                        getProject.setEnableStatus(2);
+                        getProject.setFileAddress(filePath + fileName);
+                        getProject.setFileName(fileName);
+                        Date lastEditTime=new Date();
+                        getProject.setLastEditTime(lastEditTime);
+
+                        int flag = projectDao.updateAllProject(getProject);
+                        if(flag == 1){
+                            // 保存文件到服务器
+                            stream.write(bytes);
+                            stream.close();
+                            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getFile().get("upload.success.code")), ymlUtil.getFile().get("upload.success.msg"),getProject);
+                            return responseInfoDTO;
+                        } else {
+                            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getFile().get("upload.failure_6.code")), ymlUtil.getFile().get("upload.failure_6.msg"));
+                            return responseInfoDTO;
+                        }
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getFile().get("upload.failure_1.code")), ymlUtil.getFile().get("upload.failure_1.msg") + e.getStackTrace());
+                        return responseInfoDTO;
+                    }
+                } else {
+                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getFile().get("upload.failure_2.code")), ymlUtil.getFile().get("upload.failure_2.msg"));
+                    return responseInfoDTO;
+                }
+            }
+        }
+        responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getFile().get("upload.failure_3.code")), ymlUtil.getFile().get("upload.failure_3.msg"));
         return responseInfoDTO;
     }
 }

@@ -20,6 +20,7 @@ public class Project {
     private String fileAddress;
     private String fileName;
     private Integer enableStatus;
+    private Date lastEditTime;
 
     public Project() {
     }
@@ -78,5 +79,13 @@ public class Project {
 
     public void setEnableStatus(Integer enableStatus) {
         this.enableStatus = enableStatus;
+    }
+
+    public Date getLastEditTime() {
+        return lastEditTime;
+    }
+
+    public void setLastEditTime(Date lastEditTime) {
+        this.lastEditTime = lastEditTime;
     }
 }

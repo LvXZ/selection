@@ -4,9 +4,13 @@ import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.njfu.selection.dao.DesignDao;
+import com.njfu.selection.dao.ProjectDao;
+import com.njfu.selection.dao.StudentDao;
 import com.njfu.selection.dao.TeacherDao;
+import com.njfu.selection.dto.DesignProjectDto;
 import com.njfu.selection.dto.ResponseInfoDTO;
 import com.njfu.selection.entity.Design;
+import com.njfu.selection.entity.Project;
 import com.njfu.selection.entity.Teacher;
 import com.njfu.selection.service.TeacherService;
 import com.njfu.selection.utils.MessageYmlUtil;
@@ -25,6 +29,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -44,7 +49,13 @@ public class TeacherServiceImpl implements TeacherService {
     private TeacherDao teacherDao;
 
     @Autowired
+    private StudentDao studentDao;
+
+    @Autowired
     private DesignDao designDao;
+
+    @Autowired
+    private ProjectDao projectDao;
 
     @Autowired
     private MessageYmlUtil ymlUtil;
@@ -262,8 +273,8 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public ResponseInfoDTO<Object> teacherMyselfDesign(String params, HttpServletRequest request, HttpServletResponse response) {
-        Teacher teacher = JSON.parseObject(params, Teacher.class);
 
+        Teacher teacher = JSON.parseObject(params, Teacher.class);
 
         response.setHeader("Access-Control-Allow-Methods", "POST");
         ResponseInfoDTO<Object> responseInfoDTO;
@@ -318,4 +329,107 @@ public class TeacherServiceImpl implements TeacherService {
 
         return responseInfoDTO;
     }
+
+    @Override
+    public ResponseInfoDTO<Object> getStudentProject(String params, HttpServletRequest request, HttpServletResponse response) {
+
+        Teacher teacher = JSON.parseObject(params, Teacher.class);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO<Object> responseInfoDTO;
+        List<Design> designList = designDao.queryAllDesignByTeacherIDAndEnableStatus234(teacher.getTeacherID());
+
+        if(designList.size() == 0){
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("teacher.failure.code")), ymlUtil.getHelp().get("teacher.failure.msg"));
+            return responseInfoDTO;
+        }else{
+
+
+            /*******dao需要优化********/
+
+            List<DesignProjectDto> designProjectDtoList = new ArrayList<>();
+
+            for(Design design:designList){
+
+                List<Project> projectList = projectDao.queryProjectByDesignID(design.getDesignID());
+
+                if(projectList.size() != 0){
+
+                    for(Project project:projectList){
+
+                        DesignProjectDto designProjectDto = new DesignProjectDto(project);
+                        designProjectDto.setDesignName(design.getDesignName());
+                        designProjectDto.setTeacherID(design.getTeacherID());
+                        designProjectDto.setTeacherName(studentDao.queryStudentNameById(project.getStudentID()));
+                        designProjectDto.setDesignStatus(design.getEnableStatus());
+
+                        designProjectDtoList.add(designProjectDto);
+
+                    }
+
+
+                }
+
+            }
+
+            if(designProjectDtoList.size() == 0){
+                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("teacher.failure_1.code")), ymlUtil.getHelp().get("teacher.failure_1.msg"));
+                return responseInfoDTO;
+            }else{
+                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("teacher.success_1.code")), ymlUtil.getHelp().get("teacher.success_1.msg"),designProjectDtoList);
+                return responseInfoDTO;
+            }
+
+
+        }
+
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> ensureStudentProject(String params, HttpServletRequest request, HttpServletResponse response) {
+
+
+        logger.debug("<----------ensureStudentProject---------->");
+        Project project = JSON.parseObject(params, Project.class);
+        project.setEnableStatus(1);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+
+        int flag = projectDao.updateProjectEnableStatusByProjectId(project);
+
+        if(flag == 1){
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getProject().get("update.success_1.code")), ymlUtil.getProject().get("update.success_1.msg"));
+
+        }else{
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getProject().get("update.failure_1.code")), ymlUtil.getProject().get("update.failure_1.msg"));
+        }
+
+        return responseInfoDTO;
+
+
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> opposeStudentProject(String params, HttpServletRequest request, HttpServletResponse response) {
+        logger.debug("<----------ensureStudentProject---------->");
+        Project project = JSON.parseObject(params, Project.class);
+        project.setEnableStatus(-1);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+
+        int flag = projectDao.updateProjectEnableStatusByProjectId(project);
+
+        if(flag == 1){
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getProject().get("update.success_2.code")), ymlUtil.getProject().get("update.success_2.msg"));
+
+        }else{
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getProject().get("update.failure_2.code")), ymlUtil.getProject().get("update.failure_2.msg"));
+        }
+
+        return responseInfoDTO;
+    }
+
+
 }

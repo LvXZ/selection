@@ -20,6 +20,12 @@
         WHERE design_id = #{designID}
     </select>
 
+    <select id="queryTeacherIDByDesignId" parameterType="String" resultType="Long">
+        SELECT teacher_id
+        FROM tb_design
+        WHERE design_id = #{designID}
+    </select>
+
     <update id="updateDesignEnableStatusByDesignId" parameterType="com.njfu.selection.entity.Design">
         UPDATE tb_design
         SET enable_status = #{enableStatus}
@@ -41,6 +47,12 @@
         SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status
         FROM tb_design
         WHERE enable_status = 2 OR enable_status = 3
+    </select>
+
+    <select id="queryAllDesignByTeacherIDAndEnableStatus234" parameterType="Long" resultType="com.njfu.selection.entity.Design">
+        SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status
+        FROM tb_design
+        WHERE teacher_id = #{teacherID} AND (enable_status = 2 OR enable_status = 3 OR enable_status = 4)
     </select>
 
 

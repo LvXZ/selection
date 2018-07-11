@@ -14,7 +14,7 @@ public class DesignProjectDto extends Project {
     private Project project;
     private String designName;
     private Long teacherID;
-    private String teacherName;
+    private String teacherName;  //修改为name
     private Integer designStatus;
 
     public DesignProjectDto() {

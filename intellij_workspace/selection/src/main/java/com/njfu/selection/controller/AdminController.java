@@ -76,7 +76,7 @@ public class AdminController {
 
     /**
      * 管理员确定教师申请
-     * adminID,adminName
+     * designID
      */
     @PostMapping(value = "/ensure_design", produces = "application/json;charset=UTF-8")
     @CrossOrigin(allowCredentials = "false")
@@ -86,7 +86,7 @@ public class AdminController {
 
     /**
      * 管理员驳回教师申请
-     * adminID,adminName
+     * designID
      */
     @PostMapping(value = "/oppose_design", produces = "application/json;charset=UTF-8")
     @CrossOrigin(allowCredentials = "false")

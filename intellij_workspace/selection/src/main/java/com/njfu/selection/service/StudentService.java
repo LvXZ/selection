@@ -88,5 +88,12 @@ public interface StudentService {
      */
     ResponseInfoDTO<Object> studentDeleteApplyDesignInfo(String params, HttpServletRequest request, HttpServletResponse response);
 
+    /**
+     * 学生上传毕业设计
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> studentUploadProject(HttpServletRequest request, HttpServletResponse response);
 
 }

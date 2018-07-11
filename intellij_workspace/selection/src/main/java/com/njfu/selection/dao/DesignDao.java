@@ -33,5 +33,9 @@ public interface DesignDao {
 
     List<Design> queryAllDesignByEnableStatus234();
 
+    List<Design> queryAllDesignByTeacherIDAndEnableStatus234(@Param("teacherID") Long teacherID);
+
+    Long queryTeacherIDByDesignId(@Param("designID") String designID);
+
 
 }

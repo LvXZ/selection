@@ -126,4 +126,37 @@ public class TeacherController {
         return teacherService.teacherEndDesign(params, request, response);
     }
 
+
+    /***teacher获取学生申请毕设等信息、批准学生申请、驳回学生申请*********************************/
+    /**
+     * 获取学生申请毕设等信息
+     * teacherID
+     */
+    @PostMapping(value = "/get_student_project", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> getStudentProject(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return teacherService.getStudentProject(params, request, response);
+    }
+
+    /**
+     * 批准学生申请
+     * projectID
+     */
+    @PostMapping(value = "/ensure_project", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> ensureStudentProject(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return teacherService.ensureStudentProject(params, request, response);
+    }
+
+    /**
+     * 驳回学生申请
+     * projectID
+     */
+    @PostMapping(value = "/oppose_project", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> opposeStudentProject(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return teacherService.opposeStudentProject(params, request, response);
+    }
+
+
 }

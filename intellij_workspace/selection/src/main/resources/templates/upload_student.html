@@ -21,6 +21,8 @@
     <script src="../static/resources/bootstrap-3.3.7/js/bootstrap.min.js" th:src="@{resources/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
 
     <script src="../static/js/js.cookie.js" th:src="@{js/js.cookie.js}"></script>
+    <script src="../static/js/jquery.form.min.js" crossorigin="anonymous" th:src="@{js/jquery.form.min.js}"></script>
+
 
     <title>学生界面</title>
 </head>
@@ -100,7 +102,7 @@
                         <td id="td3">----</td>
                         <td id="td4">----</td>
                         <td>
-                            <button onclick="teacher_delete(this);" class="btn btn-small btn-primary" data-toggle="tooltip"
+                            <button onclick="teacher_delete();" class="btn btn-small btn-primary" data-toggle="tooltip"
                                     data-placement="right" title="编写留言"> &nbsp;<i class="glyphicon glyphicon-comment">&nbsp;</i></button>
                         </td>
                     </tr>
@@ -121,10 +123,10 @@
                         <td id="td5">----</td>
                         <td id="td6">----</td>
                         <td>
-                            <button id="button1" onclick="student_delete(this);" style="display:none" class="btn btn-small btn-warning"><i class="glyphicon glyphicon-remove">删除申请</i></button>
-                            <button id="button2" onclick="student_delete(this);" style="display:none" class="btn btn-small btn-warning"><i class="glyphicon glyphicon-remove">取消申请</i></button>
-                            <button id="button3" onclick="student_upload_file(this);" style="display:none" class="btn btn-small btn-success"><i class="glyphicon glyphicon-open-file">上传毕设</i></button>
-                            <button id="button4" onclick="student_upload_file(this);" style="display:none" class="btn btn-small btn-success" data-toggle="tooltip"
+                            <button id="button1" name="" onclick="student_delete();" style="display:none" class="btn btn-small btn-warning"><i class="glyphicon glyphicon-remove">删除申请</i></button>
+                            <button id="button2" onclick="student_delete();" style="display:none" class="btn btn-small btn-warning"><i class="glyphicon glyphicon-remove">取消申请</i></button>
+                            <button id="button3" onclick="student_upload_file();" style="display:none" class="btn btn-small btn-success"><i class="glyphicon glyphicon-open-file">上传毕设</i></button>
+                            <button id="button4" onclick="student_upload_file();" style="display:none" class="btn btn-small btn-success" data-toggle="tooltip"
                                     data-placement="bottom" title="修改毕设，上传的文件将覆盖原先文件"><i class="glyphicon glyphicon-open-file">修改毕设</i></button>
                             <button id="button5" onclick="alert('项目已完结，无法再次上传修改！');" style="display:none" class="btn btn-small btn-danger"data-toggle="tooltip"
                                     data-placement="bottom" title="项目已完结"><i class="glyphicon glyphicon-ban-circle">修改停止</i></button>
@@ -139,32 +141,39 @@
             </div>
 
 
-            <!--<form id="form1" role="form" method="POST" enctype="multipart/form-data" action="http://127.0.0.1:1314/lvxz/teacher/apply_design">
-                <div class="jumbotron">
+            <!--上传文件框-->
+            <form id="form1" role="form" method="POST" enctype="multipart/form-data" action="http://127.0.0.1:1314/lvxz/student/upload_project">
+                <div class="modal fade" id="modal-container-3338888" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 class="modal-title">
+                                学生上传毕设
+                            </h3>
+                        </div>
 
-                    <div class="input">
-                        <input  class="form-control" id="now_date" type="text" value="" readonly="true"/>
-                    </div>
+                        <div class="modal-body">
+                            <div class="login-box-body">
 
-                    <div class="input">
-                        <input  class="form-control" id="designName" name="designName" type="text" placeholder="毕业设计名称">
-                    </div>
+                                <input id="update_userId" type="text" value="未登录" readonly="true"/>
+                                <input id="designName" type="text" readonly="true">
+                                <input id="now_date" type="text" value="" readonly="true"/>
 
-                    <div class="input">
-                        <input  class="form-control" id="teacherID" name="teacherID" type="hidden" value="">
-                    </div>
+                                <input  class="form-control" id="studentID" name="studentID" type="hidden" value="">
+                                <input  class="form-control" id="projectID" name="projectID" type="hidden" value="">
 
-                    <div class="form-group">
-                        <input name="file" id="file" type="file" accept="application/x-zip-compressed,application/x-rar-compressed" value="选择压缩包" data-toggle="tooltip"
-                               data-placement="left" title="仅支持zip、rar压缩包，且小于1M"/></div>
-                    <div class="input-group" style="padding:16px;margin-left:auto;margin-right:auto;">
-                        <button type="submit" class="btn btn-primary" id="login_button" onclick="applyUpload()">
-                            <i class="glyphicon glyphicon-cloud-upload">申请发布</i>
-                        </button>
+                                <input name="file" id="file" style="text-align:center" type="file" accept="application/x-zip-compressed,application/x-rar-compressed" data-toggle="tooltip"
+                                           data-placement="top" title="仅支持zip、rar压缩包，且小于1M"/>
+
+                                <div class="input-group" style="padding:16px;margin-left:auto;margin-right:auto;">
+                                    <button class="btn btn-default btn-center" data-dismiss="modal">取消</button>&nbsp;
+                                    <button class="btn btn-primary btn-center" onclick="studentUpload()"><i class="glyphicon glyphicon-cloud-upload">上传文件</i></button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-            </form>-->
+            </form>
 
 
             <!--修改个人信息框-->
@@ -462,7 +471,7 @@
         switch(data['project']['enableStatus']) {
             case -1:{
                 //申请被驳回
-                $('#td6').html('删除申请');
+                $('#td6').html('申请被驳回');
                 $('#button1').show();
             }break;
 
@@ -491,6 +500,8 @@
             }break;
         }
 
+        $('#button1').attr("name",data['project']['projectID']);
+
 
         $('#td7').html(data['project']['fileName']);
         $('#td8').html(times);
@@ -500,11 +511,81 @@
     /*学生删除申请、取消申请*/
     function student_delete(){
 
+        var studentID = $('#user_id').val();
+        var designID = $('#td1').html();
+        var projectID = $('#button1').attr("name");
+
+        if(studentID.length!=0 && designID.length!=0 && projectID.length!=0){
+
+            var objJson = {
+                "studentID":parseInt(studentID),
+                "designID":designID,
+                "projectID":projectID
+            };
+
+            $.ajax({
+                type:"POST",
+                url: "http://"+ getLocalIP() +":1314/lvxz/student/delete_apply_design",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(objJson),
+                async:true,
+                success: function (response) {
+                    console.log(response);
+                    if(response.code == 702){
+
+                        $('#table_design').remove();
+                        changeTable_Info(response.data);
+
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function (data){
+                    alert("访问失败，请检查网络、路径......");
+                }
+            });
+
+
+        }else{
+            alert("获取关键信息失败");
+        }
+
     }
 
-    /*学生上传作业、修改作业*/
+    /*学生上传作业、修改作业框出现*/
     function student_upload_file(){
 
+        $('#update_userId').val($('#user_id').val()+"   "+$('#user_name').val());
+        $('#designName').val($('#td2').html());
+
+        var d = new Date();//获取系统当前时间
+        var times=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes();
+        $('#now_date').val(times);
+
+        $('#studentID').val($('#user_id').val());
+        $('#projectID').val($('#button1').attr("name"));
+
+        $('#modal-container-3338888').modal('show');
+    }
+
+
+    <!-- 上传文件表单，后端返回的信息处理-->
+    function studentUpload(){
+
+        $("#form1").ajaxForm(function(response){
+            if(response.code==601){
+                alert(response.msg);
+
+                /*$('#modal-container-3338888').modal('hide');
+                $('#table_design').remove();
+                getMyselfProjectInfo();*/
+                location.reload();//重新加载
+
+            }else{
+                alert(response.msg);
+            }
+        });
     }
 
 

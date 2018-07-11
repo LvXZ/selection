@@ -85,26 +85,26 @@ a:hover {
 
 }
 
-#update_PasswordId, #update_InfoId, #now_date{
+#update_PasswordId, #update_InfoId, #now_date, #update_userId, #designName{
     border: none;
     text-align: right;
     font-size: 15px;/*字体大小*/
-    font-weight: bold;/*加粗*/
+    height: 2rem;
 }
 
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none !important;
-    margin: 0;
+-webkit-appearance: none !important;
+margin: 0;
 }
 
 .input-group {
-    padding: 16px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px;
-    height: 1rem;
+padding: 16px;
+margin-left: auto;
+margin-right: auto;
+border: 1px;
+height: 1rem;
 
 }
 

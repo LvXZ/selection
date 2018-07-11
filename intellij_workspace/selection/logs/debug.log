@@ -1,784 +1,266 @@
-2018-07-10 00:00:40.459 [http-nio-1314-exec-8] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 00:00:40.849 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 00:00:40.919 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 00:00:40.969 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 00:02:55.589 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 00:03:25.928 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 00:03:25.992 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 00:03:26.040 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 00:08:26.822 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 00:09:00.944 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 00:09:01.000 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 00:09:01.037 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 00:11:44.465 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 00:12:11.253 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 00:12:11.322 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 00:12:11.367 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 09:35:30.119 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 09:36:13.152 [http-nio-1314-exec-9] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 09:36:13.678 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 09:36:13.745 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 09:36:13.776 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 09:36:17.286 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 09:36:17.287 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 09:36:17.301 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 09:41:29.970 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 09:43:09.870 [http-nio-1314-exec-8] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 09:43:10.083 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 09:43:10.134 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 09:43:10.159 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 09:43:13.918 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 09:43:13.919 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 09:43:13.926 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 10:00:09.829 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 10:00:49.111 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 10:01:18.505 [http-nio-1314-exec-4] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 10:01:18.747 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 10:01:18.791 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 10:01:18.831 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 10:01:22.188 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:01:22.190 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:01:22.197 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 10:01:45.220 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 10:01:45.221 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180709161553(String), 150804205(Long)
-2018-07-10 10:01:45.313 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 10:01:47.370 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:01:47.371 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:01:47.376 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 2
-2018-07-10 10:04:29.048 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 10:04:53.822 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:04:53.885 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:04:53.938 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 10:05:13.641 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 10:05:13.643 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180710100320(String), 150804205(Long)
-2018-07-10 10:05:13.696 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 10:05:15.999 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:05:16.000 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:05:16.005 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 2
-2018-07-10 10:26:35.014 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 10:27:43.833 [http-nio-1314-exec-9] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 10:27:44.050 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 10:27:44.111 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 10:27:44.150 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 10:27:48.134 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:27:48.136 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:27:48.142 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 2
-2018-07-10 10:27:53.259 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 10:27:53.262 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180709202525(String), 150804205(Long)
-2018-07-10 10:27:53.403 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 10:27:55.685 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:27:55.686 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:27:55.691 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 1
-2018-07-10 10:31:47.109 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 10:32:27.570 [http-nio-1314-exec-6] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 10:32:27.826 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 10:32:27.900 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 10:32:27.937 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 10:32:31.278 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:32:31.279 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:32:31.284 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 1
-2018-07-10 10:32:50.217 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:32:50.219 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:32:50.226 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 1
-2018-07-10 10:33:04.209 [http-nio-1314-exec-2] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 10:33:17.992 [http-nio-1314-exec-7] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 10:33:29.289 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 10:33:58.584 [http-nio-1314-exec-5] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 10:35:47.367 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 10:36:27.615 [http-nio-1314-exec-7] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 10:36:28.043 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 10:36:28.148 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 10:36:28.231 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 10:36:31.903 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:36:31.904 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:36:31.914 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 1
-2018-07-10 10:36:40.648 [http-nio-1314-exec-1] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 10:37:03.267 [http-nio-1314-exec-5] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 10:37:03.272 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 10:37:03.276 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710103703(String), 网络协议(String), 150804205(Long), 2018-07-10 10:37:03.267(Timestamp), D://download//150804205//20180710103703//sql.txt(String), sql.txt(String), 0(Integer)
-2018-07-10 10:37:03.329 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 10:37:36.056 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 10:37:36.092 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 10:37:36.094 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710103736(String), 安全协议(String), 150804205(Long), 2018-07-10 10:37:36.057(Timestamp), D://download//150804205//20180710103736//sql.txt(String), sql.txt(String), 0(Integer)
-2018-07-10 10:37:36.167 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 10:38:11.158 [http-nio-1314-exec-6] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 10:38:48.297 [http-nio-1314-exec-7] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 10:38:53.678 [http-nio-1314-exec-8] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 10:42:28.237 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 10:42:54.316 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:42:54.377 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:42:54.419 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 10:45:25.153 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 10:46:20.921 [http-nio-1314-exec-7] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 10:46:21.138 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 10:46:21.188 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 10:46:21.218 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 10:46:24.703 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:46:24.704 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:46:24.716 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 10:47:54.844 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:47:54.847 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:47:54.853 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 10:49:35.201 [http-nio-1314-exec-7] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 10:51:57.928 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 10:52:49.435 [http-nio-1314-exec-9] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 10:52:49.666 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 10:52:49.716 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 10:52:49.746 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 10:52:55.421 [http-nio-1314-exec-10] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 10:52:55.423 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 10:52:55.424 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 10:52:55.427 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 10:53:02.540 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:53:02.542 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:53:02.555 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 10:53:17.350 [http-nio-1314-exec-8] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 10:55:31.578 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 10:56:17.312 [http-nio-1314-exec-7] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 10:56:17.542 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 10:56:17.622 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 10:56:17.662 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 10:56:23.512 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:56:23.514 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:56:23.521 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 10:56:32.664 [http-nio-1314-exec-1] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 10:57:29.296 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 10:58:33.719 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 10:58:33.829 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 10:58:33.869 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 10:58:42.587 [http-nio-1314-exec-4] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 11:00:14.176 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 11:01:21.624 [http-nio-1314-exec-9] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 11:01:21.834 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 11:01:21.884 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 11:01:21.914 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 11:01:25.595 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:01:25.596 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 11:01:25.602 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 11:01:32.018 [http-nio-1314-exec-6] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 11:09:55.524 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 11:10:54.945 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:10:55.001 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 11:10:55.038 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 11:11:06.291 [http-nio-1314-exec-5] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 11:11:06.301 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 11:11:06.311 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710111106(String), 图书馆系统(String), 150804205(Long), 2018-07-10 11:11:06.291(Timestamp), D://download//150804205//20180710111106//sql.txt(String), sql.txt(String), 0(Integer)
-2018-07-10 11:11:06.366 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 11:13:08.900 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 11:13:42.008 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:13:42.070 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 11:13:42.110 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 4
-2018-07-10 11:13:47.566 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 11:13:47.568 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180710111106(String), 150804205(Long)
-2018-07-10 11:13:47.775 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 11:13:48.226 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:13:48.227 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 11:13:48.231 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 11:13:55.522 [http-nio-1314-exec-7] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 11:13:55.530 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 11:13:55.535 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710111355(String), 图书馆系统(String), 150804205(Long), 2018-07-10 11:13:55.523(Timestamp), D://download//150804205//20180710111355//sql.txt(String), sql.txt(String), 0(Integer)
-2018-07-10 11:13:55.580 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 11:13:57.275 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:13:57.276 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 11:13:57.281 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 4
-2018-07-10 11:16:55.867 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 11:18:01.758 [http-nio-1314-exec-7] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 11:18:02.006 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 11:18:02.089 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804210(Long)
-2018-07-10 11:18:02.134 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 11:18:06.159 [http-nio-1314-exec-8] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 11:18:06.160 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 11:18:06.161 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804210(Long)
-2018-07-10 11:18:06.164 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 11:18:09.338 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:18:09.339 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804210(Long)
-2018-07-10 11:18:09.342 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 0
-2018-07-10 11:18:21.198 [http-nio-1314-exec-4] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 11:18:21.206 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 11:18:21.206 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710111821(String), 图书馆系统(String), 150804210(Long), 2018-07-10 11:18:21.199(Timestamp), D://download//150804210//20180710111821//sql.txt(String), sql.txt(String), 0(Integer)
-2018-07-10 11:18:21.416 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 11:18:22.710 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:18:22.711 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804210(Long)
-2018-07-10 11:18:22.716 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 1
-2018-07-10 11:18:27.405 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 11:18:27.406 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180710111821(String), 150804210(Long)
-2018-07-10 11:18:27.564 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 11:18:27.604 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:18:27.604 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804210(Long)
-2018-07-10 11:18:27.604 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 0
-2018-07-10 11:19:25.215 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 11:19:52.964 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:19:53.023 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804210(Long)
-2018-07-10 11:19:53.051 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 0
-2018-07-10 11:20:01.076 [http-nio-1314-exec-4] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 11:20:01.085 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 11:20:01.090 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710112001(String), 图书馆系统(String), 150804210(Long), 2018-07-10 11:20:01.077(Timestamp), D://download//150804210//20180710112001//sql.txt(String), sql.txt(String), 0(Integer)
-2018-07-10 11:20:01.158 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 11:20:02.766 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:20:02.768 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804210(Long)
-2018-07-10 11:20:02.777 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 1
-2018-07-10 11:20:04.054 [http-nio-1314-exec-6] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 11:20:04.062 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 11:20:04.064 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710112004(String), 图书馆系统(String), 150804210(Long), 2018-07-10 11:20:04.055(Timestamp), D://download//150804210//20180710112004//sql.txt(String), sql.txt(String), 0(Integer)
-2018-07-10 11:20:04.300 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 11:20:05.387 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:20:05.388 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804210(Long)
-2018-07-10 11:20:05.394 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 2
-2018-07-10 11:20:12.876 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 11:20:12.877 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180710112001(String), 150804210(Long)
-2018-07-10 11:20:13.014 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 11:20:13.054 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:20:13.054 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804210(Long)
-2018-07-10 11:20:13.054 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 1
-2018-07-10 11:26:52.413 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 11:27:19.994 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:27:20.055 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804210(Long)
-2018-07-10 11:27:20.092 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 1
-2018-07-10 11:27:26.423 [http-nio-1314-exec-4] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 11:27:26.432 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 11:27:26.436 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710112726(String), 图书馆系统(String), 150804210(Long), 2018-07-10 11:27:26.424(Timestamp), D://download//150804210//20180710112726//sql.txt(String), sql.txt(String), 0(Integer)
-2018-07-10 11:27:26.484 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 11:27:27.821 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:27:27.822 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804210(Long)
-2018-07-10 11:27:27.828 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 2
-2018-07-10 11:27:36.208 [http-nio-1314-exec-6] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 11:27:36.222 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 11:27:36.224 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710112736(String), 图书馆系统(String), 150804210(Long), 2018-07-10 11:27:36.21(Timestamp), D://download//150804210//20180710112736//sql.txt(String), sql.txt(String), 0(Integer)
-2018-07-10 11:27:36.317 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 11:27:37.666 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:27:37.667 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804210(Long)
-2018-07-10 11:27:37.673 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 11:27:41.845 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 11:27:41.847 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180710112726(String), 150804210(Long)
-2018-07-10 11:27:41.984 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 11:27:42.026 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:27:42.027 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804210(Long)
-2018-07-10 11:27:42.031 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 2
-2018-07-10 11:27:46.516 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 11:27:46.517 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180710112736(String), 150804210(Long)
-2018-07-10 11:27:46.559 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 11:27:46.593 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 11:27:46.594 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804210(Long)
-2018-07-10 11:27:46.598 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 1
-2018-07-10 13:52:45.406 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 13:53:52.949 [http-nio-1314-exec-6] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------findAdminPasswordById---------->
-2018-07-10 13:53:53.279 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 13:53:53.348 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 13:53:53.377 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 13:56:34.670 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 13:57:11.668 [http-nio-1314-exec-8] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------findAdminPasswordById---------->
-2018-07-10 13:57:11.858 [http-nio-1314-exec-8] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 13:57:11.918 [http-nio-1314-exec-8] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 13:57:11.948 [http-nio-1314-exec-8] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 13:57:15.156 [http-nio-1314-exec-1] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 13:57:15.190 [http-nio-1314-exec-1] DEBUG c.n.s.dao.DesignDao.updateDesignEnableStatusByDesignId - ==>  Preparing: UPDATE tb_design SET enable_status = ? WHERE design_id = ? 
-2018-07-10 13:57:15.190 [http-nio-1314-exec-1] DEBUG c.n.s.dao.DesignDao.updateDesignEnableStatusByDesignId - ==> Parameters: 1(Integer), null
-2018-07-10 13:57:15.203 [http-nio-1314-exec-1] DEBUG c.n.s.dao.DesignDao.updateDesignEnableStatusByDesignId - <==    Updates: 0
-2018-07-10 13:58:45.960 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 13:59:17.703 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 13:59:17.964 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 13:59:18.020 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 13:59:18.060 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 13:59:18.060 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 13:59:18.060 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 13:59:18.070 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 4
-2018-07-10 14:01:39.818 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 14:02:25.021 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 14:02:25.089 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 14:02:25.090 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 14:02:25.099 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 14:02:25.101 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 14:02:25.103 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 14:02:25.116 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 4
-2018-07-10 14:02:54.611 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 14:03:17.793 [http-nio-1314-exec-2] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 14:03:18.063 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 14:03:18.106 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 14:03:18.150 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 14:03:18.154 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 14:03:18.155 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 14:03:18.157 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 4
-2018-07-10 14:04:28.324 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 14:05:02.995 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 14:05:03.223 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 14:05:03.276 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 14:05:03.312 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 14:05:03.316 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 14:05:03.317 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 14:05:03.324 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 4
-2018-07-10 14:08:57.055 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 14:10:04.274 [http-nio-1314-exec-4] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 14:10:04.488 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 14:10:04.544 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 14:10:04.574 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 14:10:04.578 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 14:10:04.579 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 14:10:04.590 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 4
-2018-07-10 14:14:37.045 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 14:15:08.628 [http-nio-1314-exec-9] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 14:15:08.836 [http-nio-1314-exec-9] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 14:15:08.892 [http-nio-1314-exec-9] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 14:15:08.924 [http-nio-1314-exec-9] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 14:15:08.924 [http-nio-1314-exec-9] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 14:15:08.924 [http-nio-1314-exec-9] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 14:15:08.934 [http-nio-1314-exec-9] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 4
-2018-07-10 14:35:08.901 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 14:35:40.955 [http-nio-1314-exec-4] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 14:35:41.200 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 14:35:41.256 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 14:35:41.291 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 14:35:41.295 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 14:35:41.295 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 14:35:41.305 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 4
-2018-07-10 14:35:41.305 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 14:35:41.305 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 14:35:41.315 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 14:35:41.315 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 14:35:41.315 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 14:35:41.315 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 14:35:41.315 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 14:35:41.315 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 14:35:41.325 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 14:35:41.325 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 14:35:41.325 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804210(Long)
-2018-07-10 14:35:41.325 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:20:52.409 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 15:21:18.501 [http-nio-1314-exec-5] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 15:21:18.742 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 15:21:18.802 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 15:21:18.836 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 15:21:18.841 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 15:21:18.842 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 15:21:18.856 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 4
-2018-07-10 15:21:18.858 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:21:18.860 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 15:21:18.867 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:21:18.869 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:21:18.870 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 15:21:18.872 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:21:18.874 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:21:18.875 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 15:21:18.876 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:21:18.878 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:21:18.879 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804210(Long)
-2018-07-10 15:21:18.881 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:22:00.433 [http-nio-1314-exec-7] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 15:22:00.434 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 15:22:00.436 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 15:22:00.439 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 15:22:00.440 [http-nio-1314-exec-7] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 15:22:00.441 [http-nio-1314-exec-7] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 15:22:00.447 [http-nio-1314-exec-7] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 4
-2018-07-10 15:22:00.448 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:22:00.449 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 15:22:00.451 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:22:00.453 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:22:00.454 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 15:22:00.456 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:22:00.458 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:22:00.458 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 15:22:00.460 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:22:00.461 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:22:00.462 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804210(Long)
-2018-07-10 15:22:00.464 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:22:35.193 [http-nio-1314-exec-5] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 15:22:35.213 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:22:35.214 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 15:22:35.216 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 15:22:38.611 [http-nio-1314-exec-7] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 15:22:38.613 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:22:38.613 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 15:22:38.616 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 15:22:42.629 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:22:42.631 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:22:42.638 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 4
-2018-07-10 15:23:56.968 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:23:56.971 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:23:56.979 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 15:24:25.302 [http-nio-1314-exec-7] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 15:24:25.310 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 15:24:25.317 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710152425(String), 图书馆系统(String), 150804205(Long), 2018-07-10 15:24:25.302(Timestamp), D://download//150804205//20180710152425//create_table.zip(String), create_table.zip(String), 0(Integer)
-2018-07-10 15:24:25.564 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 15:24:26.901 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:24:26.904 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:24:26.924 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 4
-2018-07-10 15:24:30.194 [http-nio-1314-exec-10] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 15:24:30.196 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 15:24:30.198 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 15:24:30.201 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 15:24:30.202 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 15:24:30.203 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 15:24:30.207 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 5
-2018-07-10 15:24:30.209 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:24:30.209 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 15:24:30.211 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:24:30.213 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:24:30.213 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 15:24:30.213 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:24:30.213 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:24:30.213 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 15:24:30.213 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:24:30.213 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:24:30.213 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804210(Long)
-2018-07-10 15:24:30.213 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:24:30.223 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:24:30.223 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 15:24:30.223 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:25:08.705 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 15:25:08.706 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180710103703(String), 150804205(Long)
-2018-07-10 15:25:08.773 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 15:25:08.842 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:25:08.843 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:25:08.847 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 15:25:10.232 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 15:25:10.234 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180710103736(String), 150804205(Long)
-2018-07-10 15:25:10.392 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 15:25:10.434 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:25:10.436 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:25:10.439 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 2
-2018-07-10 15:25:11.386 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 15:25:11.387 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180710111355(String), 150804205(Long)
-2018-07-10 15:25:11.433 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 15:25:11.467 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:25:11.468 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:25:11.470 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 1
-2018-07-10 15:25:12.527 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 15:25:12.528 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180710152425(String), 150804205(Long)
-2018-07-10 15:25:12.562 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 15:25:12.597 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:25:12.598 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:25:12.600 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 0
-2018-07-10 15:25:27.761 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:25:27.762 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:25:27.764 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 0
-2018-07-10 15:45:39.973 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 15:46:39.185 [http-nio-1314-exec-9] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 15:46:39.425 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:46:39.475 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 15:46:39.505 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 15:46:44.066 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:46:44.067 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:46:44.070 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 0
-2018-07-10 15:47:16.778 [http-nio-1314-exec-5] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 15:47:16.787 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 15:47:16.791 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710154716(String), 图书馆管理系统(String), 150804205(Long), 2018-07-10 15:47:16.778(Timestamp), D://download//150804205//20180710154716//create_table.zip(String), create_table.zip(String), 0(Integer)
-2018-07-10 15:47:16.994 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 15:47:18.501 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:47:18.502 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:47:18.507 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 1
-2018-07-10 15:47:20.478 [http-nio-1314-exec-8] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 15:47:20.482 [http-nio-1314-exec-8] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 15:47:20.487 [http-nio-1314-exec-8] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710154720(String), 图书馆管理系统(String), 150804205(Long), 2018-07-10 15:47:20.478(Timestamp), D://download//150804205//20180710154720//create_table.zip(String), create_table.zip(String), 0(Integer)
-2018-07-10 15:47:20.854 [http-nio-1314-exec-8] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 15:47:21.829 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:47:21.830 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:47:21.836 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 2
-2018-07-10 15:47:24.135 [http-nio-1314-exec-10] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 15:47:24.140 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 15:47:24.143 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710154724(String), 图书馆管理系统(String), 150804205(Long), 2018-07-10 15:47:24.135(Timestamp), D://download//150804205//20180710154724//create_table.zip(String), create_table.zip(String), 0(Integer)
-2018-07-10 15:47:24.189 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 15:47:25.286 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:47:25.287 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:47:25.293 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 15:47:28.552 [http-nio-1314-exec-5] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 15:47:28.556 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 15:47:28.559 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710154728(String), 图书馆管理系统(String), 150804205(Long), 2018-07-10 15:47:28.552(Timestamp), D://download//150804205//20180710154728//create_table.zip(String), create_table.zip(String), 0(Integer)
-2018-07-10 15:47:28.609 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 15:47:29.689 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:47:29.690 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:47:29.696 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 4
-2018-07-10 15:47:39.759 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 15:47:39.760 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180710154728(String), 150804205(Long)
-2018-07-10 15:47:39.789 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 15:47:39.837 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 15:47:39.838 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 15:47:39.843 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 15:47:56.845 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------findAdminPasswordById---------->
-2018-07-10 15:47:56.863 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 15:47:56.864 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 15:47:56.867 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 15:48:00.134 [http-nio-1314-exec-10] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 15:48:00.135 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 15:48:00.136 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 15:48:00.140 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 15:48:00.142 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 15:48:00.143 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 15:48:00.157 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 3
-2018-07-10 15:48:00.158 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:48:00.162 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 15:48:00.170 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:48:00.172 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:48:00.174 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 15:48:00.176 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 15:48:00.177 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 15:48:00.178 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 15:48:00.180 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 16:01:35.361 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 16:01:59.573 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 16:01:59.800 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 16:01:59.858 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 16:01:59.890 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 16:01:59.895 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 16:01:59.896 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 16:01:59.903 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 3
-2018-07-10 16:01:59.905 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 16:01:59.905 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 16:01:59.913 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 16:01:59.915 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 16:01:59.915 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 16:01:59.918 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 16:01:59.920 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 16:01:59.920 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 16:01:59.922 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 16:04:54.190 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 16:05:21.292 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 16:05:21.503 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 16:05:21.560 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 16:05:21.596 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 16:05:21.601 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 16:05:21.602 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 16:05:21.608 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 3
-2018-07-10 16:05:21.610 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 16:05:21.611 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 16:05:21.616 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 16:05:21.616 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 16:05:21.616 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 16:05:21.616 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 16:05:21.616 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 16:05:21.616 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 16:05:21.616 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 16:05:50.677 [http-nio-1314-exec-5] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 16:05:50.679 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 16:05:50.682 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 16:05:50.685 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 16:05:50.686 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 16:05:50.688 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 16:05:50.694 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 3
-2018-07-10 16:05:50.695 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 16:05:50.696 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 16:05:50.698 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 16:05:50.699 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 16:05:50.700 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 16:05:50.702 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 16:05:50.705 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 16:05:50.707 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 16:05:50.709 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:17:48.687 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 17:18:14.480 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:18:14.724 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 17:18:14.779 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 17:18:14.805 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 17:18:14.815 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 17:18:14.815 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 17:18:14.815 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 3
-2018-07-10 17:18:14.825 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:18:14.825 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:18:14.825 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:18:14.825 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:18:14.835 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:18:14.835 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:18:14.835 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:18:14.835 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:18:14.835 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:18:38.674 [http-nio-1314-exec-5] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:18:38.693 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.updateDesignEnableStatusByDesignId - ==>  Preparing: UPDATE tb_design SET enable_status = ? WHERE design_id = ? 
-2018-07-10 17:18:38.694 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.updateDesignEnableStatusByDesignId - ==> Parameters: 1(Integer), 20180710154716(String)
-2018-07-10 17:18:38.772 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.updateDesignEnableStatusByDesignId - <==    Updates: 1
-2018-07-10 17:18:41.557 [http-nio-1314-exec-7] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:18:41.558 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 17:18:41.559 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 17:18:41.561 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 17:18:41.562 [http-nio-1314-exec-7] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 17:18:41.563 [http-nio-1314-exec-7] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 17:18:41.568 [http-nio-1314-exec-7] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 2
-2018-07-10 17:18:41.569 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:18:41.571 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:18:41.573 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:18:41.575 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:18:41.576 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:18:41.578 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:18:44.425 [http-nio-1314-exec-8] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:18:44.427 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.updateDesignEnableStatusByDesignId - ==>  Preparing: UPDATE tb_design SET enable_status = ? WHERE design_id = ? 
-2018-07-10 17:18:44.428 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.updateDesignEnableStatusByDesignId - ==> Parameters: -1(Integer), 20180710154724(String)
-2018-07-10 17:18:44.476 [http-nio-1314-exec-8] DEBUG c.n.s.dao.DesignDao.updateDesignEnableStatusByDesignId - <==    Updates: 1
-2018-07-10 17:18:46.176 [http-nio-1314-exec-10] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:18:46.177 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 17:18:46.179 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 17:18:46.181 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 17:18:46.183 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 17:18:46.183 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 17:18:46.187 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 2
-2018-07-10 17:18:46.189 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:18:46.190 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:18:46.192 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:18:46.194 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:18:46.196 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:18:46.197 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:22:45.987 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 17:23:10.395 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:23:10.654 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 17:23:10.712 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 17:23:10.746 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 17:23:10.751 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 17:23:10.752 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 17:23:10.762 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 2
-2018-07-10 17:23:10.763 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:23:10.764 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:23:10.771 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:23:10.772 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:23:10.773 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:23:10.775 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:23:17.677 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 17:23:17.677 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 17:23:17.687 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 17:23:32.019 [http-nio-1314-exec-10] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 17:23:32.027 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 17:23:32.032 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710172332(String), 图书馆管理系统(String), 150804205(Long), 2018-07-10 17:23:32.02(Timestamp), D://download//150804205//20180710172332//create_table.zip(String), create_table.zip(String), 0(Integer)
-2018-07-10 17:23:32.085 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 17:23:33.544 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 17:23:33.545 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 17:23:33.551 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 4
-2018-07-10 17:23:37.183 [http-nio-1314-exec-4] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:23:37.185 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 17:23:37.186 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 17:23:37.189 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 17:23:37.191 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 17:23:37.192 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 17:23:37.196 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 3
-2018-07-10 17:23:37.199 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:23:37.200 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:23:37.202 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:23:37.204 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:23:37.205 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:23:37.207 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:23:37.213 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:23:37.214 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:23:37.216 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:25:26.387 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 17:26:10.669 [http-nio-1314-exec-2] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------findAdminPasswordById---------->
-2018-07-10 17:26:10.956 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 17:26:11.041 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 17:26:11.081 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 17:26:14.541 [http-nio-1314-exec-10] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:26:14.543 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 17:26:14.544 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 17:26:14.548 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 17:26:14.552 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 17:26:14.554 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 17:26:14.566 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 3
-2018-07-10 17:26:14.567 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:26:14.569 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:26:14.576 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:26:14.577 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:26:14.578 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:26:14.580 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:26:14.581 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:26:14.582 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:26:14.585 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:29:40.417 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 17:30:07.031 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:30:07.287 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 17:30:07.345 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 17:30:07.377 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 17:30:07.387 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 17:30:07.387 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 17:30:07.397 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 3
-2018-07-10 17:30:07.397 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:30:07.397 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:30:07.407 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:30:07.407 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:30:07.407 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:30:07.417 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:30:07.417 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:30:07.417 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:30:07.417 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:37:07.685 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 17:37:32.470 [http-nio-1314-exec-1] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:37:32.700 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 17:37:32.754 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 17:37:32.786 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 17:37:32.786 [http-nio-1314-exec-1] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 17:37:32.786 [http-nio-1314-exec-1] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 17:37:32.796 [http-nio-1314-exec-1] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 3
-2018-07-10 17:37:32.796 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:37:32.796 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:37:32.816 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:37:32.816 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:37:32.816 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:37:32.816 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:37:32.816 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:37:32.816 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:37:32.816 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:41:31.985 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 17:42:02.165 [http-nio-1314-exec-2] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:42:02.421 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 17:42:02.587 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 17:42:02.667 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 17:42:02.711 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 17:42:02.713 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 17:42:02.723 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 3
-2018-07-10 17:42:02.723 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:42:02.723 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:42:02.734 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:42:02.734 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:42:02.734 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:42:02.744 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:42:02.744 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:42:02.744 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:42:02.744 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:42:17.211 [http-nio-1314-exec-4] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:42:17.230 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.updateDesignEnableStatusByDesignId - ==>  Preparing: UPDATE tb_design SET enable_status = ? WHERE design_id = ? 
-2018-07-10 17:42:17.232 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.updateDesignEnableStatusByDesignId - ==> Parameters: 1(Integer), 20180710172332(String)
-2018-07-10 17:42:17.299 [http-nio-1314-exec-4] DEBUG c.n.s.dao.DesignDao.updateDesignEnableStatusByDesignId - <==    Updates: 1
-2018-07-10 17:42:19.499 [http-nio-1314-exec-10] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:42:19.501 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 17:42:19.501 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 17:42:19.503 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 17:42:19.505 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 17:42:19.505 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 17:42:19.510 [http-nio-1314-exec-10] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 2
-2018-07-10 17:42:19.512 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:42:19.512 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:42:19.515 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:42:19.517 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:42:19.518 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:42:19.519 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:44:58.565 [http-nio-1314-exec-2] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
-2018-07-10 17:44:58.584 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:44:58.585 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
-2018-07-10 17:44:58.587 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
-2018-07-10 17:45:01.854 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 17:45:01.856 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 17:45:01.863 [http-nio-1314-exec-7] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 4
-2018-07-10 17:47:04.876 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 17:48:21.482 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 17:48:21.541 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 17:48:21.581 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 4
-2018-07-10 17:48:23.892 [http-nio-1314-exec-6] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==>  Preparing: DELETE FROM tb_design WHERE design_id = ? AND teacher_id = ? 
-2018-07-10 17:48:23.894 [http-nio-1314-exec-6] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - ==> Parameters: 20180710154720(String), 150804205(Long)
-2018-07-10 17:48:23.981 [http-nio-1314-exec-6] DEBUG c.n.s.dao.DesignDao.deleteDesignByDesignIdAndTeacherID - <==    Updates: 1
-2018-07-10 17:48:24.027 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 17:48:24.028 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 17:48:24.034 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 3
-2018-07-10 17:48:37.088 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
-2018-07-10 17:48:37.135 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
-2018-07-10 17:48:37.136 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
-2018-07-10 17:48:37.145 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
-2018-07-10 17:48:37.147 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
-2018-07-10 17:48:37.148 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
-2018-07-10 17:48:37.152 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 1
-2018-07-10 17:48:37.154 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
-2018-07-10 17:48:37.155 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
-2018-07-10 17:48:37.163 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
-2018-07-10 17:48:50.438 [http-nio-1314-exec-1] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------teacherApplyDesign---------->
-2018-07-10 17:48:50.448 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==>  Preparing: INSERT INTO tb_design (design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
-2018-07-10 17:48:50.448 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.DesignDao.addDesign - ==> Parameters: 20180710174850(String), 图书馆管理系统(String), 150804205(Long), 2018-07-10 17:48:50.438(Timestamp), D://download//150804205//20180710174850//create_table.zip(String), create_table.zip(String), 0(Integer)
-2018-07-10 17:48:50.658 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.DesignDao.addDesign - <==    Updates: 1
-2018-07-10 17:48:53.400 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 17:48:53.401 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 17:48:53.408 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 4
-2018-07-10 17:55:52.351 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 18:00:35.057 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
-2018-07-10 18:01:29.266 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
-2018-07-10 18:01:29.320 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
-2018-07-10 18:01:29.356 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 4
+2018-07-11 09:40:38.725 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 09:41:32.271 [http-nio-1314-exec-2] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------findStudentPasswordById---------->
+2018-07-11 09:41:32.907 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 09:41:33.006 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 09:41:33.046 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 09:41:50.304 [http-nio-1314-exec-1] DEBUG com.njfu.selection.service.impl.TeacherServiceImpl - <----------findTeacherPasswordById---------->
+2018-07-11 09:41:50.326 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==>  Preparing: SELECT teacher_id, teacher_name, password FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 09:41:50.326 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - ==> Parameters: 150804205(Long)
+2018-07-11 09:41:50.330 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.TeacherDao.queryTeacherPasswordById - <==      Total: 1
+2018-07-11 09:42:03.606 [http-nio-1314-exec-8] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------findAdminPasswordById---------->
+2018-07-11 09:42:03.617 [http-nio-1314-exec-8] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
+2018-07-11 09:42:03.619 [http-nio-1314-exec-8] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
+2018-07-11 09:42:03.623 [http-nio-1314-exec-8] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
+2018-07-11 09:42:08.996 [http-nio-1314-exec-6] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 09:42:08.999 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 09:42:09.001 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 09:42:09.005 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 09:42:09.008 [http-nio-1314-exec-6] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = 2 OR enable_status = 3 
+2018-07-11 09:42:09.011 [http-nio-1314-exec-6] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - ==> Parameters: 
+2018-07-11 09:42:09.025 [http-nio-1314-exec-6] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - <==      Total: 2
+2018-07-11 09:42:09.027 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 09:42:09.028 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 09:42:09.045 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 09:42:09.046 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 09:42:09.047 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 09:42:09.050 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 09:47:10.869 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 09:48:00.248 [http-nio-1314-exec-2] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 09:48:00.487 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 09:48:00.546 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 09:48:00.577 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 09:48:00.577 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = 2 OR enable_status = 3 
+2018-07-11 09:48:00.577 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - ==> Parameters: 
+2018-07-11 09:48:00.587 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - <==      Total: 2
+2018-07-11 09:48:00.587 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 09:48:00.587 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 09:48:00.597 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 09:48:00.597 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 09:48:00.597 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 09:48:00.597 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 09:48:04.872 [http-nio-1314-exec-4] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentApplyTeacherDesignInfo---------->
+2018-07-11 09:48:04.889 [http-nio-1314-exec-4] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 09:48:04.891 [http-nio-1314-exec-4] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 09:48:04.900 [http-nio-1314-exec-4] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 09:48:34.775 [http-nio-1314-exec-5] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentApplyTeacherDesignInfo---------->
+2018-07-11 09:48:34.777 [http-nio-1314-exec-5] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 09:48:34.778 [http-nio-1314-exec-5] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 09:48:34.781 [http-nio-1314-exec-5] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 0
+2018-07-11 09:48:34.783 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE design_id = ? 
+2018-07-11 09:48:34.785 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==> Parameters: 20180710174850(String)
+2018-07-11 09:48:34.790 [http-nio-1314-exec-5] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - <==      Total: 1
+2018-07-11 09:48:34.792 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.ProjectDao.addProject - ==>  Preparing: INSERT INTO tb_project (project_id, design_id, student_id, create_time, file_address, file_name, enable_status) VALUES (?, ?, ?, ?, ?, ?, ?) 
+2018-07-11 09:48:34.795 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.ProjectDao.addProject - ==> Parameters: 20180711094834(String), 20180710174850(String), 150804214(Long), 2018-07-11 09:48:34.791(Timestamp), null, null, 0(Integer)
+2018-07-11 09:48:34.869 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.ProjectDao.addProject - <==    Updates: 1
+2018-07-11 09:48:48.125 [http-nio-1314-exec-6] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentApplyTeacherDesignInfo---------->
+2018-07-11 09:48:48.126 [http-nio-1314-exec-6] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 09:48:48.127 [http-nio-1314-exec-6] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 09:48:48.132 [http-nio-1314-exec-6] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 09:52:11.954 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE teacher_id = ? 
+2018-07-11 09:52:11.956 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - ==> Parameters: 150804205(Long)
+2018-07-11 09:52:11.961 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryAllDesignByTeacherId - <==      Total: 4
+2018-07-11 10:11:07.497 [http-nio-1314-exec-5] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
+2018-07-11 10:11:07.508 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
+2018-07-11 10:11:07.509 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
+2018-07-11 10:11:07.512 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
+2018-07-11 10:11:07.514 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
+2018-07-11 10:11:07.514 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
+2018-07-11 10:11:07.518 [http-nio-1314-exec-5] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 2
+2018-07-11 10:11:07.519 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 10:11:07.520 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 10:11:07.522 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 10:11:07.523 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 10:11:07.524 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 10:11:07.526 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 10:49:19.589 [http-nio-1314-exec-1] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------updateAdminEnsureDesign---------->
+2018-07-11 10:49:19.595 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password FROM tb_admin WHERE admin_id = ? 
+2018-07-11 10:49:19.597 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
+2018-07-11 10:49:19.606 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
+2018-07-11 10:49:19.607 [http-nio-1314-exec-1] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = -1 OR enable_status = 0 
+2018-07-11 10:49:19.610 [http-nio-1314-exec-1] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - ==> Parameters: 
+2018-07-11 10:49:19.621 [http-nio-1314-exec-1] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus10 - <==      Total: 2
+2018-07-11 10:49:19.626 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 10:49:19.627 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 10:49:19.632 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 10:49:19.636 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 10:49:19.637 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 10:49:19.638 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 11:05:22.258 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 11:15:38.305 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 11:17:31.794 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 11:39:09.888 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 11:47:47.908 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 11:48:16.352 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 11:48:16.659 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 11:48:16.716 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 11:48:16.753 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 11:48:16.758 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = 2 OR enable_status = 3 
+2018-07-11 11:48:16.759 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - ==> Parameters: 
+2018-07-11 11:48:16.765 [http-nio-1314-exec-3] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - <==      Total: 2
+2018-07-11 11:48:16.767 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 11:48:16.768 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 11:48:16.776 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 11:48:16.777 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 11:48:16.778 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 11:48:16.781 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 11:49:18.620 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 11:49:48.509 [http-nio-1314-exec-2] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 11:49:48.794 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 11:49:48.852 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 11:49:48.885 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 11:49:48.889 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = 2 OR enable_status = 3 
+2018-07-11 11:49:48.890 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - ==> Parameters: 
+2018-07-11 11:49:48.901 [http-nio-1314-exec-2] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - <==      Total: 2
+2018-07-11 11:49:48.903 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 11:49:48.905 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 11:49:48.912 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 11:49:48.913 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 11:49:48.914 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 11:49:48.917 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 11:49:53.491 [http-nio-1314-exec-5] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentApplyTeacherDesignInfo---------->
+2018-07-11 11:49:53.536 [http-nio-1314-exec-5] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 11:49:53.537 [http-nio-1314-exec-5] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 11:49:53.547 [http-nio-1314-exec-5] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 12:52:22.642 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 12:53:47.171 [http-nio-1314-exec-4] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------findStudentPasswordById---------->
+2018-07-11 12:53:47.930 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 12:53:48.002 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 12:53:48.039 [http-nio-1314-exec-4] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 12:53:52.340 [http-nio-1314-exec-1] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 12:53:52.345 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 12:53:52.346 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 12:53:52.349 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 12:53:52.353 [http-nio-1314-exec-1] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE enable_status = 2 OR enable_status = 3 
+2018-07-11 12:53:52.355 [http-nio-1314-exec-1] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - ==> Parameters: 
+2018-07-11 12:53:52.360 [http-nio-1314-exec-1] DEBUG c.n.s.dao.DesignDao.queryAllDesignByEnableStatus234 - <==      Total: 2
+2018-07-11 12:53:52.363 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 12:53:52.364 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 12:53:52.372 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 12:53:52.373 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 12:53:52.374 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 12:53:52.376 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 12:53:54.305 [http-nio-1314-exec-10] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentApplyTeacherDesignInfo---------->
+2018-07-11 12:53:54.321 [http-nio-1314-exec-10] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 12:53:54.322 [http-nio-1314-exec-10] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 12:53:54.332 [http-nio-1314-exec-10] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 12:53:57.183 [http-nio-1314-exec-9] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 12:53:57.185 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 12:53:57.186 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 12:53:57.189 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 12:53:57.191 [http-nio-1314-exec-9] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 12:53:57.192 [http-nio-1314-exec-9] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 12:53:57.196 [http-nio-1314-exec-9] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 12:54:40.340 [http-nio-1314-exec-8] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 12:54:40.342 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 12:54:40.343 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 12:54:40.345 [http-nio-1314-exec-8] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 12:54:40.347 [http-nio-1314-exec-8] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 12:54:40.348 [http-nio-1314-exec-8] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 12:54:40.352 [http-nio-1314-exec-8] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 12:55:48.505 [http-nio-1314-exec-2] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 12:55:48.507 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 12:55:48.508 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 12:55:48.512 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 12:55:48.514 [http-nio-1314-exec-2] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 12:55:48.515 [http-nio-1314-exec-2] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 12:55:48.518 [http-nio-1314-exec-2] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 13:00:03.186 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 13:00:33.103 [http-nio-1314-exec-2] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 13:00:33.415 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 13:00:33.472 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 13:00:33.532 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 13:00:33.542 [http-nio-1314-exec-2] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 13:00:33.542 [http-nio-1314-exec-2] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 13:00:33.552 [http-nio-1314-exec-2] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 13:00:33.552 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE design_id = ? 
+2018-07-11 13:00:33.552 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==> Parameters: 20180710174850(String)
+2018-07-11 13:00:33.562 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - <==      Total: 1
+2018-07-11 13:00:33.562 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 13:00:33.562 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 13:00:33.572 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 13:05:56.875 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 13:06:55.805 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 13:07:53.154 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 13:12:23.239 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 13:14:04.285 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 13:14:34.052 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 13:14:34.256 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 13:14:34.306 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 13:14:34.346 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 13:14:34.346 [http-nio-1314-exec-3] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 13:14:34.346 [http-nio-1314-exec-3] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 13:14:34.356 [http-nio-1314-exec-3] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 13:14:34.356 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE design_id = ? 
+2018-07-11 13:14:34.356 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==> Parameters: 20180710174850(String)
+2018-07-11 13:14:34.366 [http-nio-1314-exec-3] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - <==      Total: 1
+2018-07-11 13:14:34.376 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 13:14:34.376 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 13:14:34.376 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 13:28:02.323 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 13:29:06.908 [http-nio-1314-exec-9] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 13:29:07.165 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 13:29:07.230 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 13:29:07.263 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 13:29:07.267 [http-nio-1314-exec-9] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 13:29:07.268 [http-nio-1314-exec-9] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 13:29:07.277 [http-nio-1314-exec-9] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 13:29:07.278 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE design_id = ? 
+2018-07-11 13:29:07.280 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==> Parameters: 20180710174850(String)
+2018-07-11 13:29:07.285 [http-nio-1314-exec-9] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - <==      Total: 1
+2018-07-11 13:29:07.288 [http-nio-1314-exec-9] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 13:29:07.289 [http-nio-1314-exec-9] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 13:29:07.296 [http-nio-1314-exec-9] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 13:32:10.673 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 13:32:37.239 [http-nio-1314-exec-2] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 13:32:37.443 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 13:32:37.498 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 13:32:37.531 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 13:32:37.534 [http-nio-1314-exec-2] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 13:32:37.534 [http-nio-1314-exec-2] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 13:32:37.538 [http-nio-1314-exec-2] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 13:32:37.540 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE design_id = ? 
+2018-07-11 13:32:37.542 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==> Parameters: 20180710174850(String)
+2018-07-11 13:32:37.552 [http-nio-1314-exec-2] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - <==      Total: 1
+2018-07-11 13:32:37.554 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 13:32:37.555 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 13:32:37.564 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 13:42:33.221 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-11 13:43:07.844 [http-nio-1314-exec-1] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 13:43:08.260 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 13:43:08.320 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 13:43:08.360 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 13:43:08.370 [http-nio-1314-exec-1] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 13:43:08.370 [http-nio-1314-exec-1] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 13:43:08.380 [http-nio-1314-exec-1] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 13:43:08.380 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE design_id = ? 
+2018-07-11 13:43:08.380 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==> Parameters: 20180710174850(String)
+2018-07-11 13:43:08.390 [http-nio-1314-exec-1] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - <==      Total: 1
+2018-07-11 13:43:08.390 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 13:43:08.390 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 13:43:08.400 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 13:43:39.042 [http-nio-1314-exec-6] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 13:43:39.043 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 13:43:39.044 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 13:43:39.047 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 13:43:39.048 [http-nio-1314-exec-6] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 13:43:39.049 [http-nio-1314-exec-6] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 13:43:39.054 [http-nio-1314-exec-6] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 13:43:39.055 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE design_id = ? 
+2018-07-11 13:43:39.056 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==> Parameters: 20180710174850(String)
+2018-07-11 13:43:39.060 [http-nio-1314-exec-6] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - <==      Total: 1
+2018-07-11 13:43:39.061 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 13:43:39.062 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 13:43:39.067 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1
+2018-07-11 13:45:43.268 [http-nio-1314-exec-10] DEBUG com.njfu.selection.service.impl.StudentServiceImpl - <----------studentGetTeacherDesignInfo---------->
+2018-07-11 13:45:43.270 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==>  Preparing: SELECT student_id, student_name, password FROM tb_student WHERE student_id = ? 
+2018-07-11 13:45:43.271 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - ==> Parameters: 150804214(Long)
+2018-07-11 13:45:43.274 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.StudentDao.queryStudentPasswordById - <==      Total: 1
+2018-07-11 13:45:43.276 [http-nio-1314-exec-10] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==>  Preparing: SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status FROM tb_project WHERE student_id = ? 
+2018-07-11 13:45:43.278 [http-nio-1314-exec-10] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - ==> Parameters: 150804214(Long)
+2018-07-11 13:45:43.281 [http-nio-1314-exec-10] DEBUG c.njfu.selection.dao.ProjectDao.queryProjectByStudentID - <==      Total: 1
+2018-07-11 13:45:43.283 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==>  Preparing: SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status FROM tb_design WHERE design_id = ? 
+2018-07-11 13:45:43.284 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - ==> Parameters: 20180710174850(String)
+2018-07-11 13:45:43.287 [http-nio-1314-exec-10] DEBUG c.n.selection.dao.DesignDao.queryDesignInfoByDesignId - <==      Total: 1
+2018-07-11 13:45:43.289 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==>  Preparing: SELECT teacher_name FROM tb_teacher WHERE teacher_id = ? 
+2018-07-11 13:45:43.290 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - ==> Parameters: 150804205(Long)
+2018-07-11 13:45:43.292 [http-nio-1314-exec-10] DEBUG com.njfu.selection.dao.TeacherDao.queryTeacherNameById - <==      Total: 1

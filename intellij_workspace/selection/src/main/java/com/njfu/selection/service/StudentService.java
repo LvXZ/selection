@@ -49,4 +49,44 @@ public interface StudentService {
      * @return
      */
     ResponseInfoDTO<Student> updateStudentPasswordByOther(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 获取教师发布毕设信息
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> studentGetTeacherDesignInfo(String params, HttpServletRequest request, HttpServletResponse response);
+
+
+    /**
+     * 申请教师发布毕设
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> studentApplyTeacherDesignInfo(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 查看自己的申请
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> studentGetMyselfProjectInfo(String params, HttpServletRequest request, HttpServletResponse response);
+
+
+    /**
+     * 删除自己的申请
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> studentDeleteApplyDesignInfo(String params, HttpServletRequest request, HttpServletResponse response);
+
+
 }

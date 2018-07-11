@@ -223,7 +223,6 @@ public class TeacherServiceImpl implements TeacherService {
     public ResponseInfoDTO<Object> teacherDeleteDesign(String params, HttpServletRequest request, HttpServletResponse response) {
         Design design = JSON.parseObject(params, Design.class);
 
-
         response.setHeader("Access-Control-Allow-Methods", "POST");
         ResponseInfoDTO<Object> responseInfoDTO;
 
@@ -237,9 +236,28 @@ public class TeacherServiceImpl implements TeacherService {
         return responseInfoDTO;
     }
 
+
+
     @Override
     public ResponseInfoDTO<Object> teacherPublishDesign(String params, HttpServletRequest request, HttpServletResponse response) {
-        return null;
+
+        logger.debug("<----------teacherPublishDesign---------->");
+        Design design = JSON.parseObject(params, Design.class);
+        design.setEnableStatus(2);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+
+        int flag = designDao.updateDesignEnableStatusByDesignId(design);
+
+        if(flag == 1){
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.success_3.code")), ymlUtil.getDesign().get("update.success_3.msg"));
+
+        }else{
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.failure_3.code")), ymlUtil.getDesign().get("update.failure_3.msg"));
+        }
+
+        return responseInfoDTO;
     }
 
     @Override
@@ -253,10 +271,51 @@ public class TeacherServiceImpl implements TeacherService {
 
         if(designList.size() == 0){
             responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("teacher.failure.code")), ymlUtil.getHelp().get("teacher.failure.msg"));
-
         }else{
             responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("teacher.success.code")), ymlUtil.getHelp().get("teacher.success.msg"),designList);
         }
+        return responseInfoDTO;
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> teacherStopDesign(String params, HttpServletRequest request, HttpServletResponse response) {
+        logger.debug("<----------teacherStopDesign---------->");
+        Design design = JSON.parseObject(params, Design.class);
+        design.setEnableStatus(3);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+
+        int flag = designDao.updateDesignEnableStatusByDesignId(design);
+
+        if(flag == 1){
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.success_4.code")), ymlUtil.getDesign().get("update.success_4.msg"));
+
+        }else{
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.failure_4.code")), ymlUtil.getDesign().get("update.failure_4.msg"));
+        }
+
+        return responseInfoDTO;
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> teacherEndDesign(String params, HttpServletRequest request, HttpServletResponse response) {
+        logger.debug("<----------teacherEndDesign---------->");
+        Design design = JSON.parseObject(params, Design.class);
+        design.setEnableStatus(4);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+
+        int flag = designDao.updateDesignEnableStatusByDesignId(design);
+
+        if(flag == 1){
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.success_5.code")), ymlUtil.getDesign().get("update.success_5.msg"));
+
+        }else{
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.failure_5.code")), ymlUtil.getDesign().get("update.failure_5.msg"));
+        }
+
         return responseInfoDTO;
     }
 }

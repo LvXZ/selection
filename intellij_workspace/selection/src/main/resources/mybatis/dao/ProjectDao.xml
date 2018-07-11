@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.njfu.selection.dao.ProjectDao">
+
+    <insert id="addProject" parameterType="com.njfu.selection.entity.Project">
+        INSERT INTO tb_project (project_id, design_id, student_id, create_time, file_address, file_name, enable_status)
+        VALUES (#{projectID}, #{designID}, #{studentID}, #{createTime}, #{fileAddress}, #{fileName}, #{enableStatus})
+    </insert>
+
+    <delete id="deleteProjectBypProjectIDDesignIdAndStudentID" parameterType="com.njfu.selection.entity.Project">
+        DELETE FROM tb_project
+        WHERE project_id = #{projectID} AND design_id = #{designID} AND student_id = #{studentID}
+    </delete>
+
+    <select id="queryProjectByStudentID" parameterType="Long" resultType="com.njfu.selection.entity.Project">
+        SELECT project_id, design_id, student_id, create_time, file_address, file_name, enable_status
+        FROM tb_project
+        WHERE student_id = #{studentID}
+    </select>
+
+
+
+
+</mapper>

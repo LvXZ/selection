@@ -31,5 +31,7 @@ public interface DesignDao {
 
     List<Design> queryAllDesignByEnableStatus10();
 
+    List<Design> queryAllDesignByEnableStatus234();
+
 
 }

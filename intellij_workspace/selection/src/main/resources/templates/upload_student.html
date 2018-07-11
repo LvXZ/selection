@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+
+
     <link rel="shortcut icon" href="../static/images/logo.ico" th:href="@{images/logo.ico}" type="image/x-icon"/>
     <link rel="stylesheet" href="../static/resources/materialize/css/materialize.min.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.min.css}">
     <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{css/login.css}">
@@ -20,31 +22,31 @@
 
     <script src="../static/js/js.cookie.js" th:src="@{js/js.cookie.js}"></script>
 
-    <title>管理员界面</title>
+    <title>学生界面</title>
 </head>
 
 <body onload="jumpLogin()" style="background-color:#39221e">
 
 <div class="container">
+
     <div class="row clearfix">
         <div class="col-md-4 column pull-left" id="logo-title">
             <h1>
-                管理员管理界面
+                学生管理界面
             </h1>
         </div>
-
     </div>
-    <div class="row clearfix">
+    <div class="row clearfix" >
         <div class="col-md-12 column">
             <ul class="nav nav-pills">
+                <li class="active">
+                    <a href="http://127.0.0.1:1314/lvxz/index_student">首页</a>
+                </li>
                 <li>
-                    <a href="#">首页</a>
+                    <a href="http://127.0.0.1:1314/lvxz/apply_student">申请毕业设计</a>
                 </li>
                 <li class="active">
-                    <a href="#">审查毕设申请</a>
-                </li>
-                <li>
-                    <a href="download_teacher.html">审批作业</a>
+                    <a href="#">查看申请</a>
                 </li>
                 <li class="dropdown pull-right">
                     <input id="user_name" value="未登录" readonly="true"/>
@@ -59,10 +61,10 @@
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">个人设置<strong class="caret"></strong></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a onclick="showAdminInfo()">修改信息</a>
+                            <a onclick="showStudentInfo()">修改信息</a>
                         </li>
                         <li>
-                            <a onclick="showAdminPassword()">修改密码</a>
+                            <a onclick="showStudentPassword()">修改密码</a>
                         </li>
                         <li class="divider">
                         </li>
@@ -75,17 +77,94 @@
         </div>
     </div>
 
-    <div class="row clearfix">
-        <div class="col-md-1 column">
-        </div>
-        <div class="col-md-10 column">
-            <div class="jumbotron">
-                <bbbb>
 
-                </bbbb>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="jumbotron">
+
+                <table class="table table-bordered  table-condensed" id="table_design">
+                    <thead>
+                    <tr class="info">
+                        <th>毕设编码</th>
+                        <th>毕设名称</th>
+                        <th>指导教师</th>
+                        <th>导师毕设状态</th>
+                        <th>留言</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td id="td1">----</td>
+                        <td id="td2">----</td>
+                        <td id="td3">----</td>
+                        <td id="td4">----</td>
+                        <td>
+                            <button onclick="teacher_delete(this);" class="btn btn-small btn-primary" data-toggle="tooltip"
+                                    data-placement="right" title="编写留言"> &nbsp;<i class="glyphicon glyphicon-comment">&nbsp;</i></button>
+                        </td>
+                    </tr>
+                    </tbody>
+
+                    <thead>
+                    <tr class="info">
+                        <th>学生申请时间</th>
+                        <th>学生毕设状态</th>
+                        <th>操作</th>
+                        <th>上传毕设文件名称</th>
+                        <th>最近修改时间</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td id="td5">----</td>
+                        <td id="td6">----</td>
+                        <td>
+                            <button id="button1" onclick="student_delete(this);" style="display:none" class="btn btn-small btn-warning"><i class="glyphicon glyphicon-remove">删除申请</i></button>
+                            <button id="button2" onclick="student_delete(this);" style="display:none" class="btn btn-small btn-warning"><i class="glyphicon glyphicon-remove">取消申请</i></button>
+                            <button id="button3" onclick="student_upload_file(this);" style="display:none" class="btn btn-small btn-success"><i class="glyphicon glyphicon-open-file">上传毕设</i></button>
+                            <button id="button4" onclick="student_upload_file(this);" style="display:none" class="btn btn-small btn-success" data-toggle="tooltip"
+                                    data-placement="bottom" title="修改毕设，上传的文件将覆盖原先文件"><i class="glyphicon glyphicon-open-file">修改毕设</i></button>
+                            <button id="button5" onclick="alert('项目已完结，无法再次上传修改！');" style="display:none" class="btn btn-small btn-danger"data-toggle="tooltip"
+                                    data-placement="bottom" title="项目已完结"><i class="glyphicon glyphicon-ban-circle">修改停止</i></button>
+                        </td>
+                        <td id="td7">----</td>
+                        <td id="td8">----</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+
             </div>
-        </div>
-        <div class="col-md-1 column">
+
+
+            <!--<form id="form1" role="form" method="POST" enctype="multipart/form-data" action="http://127.0.0.1:1314/lvxz/teacher/apply_design">
+                <div class="jumbotron">
+
+                    <div class="input">
+                        <input  class="form-control" id="now_date" type="text" value="" readonly="true"/>
+                    </div>
+
+                    <div class="input">
+                        <input  class="form-control" id="designName" name="designName" type="text" placeholder="毕业设计名称">
+                    </div>
+
+                    <div class="input">
+                        <input  class="form-control" id="teacherID" name="teacherID" type="hidden" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <input name="file" id="file" type="file" accept="application/x-zip-compressed,application/x-rar-compressed" value="选择压缩包" data-toggle="tooltip"
+                               data-placement="left" title="仅支持zip、rar压缩包，且小于1M"/></div>
+                    <div class="input-group" style="padding:16px;margin-left:auto;margin-right:auto;">
+                        <button type="submit" class="btn btn-primary" id="login_button" onclick="applyUpload()">
+                            <i class="glyphicon glyphicon-cloud-upload">申请发布</i>
+                        </button>
+                    </div>
+                </div>
+
+            </form>-->
 
 
             <!--修改个人信息框-->
@@ -110,11 +189,13 @@
                             <div class="input">
                                 <input  class="form-control" id="phone" type="number" placeholder="手机"/>
                             </div>
-
+                            <div class="input">
+                                <input  class="form-control" id="qq" type="number" placeholder="QQ"/>
+                            </div>
 
                             <div class="input" style="text-align:center">
                                 <button class="btn btn-default btn-center" data-dismiss="modal">取消</button>
-                                <button class="btn btn-primary btn-center" onclick="updateAdminInfo()">修改</button>
+                                <button class="btn btn-primary btn-center" onclick="updateStudentInfo()">修改</button>
                             </div>
                         </div>
                     </div>
@@ -148,47 +229,58 @@
 
                             <div class="input" style="text-align:center">
                                 <button class="btn btn-default btn-center" data-dismiss="modal">取消</button>
-                                <button class="btn btn-primary btn-center" onclick="updateAdminPassword()">修改</button>
+                                <button class="btn btn-primary btn-center" onclick="updateStudentPassword()">修改</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+
+
         </div>
     </div>
-
-
 </div>
+
+
 
 </body>
 
 <script>
 
 
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+
+
+
+
     /*网页生成时，验证是否登录的跳传*/
     function jumpLogin() {
 
-        if(!Cookies.get('admin_ObjJson')){
+
+
+        if(!Cookies.get('student_ObjJson')){
             alert("您还未登陆！请登陆");
             window.open("http://"+ getLocalIP() +":1314/lvxz/login",'_self');
+
         }else{
-            var jsonValue = JSON.parse(Cookies.get('admin_ObjJson'));
+            var jsonValue = JSON.parse(Cookies.get('student_ObjJson'));
+
             getUser(jsonValue);
 
-            getTeacherDesignInfo();
+            getMyselfProjectInfo();
         }
 
     }
 
     <!-- 获取登录信息，并修改登录栏-->
     function getUser(jsonValue){
-        $('#user_name').val(jsonValue.adminName);
-        $('#user_id').val(jsonValue.adminID);
+        $('#user_name').val(jsonValue.studentName);
+        $('#user_id').val(jsonValue.studentID);
     }
 
     /*修改个人信息框出现*/
-    function showAdminInfo() {
+    function showStudentInfo() {
 
         $('#update_InfoId').val($('#user_id').val()+"   "+$('#user_name').val());
 
@@ -196,19 +288,21 @@
     }
 
     /*修改个人信息函数*/
-    function updateAdminInfo() {
+    function updateStudentInfo() {
 
-        var adminID = $('#user_id').val();
+        var studentID = $('#user_id').val();
         var birthday = $('#birthday').val();
         var phone = $('#phone').val();
+        var qq = $('#qq').val();
 
-        if(adminID.length!=0){
+        if(studentID.length!=0){
 
-            var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/admin/update_info";
+            var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/student/update_info";
             var objJson = {
-                "adminID":parseInt(adminID),
+                "studentID":parseInt(studentID),
                 "birthday":birthday,
-                "phone":phone
+                "phone":phone,
+                "studentQQ":qq,
             };
 
             $.ajax({
@@ -237,28 +331,26 @@
     }
 
 
-
     /*修改密码框出现*/
-    function showAdminPassword(){
-
+    function showStudentPassword(){
         $('#update_PasswordId').val($('#user_id').val()+"   "+$('#user_name').val());
-
         $('#modal-container-287808').modal('show');
     }
 
     /*修改密码函数*/
-    function updateAdminPassword(){
+    function updateStudentPassword(){
 
-        var adminID = $('#user_id').val();
+        //var studentID = $('#update_PasswordId').attr("name");//id放入name
+        var studentID = $('#user_id').val();
         var oldPassword = $('#old_password').val();
         var newPassword = $('#new_password').val();
 
-        if(adminID.length!=0  && oldPassword.length!=0 && newPassword.length!=0) {
+        if(studentID.length!=0  && oldPassword.length!=0 && newPassword.length!=0) {
 
-            var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/admin/update_password";
+            var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/student/update_password";
 
             var objJson = {
-                "adminID":parseInt(adminID),
+                "studentID":parseInt(studentID),
                 "password":oldPassword,
                 "new_password":newPassword
             };
@@ -310,119 +402,24 @@
 
 
 
-    /*生成老师申请毕设的表格,只显示 驳回、待申请毕设*/
-    function getTable_Info(data){
+    <!--学生获取自己的项目毕设-->
+    function getMyselfProjectInfo() {
 
-        var $table=$('<table class="table table-bordered  table-condensed" id="table_design"></table>');
-        $("bbbb").append($table);
+        var student_ObjJson = Cookies.get('student_ObjJson');
 
-        var $thead=$('<thead></thead>');
-        var $trs=$('<tr class="info"></tr>');
-
-        var $th2=$('<th>毕设编码</th>');
-        var $th3=$('<th>毕设名称</th>');
-        var $th4=$('<th>申请时间</th>');
-        var $th33=$('<th>申请教师</th>');
-        var $th5=$('<th>详细信息</th>');
-        var $th6=$('<th>当前状态</th>');
-        var $th7=$('<th>操作</th>');
-        var $tbody=$('<tbody></tbody>');
-
-        $trs.append($th2);
-        $trs.append($th3);
-        $trs.append($th33);
-        $trs.append($th4);
-
-        $trs.append($th5);
-        $trs.append($th6);
-        $trs.append($th7);
-        $thead.append($trs);
-        $table.append($thead);
-        $table.append($tbody);
-
-        var count = 0;//表格颜色控制
-        for(var i=0;i<data.length;i++){
-
-            if(count%2==0){
-                var $tr=$('<tr></tr>');
-            }else{
-                var $tr=$('<tr class="success"></tr>');
-            }
-            $table.append($tr);
-
-            var $td2=$('<td>'+data[i]['designID']+'</td>');
-            $tr.append($td2);
-            var $td3=$('<td>'+data[i]['designName']+'</td>');
-            $tr.append($td3);
-            var $td33=$('<td>'+data[i]['fileAddress']+'</td>');
-            $tr.append($td33);
-            var $td4=$('<td>'+data[i]['createTime'].substring(0,10)+'</td>');
-            $tr.append($td4);
-            var $td5=$('<td>' +
-                '<button  id="'+ data[i]['teacherID'] +'/'+ data[i]['designID'] +'/' +'" name="'+ data[i]['fileName']+'" onclick="Start_Download(this)" type="submit" class="btn btn-small btn-warning" ' +
-                ' title="下载提示" data-container="body" data-toggle="popover" data-placement="right" data-content="文件正在下载" >' +
-                '<i class="glyphicon glyphicon-save">下载</i></button></td>');
-            $tr.append($td5);
-
-
-            var $td6;
-            var $td7;
-
-            switch(data[i]['enableStatus']){
-
-                case -1:{
-                    //被驳回
-                    $td6=$('<td>被驳回</td>');
-                    $td7=$('<td><button id="'+ data[i]['designID'] +'"  onclick="ensure_design(this);" type="submit" class="btn btn-small btn-warning">' +
-                        '<i class="glyphicon glyphicon-ok">重新确定</i>');
-                }break;
-
-                case 0:{
-                    //等待审批
-                    $td6=$('<td>等待审批</td>');
-                    $td7=$('<td>' +
-                                '<button id="'+ data[i]['designID'] +'" type="button" class="btn btn-small btn-warning" data-toggle="tooltip"' +
-                                        'data-placement="left" title="驳回申请" onclick="oppose_design(this);">' +
-                                    '<i class="glyphicon glyphicon-remove"></i>' +
-                                '</button>&nbsp;' +
-                                '<button id="'+ data[i]['designID'] +'" type="button" class="btn btn-small btn-warning" data-toggle="tooltip"' +
-                                        'data-placement="right" title="申请通过" onclick="ensure_design(this);">' +
-                                    '<i class="glyphicon glyphicon-ok"></i>' +
-                                '</button>' +
-                            '</td>');
-                }break;
-
-
-
-            }
-
-            $tr.append($td6);
-            $tr.append($td7);
-            count++;
-        }
-
-    }
-
-    $(function () { $("[data-toggle='tooltip']").tooltip('show'); });
-
-    <!--管理员获取老师上传的毕设，只获取 驳回、待申请毕设-->
-    function getTeacherDesignInfo() {
-
-        var admin_ObjJson = Cookies.get('admin_ObjJson');
-
-        if(admin_ObjJson!=null){
+        if(student_ObjJson!=null){
 
             $.ajax({
                 type:"POST",
-                url: "http://"+ getLocalIP() +":1314/lvxz/admin/get_design",
+                url: "http://"+ getLocalIP() +":1314/lvxz/student/get_myself_project",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
-                data: admin_ObjJson,
+                data: student_ObjJson,
                 async:true,
                 success: function (response) {
-                    if(response.code == 901){
-                        console.log(response);
-                        getTable_Info(response.data);
+                    console.log(response);
+                    if(response.code == 703){
+                        changeTable_Info(response.data);
                     } else {
                         alert(response.msg);
                     }
@@ -438,100 +435,82 @@
         }
     }
 
-    <!-- 获取文件下载url，下载-->
-    function Start_Download(obj) {
+    function changeTable_Info(data){
 
-        var fileURL = obj.id;
-        var fileName = obj.name;
-        var newURL = "http://"+ getLocalIP() +":8081/download/" + fileURL + fileName;
+        $('#td1').html(data['project']['designID']);
+        $('#td2').html(data['designName']);
+        $('#td3').html(data['teacherName']);
 
-        $("[data-toggle='popover']").popover();
+        switch(data['designStatus']) {
+            case 2:{
+                $('#td4').html('等待申请');
+            }break;
 
-        var a = document.createElement('a');
-        a.setAttribute('href', newURL);
-        a.setAttribute('download', fileName);
-        a.click();
-        //设置时间关闭popover
-        setTimeout(function(){$("[data-toggle='popover']").popover('hide');},3500);
-    }
-    
-    
-    //确定通过申请
-    function ensure_design(obj) {
+            case 3:{
+                $('#td4').html('申请截止');
+            }break;
 
-        var designID = obj.id;
+            case 4:{
+                $('#td4').html('项目完结');
+            }break;
+        }
 
-        if(designID.length!=0 ){
-            var objJson = {
-                "designID":designID
-            };
+        var d = new Date(data['project']['createTime']);
+        var times=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+        $('#td5').html(times);
 
-            $.ajax({
-                type:"POST",
-                url: "http://"+ getLocalIP() +":1314/lvxz/admin/ensure_design",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                data: JSON.stringify(objJson),
-                async:true,
-                success: function (response) {
-                    if(response.code == 802){
-                        alert(response.msg);
+        switch(data['project']['enableStatus']) {
+            case -1:{
+                //申请被驳回
+                $('#td6').html('删除申请');
+                $('#button1').show();
+            }break;
 
-                        $('#table_design').remove();
-                        getTeacherDesignInfo();//重新加载教师毕设
-                    } else {
-                        alert(response.msg);
-                    }
-                },
-                error: function (data){
-                    alert("访问失败，请检查网络、路径......");
-                }
-            });
-        }else{
-            alert("提交失败");
+            case 0:{
+                //等待申请通过
+                $('#td6').html('等待申请通过');
+                $('#button2').show();
+            }break;
+
+            case 1:{
+                //申请成功通过
+                $('#td6').html('申请成功通过');
+                $('#button3').show();
+            }break;
+
+            case 2:{
+                //上传毕设成功
+                $('#td6').html('上传毕设成功');
+                $('#button4').show();
+            }break;
+
+            case 3:{
+                //项目完结
+                $('#td6').html('修改停止');
+                $('#button5').show();
+            }break;
         }
 
 
-        
-    }
-
-    //驳回申请
-    function oppose_design(obj) {
-
-        var designID = obj.id;
-
-        if(designID.length!=0 ){
-            var objJson = {
-                "designID":designID
-            };
-
-            $.ajax({
-                type:"POST",
-                url: "http://"+ getLocalIP() +":1314/lvxz/admin/oppose_design",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                data: JSON.stringify(objJson),
-                async:true,
-                success: function (response) {
-                    if(response.code == 803){
-                        alert(response.msg);
-
-                        $('#table_design').remove();
-                        getTeacherDesignInfo();//重新加载教师毕设
-                    } else {
-                        alert(response.msg);
-                    }
-                },
-                error: function (data){
-                    alert("访问失败，请检查网络、路径......");
-                }
-            });
-        }else{
-            alert("提交失败");
-        }
+        $('#td7').html(data['project']['fileName']);
+        $('#td8').html(times);
 
     }
+
+    /*学生删除申请、取消申请*/
+    function student_delete(){
+
+    }
+
+    /*学生上传作业、修改作业*/
+    function student_upload_file(){
+
+    }
+
 
 </script>
+
+
+
 
 </html>

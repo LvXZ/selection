@@ -132,6 +132,28 @@ message:
       failure_2:
         code: -803
         msg: 驳回申请失败
+
+      success_3:
+        code: 804
+        msg: 正式发布成功
+      failure_3:
+        code: -804
+        msg: 正式发布失败
+
+      success_4:
+        code: 805
+        msg: 禁止选择成功
+      failure_4:
+        code: -805
+        msg: 禁止选择失败
+
+      success_5:
+        code: 806
+        msg: 完结毕设成功
+      failure_5:
+        code: -806
+        msg: 完结毕设失败
+
     delete:
       success:
         code: 801
@@ -141,6 +163,34 @@ message:
         msg: 删除毕设失败
 
 
+  project:
+    insert:
+      success:
+        code: 701
+        msg: 申请毕设操作成功
+      failure_1:
+        code: -7011
+        msg: 申请毕设操作失败，教师自己没有发布毕设
+      failure_2:
+        code: -7012
+        msg: 申请毕设操作失败，你的毕设已存在
+      failure_3:
+        code: -7013
+        msg: 申请毕设操作失败，毕设信息已不存在或者已不在当前正式发布下
+    delete:
+      success:
+        code: 702
+        msg: 删除申请成功
+      failure:
+        code: -702
+        msg: 删除申请失败，操作存在错误
+    select:
+      success:
+        code: 703
+        msg: 学生毕设信息已接收
+      failure:
+        code: -703
+        msg: 学生没有毕设项目信息
 
   help:
     teacher:
@@ -157,7 +207,18 @@ message:
         msg: 教师毕设信息已接收
       failure_1:
         code: -9011
-        msg: 教师没有毕设信息
+        msg: 教师没有毕设申请信息
       failure_2:
         code: -9012
         msg: 管理员不存在
+
+    student:
+      success:
+        code: 902
+        msg: 教师毕设信息已接收
+      failure_1:
+        code: -9021
+        msg: 教师没有毕设发布信息
+      failure_2:
+        code: -9022
+        msg: 学生不存在

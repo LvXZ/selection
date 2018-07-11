@@ -37,5 +37,11 @@
         WHERE enable_status = -1 OR enable_status = 0
     </select>
 
+    <select id="queryAllDesignByEnableStatus234" resultType="com.njfu.selection.entity.Design">
+        SELECT design_id, design_name, teacher_id, create_time, file_address, file_name, enable_status
+        FROM tb_design
+        WHERE enable_status = 2 OR enable_status = 3
+    </select>
+
 
 </mapper>

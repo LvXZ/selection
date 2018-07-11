@@ -65,4 +65,51 @@ public class StudentController {
 
 
 
+    /**********************************student获取教师发布毕设信息、申请教师发布毕设、查看自己的申请、删除自己的申请*********************************/
+    /**
+     * 获取教师发布毕设信息
+     * studentID
+     */
+    @PostMapping(value = "/get_teacher_design", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> studentGetTeacherDesignInfo(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return studentService.studentGetTeacherDesignInfo(params, request, response);
+    }
+
+
+    /**
+     * 申请教师发布毕设
+     * studentID,designID
+     */
+    @PostMapping(value = "/apply_teacher_design", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> studentApplyTeacherDesignInfo(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return studentService.studentApplyTeacherDesignInfo(params, request, response);
+    }
+
+
+    /**
+     * 查看自己的申请
+     * studentID
+     */
+    @PostMapping(value = "/get_myself_project", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> studentGetMyselfProjectInfo(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return studentService.studentGetMyselfProjectInfo(params, request, response);
+    }
+
+
+
+
+    /**
+     * 删除自己的申请
+     * studentID,designID,projectID
+     */
+    @PostMapping(value = "/delete_apply_design", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> studentDeleteApplyDesignInfo(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return studentService.studentDeleteApplyDesignInfo(params, request, response);
+    }
+
+
 }

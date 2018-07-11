@@ -86,5 +86,23 @@ public interface TeacherService {
      */
     ResponseInfoDTO<Object> teacherMyselfDesign(String params, HttpServletRequest request, HttpServletResponse response);
 
+    /**
+     * 查询教师自己毕业设计
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> teacherStopDesign(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 查询教师自己毕业设计
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> teacherEndDesign(String params, HttpServletRequest request, HttpServletResponse response);
+
 
 }

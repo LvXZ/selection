@@ -65,7 +65,7 @@ public class TeacherController {
     }
 
 
-    /**********************************teacher申请发布毕业设计、删除申请的毕业设计、正式发布毕业设计、查询教师自己毕业设计*********************************/
+    /***teacher申请发布毕业设计、删除申请的毕业设计、正式发布毕业设计、查询教师自己毕业设计、停止该毕设的选择、教师完结该毕设*********************************/
     /**
      * 申请发布毕业设计
      * designName,teacherID,file
@@ -88,7 +88,7 @@ public class TeacherController {
 
     /**
      * 正式发布毕业设计
-     *
+     * designID, teacherID
      */
     @PostMapping(value = "/publish_design", produces = "application/json;charset=UTF-8")
     @CrossOrigin(allowCredentials = "false")
@@ -98,12 +98,32 @@ public class TeacherController {
 
     /**
      * 查询教师自己毕业设计
-     *
+     * teacherID
      */
     @PostMapping(value = "/myself_design", produces = "application/json;charset=UTF-8")
     @CrossOrigin(allowCredentials = "false")
     public ResponseInfoDTO<Object> teacherMyselfDesign(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
         return teacherService.teacherMyselfDesign(params, request, response);
+    }
+
+    /**
+     * 停止该毕设的选择
+     * designID, teacherID
+     */
+    @PostMapping(value = "/stop_design", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> teacherStopDesign(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return teacherService.teacherStopDesign(params, request, response);
+    }
+
+    /**
+     * 教师完结该毕设
+     * designID, teacherID
+     */
+    @PostMapping(value = "/end_design", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> teacherEndDesign(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return teacherService.teacherEndDesign(params, request, response);
     }
 
 }

@@ -31,6 +31,8 @@ public class MessageYmlUtil {
 
     private Map<String, String> design = new HashMap<>();
 
+    private Map<String, String> project = new HashMap<>();
+
 
 
 
@@ -88,5 +90,13 @@ public class MessageYmlUtil {
 
     public void setDesign(Map<String, String> design) {
         this.design = design;
+    }
+
+    public Map<String, String> getProject() {
+        return project;
+    }
+
+    public void setProject(Map<String, String> project) {
+        this.project = project;
     }
 }

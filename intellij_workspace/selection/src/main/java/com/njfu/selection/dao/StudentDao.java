@@ -52,4 +52,9 @@ public interface StudentDao {
     int updateStudentInfoById(Student student);
 
 
+    int addStudent(Student student);
+
+    int updateStudentEnableStatusByAdmin_StudentID(Student student);
+
+
 }

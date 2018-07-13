@@ -2,6 +2,8 @@ package com.njfu.selection.service;
 
 import com.njfu.selection.dto.ResponseInfoDTO;
 import com.njfu.selection.entity.Admin;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -76,6 +78,40 @@ public interface AdminService {
      */
     ResponseInfoDTO<Object> updateAdminOpposeDesign(String params, HttpServletRequest request, HttpServletResponse response);
 
+    /**
+     * 读取excel表格
+     * @param file
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> adminReadExcel(MultipartFile file, HttpServletRequest request, HttpServletResponse response);
 
+    /**
+     * 文件注册学生
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> adminInsert2Students(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 文件注册老师
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> adminInsert2Teachers(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 冻结解冻用户账号
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> adminBlockedUser(String params, HttpServletRequest request, HttpServletResponse response);
 
 }

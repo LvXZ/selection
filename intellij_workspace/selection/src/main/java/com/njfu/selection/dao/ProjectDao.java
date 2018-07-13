@@ -26,5 +26,7 @@ public interface ProjectDao {
 
     int updateAllProject(Project project);
 
+    int updateProjectEnableStatusByDesignId(Project project);
+
 
 }

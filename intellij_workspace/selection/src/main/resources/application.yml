@@ -94,6 +94,21 @@ message:
         code: -104
         msg: 更新信息失败，用户不存在
 
+  enable:
+    success_1:
+      code: 1051
+      msg: 冻结成功
+    failure_1:
+      code: -1051
+      msg: 解冻失败
+    success_2:
+      code: 1052
+      msg: 解冻成功
+    failure_2:
+      code: -1052
+      msg: 解冻失败
+
+
   file:
     upload:
       success:

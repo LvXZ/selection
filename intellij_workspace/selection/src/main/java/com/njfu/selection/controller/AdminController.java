@@ -5,6 +5,8 @@ import com.njfu.selection.entity.Admin;
 import com.njfu.selection.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -92,6 +94,49 @@ public class AdminController {
     @CrossOrigin(allowCredentials = "false")
     public ResponseInfoDTO<Object> adminOpposeDesign(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
         return adminService.updateAdminOpposeDesign(params, request, response);
+    }
+
+
+
+    /**********************************admin读取excel表格,文件注册学生,文件注册老师,冻结解冻用户账号*********************************/
+    /**
+     * 读取excel表格
+     * radio, file
+     */
+    @PostMapping(value = "/read_excel", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> readExcel(@RequestParam("file") MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
+        return adminService.adminReadExcel(file, request, response);
+    }
+
+    /**
+     * 文件注册学生
+     * adminID, students
+     */
+    @PostMapping(value = "/insert2_students", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> adminInsert2Students(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return adminService.adminInsert2Students(params, request, response);
+    }
+
+    /**
+     * 文件注册老师
+     * adminID, teachers
+     */
+    @PostMapping(value = "/insert2_teachers", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> adminInsert2Teachers(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return adminService.adminInsert2Teachers(params, request, response);
+    }
+
+    /**
+     * 冻结解冻用户账号
+     * adminID, teachers
+     */
+    @PostMapping(value = "/blocked_user", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> adminBlockedUser(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return adminService.adminBlockedUser(params, request, response);
     }
 
 

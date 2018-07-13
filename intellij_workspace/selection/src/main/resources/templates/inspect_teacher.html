@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
 
     <link rel="shortcut icon" href="../static/images/logo.ico" th:href="@{images/logo.ico}" type="image/x-icon"/>
-    <link rel="stylesheet" href="../static/resources/materialize/css/materialize.min.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.min.css}">
+    <link rel="stylesheet" href="../static/resources/materialize/css/materialize.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.css}">
     <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{css/login.css}">
     <link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{css/index.css}">
     <script src="../static/js/constant.js" th:src="@{js/constant.js}"></script>
@@ -39,13 +39,13 @@
         <div class="col-md-12 column">
             <ul class="nav nav-pills">
                 <li>
-                    <a href="http://127.0.0.1:1314/lvxz/index_teacher">首页</a>
+                    <a href="/lvxz/index_teacher">首页</a>
                 </li>
                 <li>
-                    <a href="http://127.0.0.1:1314/lvxz/apply_teacher">发布毕业课设</a>
+                    <a href="/lvxz/apply_teacher">毕业设计管理</a>
                 </li>
                 <li class="active">
-                    <a href="http://127.0.0.1:1314/lvxz/inspect_teacher">查看学生申请</a>
+                    <a href="#">学生申请管理</a>
                 </li>
                 <li class="dropdown pull-right">
                     <input id="user_name" value="未登录" readonly="true"/>
@@ -173,7 +173,7 @@
 
         if(!Cookies.get('teacher_ObjJson')){
             alert("您还未登陆！请登陆");
-            window.open("http://"+ getLocalIP() +":1314/lvxz/login",'_self');
+            window.open("/lvxz/login",'_self');
         }else{
             var jsonValue = JSON.parse(Cookies.get('teacher_ObjJson'));
             getUser(jsonValue);
@@ -206,7 +206,7 @@
 
         if(teacherID.length!=0){
 
-            var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/teacher/update_info";
+            var updatePasswordURL = "/lvxz/teacher/update_info";
             var objJson = {
                 "teacherID":parseInt(teacherID),
                 "birthday":birthday,
@@ -254,7 +254,7 @@
 
         if(teacherID.length!=0  && oldPassword.length!=0 && newPassword.length!=0) {
 
-            var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/teacher/update_password";
+            var updatePasswordURL = "/lvxz/teacher/update_password";
 
             var objJson = {
                 "teacherID":parseInt(teacherID),
@@ -315,6 +315,7 @@
         var fileURL = obj.id;
         var fileName = obj.name;
         var newURL = "http://"+ getLocalIP() +":8081/download/" + fileURL + fileName;
+        console.log(newURL);
 
         $("[data-toggle='popover']").popover();
 
@@ -496,7 +497,7 @@
 
             $.ajax({
                 type:"POST",
-                url: "http://"+ getLocalIP() +":1314/lvxz/teacher/get_student_project",
+                url: "/lvxz/teacher/get_student_project",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 data: teacher_ObjJson,
@@ -534,7 +535,7 @@
 
             $.ajax({
                 type:"POST",
-                url: "http://"+ getLocalIP() +":1314/lvxz/teacher/ensure_project",
+                url: "/lvxz/teacher/ensure_project",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify(objJson),
@@ -573,7 +574,7 @@
 
             $.ajax({
                 type:"POST",
-                url: "http://"+ getLocalIP() +":1314/lvxz/teacher/oppose_project",
+                url: "/lvxz/teacher/oppose_project",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify(objJson),

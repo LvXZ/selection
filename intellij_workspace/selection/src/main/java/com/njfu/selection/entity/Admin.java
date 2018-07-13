@@ -22,7 +22,7 @@ public class Admin {
     private Date birthday;
     private String gender;
     private String phone;
-    private Integer enable_status;
+    private Integer enableStatus;
 
     public Admin() {
     }
@@ -84,11 +84,15 @@ public class Admin {
     }
 
     public Integer getEnable_status() {
-        return enable_status;
+        return enableStatus;
     }
 
-    public void setEnable_status(Integer enable_status) {
-        this.enable_status = enable_status;
+    public Integer getEnableStatus() {
+        return enableStatus;
+    }
+
+    public void setEnableStatus(Integer enableStatus) {
+        this.enableStatus = enableStatus;
     }
 
     @Override
@@ -101,7 +105,7 @@ public class Admin {
                 ", birthday=" + birthday +
                 ", gender='" + gender + '\'' +
                 ", phone='" + phone + '\'' +
-                ", enable_status=" + enable_status +
+                ", enable_status=" + enableStatus +
                 '}';
     }
 }

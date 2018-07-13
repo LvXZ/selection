@@ -22,11 +22,11 @@
     <style>
         @font-face {
             font-family: 'iconfont';  /* project id 738044 */
-            src: url('//at.alicdn.com/t/font_738044_1h9as89pc37.eot');
-            src: url('//at.alicdn.com/t/font_738044_1h9as89pc37.eot?#iefix') format('embedded-opentype'),
-            url('//at.alicdn.com/t/font_738044_1h9as89pc37.woff') format('woff'),
-            url('//at.alicdn.com/t/font_738044_1h9as89pc37.ttf') format('truetype'),
-            url('//at.alicdn.com/t/font_738044_1h9as89pc37.svg#iconfont') format('svg');
+            src: url('//at.alicdn.com/t/font_738044_t4gao2pkol.eot');
+            src: url('//at.alicdn.com/t/font_738044_t4gao2pkol.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_738044_t4gao2pkol.woff') format('woff'),
+            url('//at.alicdn.com/t/font_738044_t4gao2pkol.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_738044_t4gao2pkol.svg#iconfont') format('svg');
         }
 
         .iconfont {/*对阿里图标进行修饰*/
@@ -122,8 +122,8 @@
 
             if(userID.length!=0  && userPassword.length!=0 ) {
 
-                var loginURL = "http://"+ getLocalIP() +":1314/lvxz/"+ userRadio +"/login";
-                var openURL = "http://"+ getLocalIP() +":1314/lvxz/index_"+ userRadio;
+                var loginURL = "/lvxz/"+ userRadio +"/login";
+                var openURL = "/lvxz/index_"+ userRadio;
                 var objJson;
 
                 switch (userRadio) {

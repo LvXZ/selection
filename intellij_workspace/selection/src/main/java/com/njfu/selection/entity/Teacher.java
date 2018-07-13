@@ -24,9 +24,17 @@ public class Teacher {
     private String gender;
     private String phone;
     private Long teacherQQ;
-    private Integer enable_status;
+    private Integer enableStatus;
 
     public Teacher() {
+    }
+
+    public Teacher(Long teacherID, String teacherName, String password, String academy, Integer enableStatus) {
+        this.teacherID = teacherID;
+        this.teacherName = teacherName;
+        this.password = password;
+        this.academy = academy;
+        this.enableStatus = enableStatus;
     }
 
     public Long getTeacherID() {
@@ -101,12 +109,12 @@ public class Teacher {
         this.teacherQQ = teacherQQ;
     }
 
-    public Integer getEnable_status() {
-        return enable_status;
+    public Integer getEnableStatus() {
+        return enableStatus;
     }
 
-    public void setEnable_status(Integer enable_status) {
-        this.enable_status = enable_status;
+    public void setEnableStatus(Integer enableStatus) {
+        this.enableStatus = enableStatus;
     }
 
     @Override
@@ -121,7 +129,7 @@ public class Teacher {
                 ", gender='" + gender + '\'' +
                 ", phone='" + phone + '\'' +
                 ", teacherQQ=" + teacherQQ +
-                ", enable_status=" + enable_status +
+                ", enable_status=" + enableStatus +
                 '}';
     }
 }

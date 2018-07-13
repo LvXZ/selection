@@ -74,8 +74,12 @@ a:hover {
     margin-bottom: 30px;
 }
 
-#user_password, #user_id{
+#user_password, #user_id, #block_user_id{
     text-indent: 10px;
+}
+
+#block_user_id{
+    background-color: white;
 }
 
 #old_password, #new_password, #birthday, #phone, #qq, #designName{

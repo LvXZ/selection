@@ -48,4 +48,7 @@ public interface AdminDao {
      * @return
      */
     int updateAdminInfoById(Admin admin);
+
+
+    int updateAdminEnableStatusByAdmin_AdminID(Admin admin);
 }

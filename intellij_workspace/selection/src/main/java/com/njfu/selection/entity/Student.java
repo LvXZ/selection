@@ -25,9 +25,18 @@ public class Student {
     private String gender;
     private String phone;
     private Long studentQQ;
-    private Integer enable_status;
+    private Integer enableStatus;
 
     public Student() {
+    }
+
+    public Student(Long studentID, String studentName, String password, String academy, String studentClass, Integer enableStatus) {
+        this.studentID = studentID;
+        this.studentName = studentName;
+        this.password = password;
+        this.academy = academy;
+        this.studentClass = studentClass;
+        this.enableStatus = enableStatus;
     }
 
     public Long getStudentID() {
@@ -110,12 +119,12 @@ public class Student {
         this.studentQQ = studentQQ;
     }
 
-    public Integer getEnable_status() {
-        return enable_status;
+    public Integer getEnableStatus() {
+        return enableStatus;
     }
 
-    public void setEnable_status(Integer enable_status) {
-        this.enable_status = enable_status;
+    public void setEnableStatus(Integer enableStatus) {
+        this.enableStatus = enableStatus;
     }
 
     @Override
@@ -131,7 +140,7 @@ public class Student {
                 ", gender='" + gender + '\'' +
                 ", phone='" + phone + '\'' +
                 ", studentQQ=" + studentQQ +
-                ", enable_status=" + enable_status +
+                ", enable_status=" + enableStatus +
                 '}';
     }
 }

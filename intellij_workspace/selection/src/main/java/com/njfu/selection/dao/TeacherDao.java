@@ -51,4 +51,9 @@ public interface TeacherDao {
      * @return
      */
     int updateTeacherInfoById(Teacher teacher);
+
+
+    int addTeacher(Teacher teacher);
+
+    int updateTeacherEnableStatusByAdmin_TeacherID(Teacher teacher);
 }

@@ -47,5 +47,17 @@
         WHERE teacher_id = #{teacherID}
     </update>
 
+    <insert id="addTeacher"  parameterType="com.njfu.selection.entity.Teacher" >
+        INSERT INTO tb_teacher (teacher_id, teacher_name, password, academy, enable_status)
+        VALUES ( #{teacherID}, #{teacherName}, #{password}, #{academy}, #{enableStatus})
+    </insert>
+
+
+    <update id="updateTeacherEnableStatusByAdmin_TeacherID" parameterType="com.njfu.selection.entity.Teacher" >
+        UPDATE tb_teacher
+        SET enable_status = #{enableStatus}
+        WHERE teacher_id = #{teacherID}
+    </update>
+
 
 </mapper>

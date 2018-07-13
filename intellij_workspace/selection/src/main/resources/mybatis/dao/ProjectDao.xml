@@ -31,6 +31,12 @@
         WHERE project_id = #{projectID}
     </update>
 
+    <update id="updateProjectEnableStatusByDesignId" parameterType="com.njfu.selection.entity.Project">
+        UPDATE tb_project
+        SET enable_status = #{enableStatus}
+        WHERE design_id = #{designID}
+    </update>
+
     <update id="updateAllProject" parameterType="com.njfu.selection.entity.Project">
         UPDATE tb_project
         SET file_address = #{fileAddress}, file_name = #{fileName}, last_edit_time = #{lastEditTime}, enable_status = #{enableStatus}

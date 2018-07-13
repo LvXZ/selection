@@ -5,7 +5,7 @@
 
 
     <link rel="shortcut icon" href="../static/images/logo.ico" th:href="@{images/logo.ico}" type="image/x-icon"/>
-    <link rel="stylesheet" href="../static/resources/materialize/css/materialize.min.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.min.css}">
+    <link rel="stylesheet" href="../static/resources/materialize/css/materialize.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.css}">
     <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{css/login.css}">
     <link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{css/index.css}">
     <script src="../static/js/constant.js" th:src="@{js/constant.js}"></script>
@@ -42,13 +42,13 @@
         <div class="col-md-12 column">
             <ul class="nav nav-pills">
                 <li class="active">
-                    <a href="http://127.0.0.1:1314/lvxz/index_student">首页</a>
+                    <a href="/lvxz/index_student">首页</a>
                 </li>
                 <li>
-                    <a href="http://127.0.0.1:1314/lvxz/apply_student">申请毕业设计</a>
+                    <a href="/lvxz/apply_student">申请毕业设计</a>
                 </li>
                 <li class="active">
-                    <a href="#">查看申请</a>
+                    <a href="#">查看毕设申请</a>
                 </li>
                 <li class="dropdown pull-right">
                     <input id="user_name" value="未登录" readonly="true"/>
@@ -142,7 +142,7 @@
 
 
             <!--上传文件框-->
-            <form id="form1" role="form" method="POST" enctype="multipart/form-data" action="http://127.0.0.1:1314/lvxz/student/upload_project">
+            <form id="form1" role="form" method="POST" enctype="multipart/form-data" action="/lvxz/student/upload_project">
                 <div class="modal fade" id="modal-container-3338888" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                     <div class="modal-dialog" role="document">
                         <div class="modal-header">
@@ -270,7 +270,7 @@
 
         if(!Cookies.get('student_ObjJson')){
             alert("您还未登陆！请登陆");
-            window.open("http://"+ getLocalIP() +":1314/lvxz/login",'_self');
+            window.open("/lvxz/login",'_self');
 
         }else{
             var jsonValue = JSON.parse(Cookies.get('student_ObjJson'));
@@ -306,7 +306,7 @@
 
         if(studentID.length!=0){
 
-            var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/student/update_info";
+            var updatePasswordURL = "/lvxz/student/update_info";
             var objJson = {
                 "studentID":parseInt(studentID),
                 "birthday":birthday,
@@ -356,7 +356,7 @@
 
         if(studentID.length!=0  && oldPassword.length!=0 && newPassword.length!=0) {
 
-            var updatePasswordURL = "http://"+ getLocalIP() +":1314/lvxz/student/update_password";
+            var updatePasswordURL = "/lvxz/student/update_password";
 
             var objJson = {
                 "studentID":parseInt(studentID),
@@ -420,7 +420,7 @@
 
             $.ajax({
                 type:"POST",
-                url: "http://"+ getLocalIP() +":1314/lvxz/student/get_myself_project",
+                url: "/lvxz/student/get_myself_project",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 data: student_ObjJson,
@@ -525,7 +525,7 @@
 
             $.ajax({
                 type:"POST",
-                url: "http://"+ getLocalIP() +":1314/lvxz/student/delete_apply_design",
+                url: "/lvxz/student/delete_apply_design",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify(objJson),

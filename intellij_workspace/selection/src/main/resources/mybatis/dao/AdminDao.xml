@@ -39,4 +39,11 @@
     </update>
 
 
+    <update id="updateAdminEnableStatusByAdmin_AdminID" parameterType="com.njfu.selection.entity.Admin">
+        UPDATE tb_admin
+        SET enable_status = #{enableStatus}
+        WHERE admin_id = #{adminID}
+    </update>
+
+
 </mapper>

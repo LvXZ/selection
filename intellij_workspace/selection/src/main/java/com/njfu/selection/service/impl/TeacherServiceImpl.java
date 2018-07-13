@@ -315,12 +315,16 @@ public class TeacherServiceImpl implements TeacherService {
         Design design = JSON.parseObject(params, Design.class);
         design.setEnableStatus(4);
 
+        Project project = new Project(design.getDesignID(),3);
+
+
         response.setHeader("Access-Control-Allow-Methods", "POST");
         ResponseInfoDTO responseInfoDTO;
 
         int flag = designDao.updateDesignEnableStatusByDesignId(design);
+        int flag2 = projectDao.updateProjectEnableStatusByDesignId(project);
 
-        if(flag == 1){
+        if(flag == 1 && flag2 ==1){
             responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.success_5.code")), ymlUtil.getDesign().get("update.success_5.msg"));
 
         }else{

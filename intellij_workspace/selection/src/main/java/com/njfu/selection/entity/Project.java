@@ -25,6 +25,11 @@ public class Project {
     public Project() {
     }
 
+    public Project(String designID, Integer enableStatus) {
+        this.designID = designID;
+        this.enableStatus = enableStatus;
+    }
+
     public String getProjectID() {
         return projectID;
     }

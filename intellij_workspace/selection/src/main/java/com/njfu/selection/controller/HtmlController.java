@@ -62,4 +62,14 @@ public class HtmlController {
     public String inspectTeacherPage() {
         return "/inspect_teacher.html";
     }
+
+    @RequestMapping("/insert2_admin")
+    public String insert2AdminPage() {
+        return "/insert2_admin.html";
+    }
+
+    @RequestMapping("/block_admin")
+    public String adminBlockUser() {
+        return "/block_admin.html";
+    }
 }

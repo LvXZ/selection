@@ -50,4 +50,17 @@
     </update>
 
 
+    <insert id="addStudent"  parameterType="com.njfu.selection.entity.Student" >
+        INSERT INTO tb_student (student_id, student_name, password, academy, student_class, enable_status)
+        VALUES ( #{studentID}, #{studentName}, #{password}, #{academy}, #{studentClass}, #{enableStatus})
+    </insert>
+
+
+    <update id="updateStudentEnableStatusByAdmin_StudentID" parameterType="com.njfu.selection.entity.Student" >
+        UPDATE tb_student
+        SET enable_status = #{enableStatus}
+        WHERE student_id = #{studentID}
+    </update>
+
+
 </mapper>

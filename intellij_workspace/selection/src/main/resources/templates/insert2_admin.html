@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../static/images/logo.ico" th:href="@{images/logo.ico}" type="image/x-icon"/>
-    <link rel="stylesheet" href="../static/resources/materialize/css/materialize.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.css}">    <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{css/login.css}">
+    <link rel="stylesheet" href="../static/resources/materialize/css/materialize.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{css/login.css}">
     <link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{css/index.css}">
     <script src="../static/js/constant.js" th:src="@{js/constant.js}"></script>
 
@@ -18,6 +19,7 @@
     <script src="../static/resources/bootstrap-3.3.7/js/bootstrap.min.js" th:src="@{resources/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
 
     <script src="../static/js/js.cookie.js" th:src="@{js/js.cookie.js}"></script>
+    <script src="../static/js/jquery.form.min.js" crossorigin="anonymous" th:src="@{js/jquery.form.min.js}"></script>
 
     <title>管理员界面</title>
 </head>
@@ -39,11 +41,11 @@
                 <li>
                     <a href="/lvxz/index_admin">首页</a>
                 </li>
-                <li class="active">
-                    <a href="#">审批毕设申请</a>
-                </li>
                 <li>
-                    <a href="/lvxz/insert2_admin">文件导入注册</a>
+                    <a href="/lvxz/inspect_admin">审查毕设申请</a>
+                </li>
+                <li class="active">
+                    <a href="#">文件导入注册</a>
                 </li>
                 <li>
                     <a href="/lvxz/block_admin">用户账号冻结</a>
@@ -79,12 +81,38 @@
 
     <div class="row clearfix">
         <div class="col-md-1 column">
+
         </div>
         <div class="col-md-10 column">
-            <div class="jumbotron">
-                <bbbb>
 
-                </bbbb>
+            <div class="jumbotron">
+
+                <form id="form1" role="form" method="POST" enctype="multipart/form-data" action="/lvxz/admin/read_excel" class="navbar-form navbar-left">
+                    <div class="radio">
+                        <label class="radio-inline">
+                            <input type="radio" name="radio" id="radio1" value="student" checked> 学生
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="radio" id="radio2"  value="teacher"> 老师
+                        </label>
+                        <!--<label class="radio-inline">
+                            <input type="radio" name="radio" id="radio3"  value="admin"> 管理员
+                        </label>-->
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
+                        <input name="file" id="file" type="file" class="form-control" accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+                    </div>
+                    <button type="submit" class="btn btn-small btn-primary" onclick="testUpload()">
+                        <i class="glyphicon glyphicon-open">上传加载</i>
+                    </button>
+                </form>
+
+                <br/><br/><br/>
+                <aaa>
+
+                </aaa>
+                <button type="button" onclick="admin_insert()" id="en_insert" name="" style="display:none" class="btn btn-warning pull-right" data-toggle="tooltip" data-placement="left" title="请确定是否一一对应"><i class="glyphicon glyphicon-ok">确定添加</i></button>
             </div>
         </div>
         <div class="col-md-1 column">
@@ -122,6 +150,7 @@
                     </div>
                 </div>
             </div>
+
 
 
             <!--修改密码框-->
@@ -168,8 +197,11 @@
 <script>
 
 
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+
     /*网页生成时，验证是否登录的跳传*/
     function jumpLogin() {
+
 
         if(!Cookies.get('admin_ObjJson')){
             alert("您还未登陆！请登陆");
@@ -177,8 +209,6 @@
         }else{
             var jsonValue = JSON.parse(Cookies.get('admin_ObjJson'));
             getUser(jsonValue);
-
-            getTeacherDesignInfo();
         }
 
     }
@@ -310,229 +340,196 @@
 
 
 
+    <!-- 生成学生之前注册上传的表格-->
+    function getStudentTable_Info(data){
 
-
-    /*生成老师申请毕设的表格,只显示 驳回、待申请毕设*/
-    function getTable_Info(data){
-
-        var $table=$('<table class="table table-bordered  table-condensed" id="table_design"></table>');
-        $("bbbb").append($table);
+        $("#table_info").remove();
+        var $table=$('<table class="table table-bordered table-condensed" id="table_info"></table>');
+        $("aaa").append($table);
 
         var $thead=$('<thead></thead>');
+
         var $trs=$('<tr class="info"></tr>');
+        var $th1=$('<th>学号</th>');
+        var $th2=$('<th>姓名</th>');
+        var $th3=$('<th>密码(默认学号)</th>');
+        var $th4=$('<th>班级</th>');
+        var $th5=$('<th>院系</th>');
 
-        var $th2=$('<th>毕设编码</th>');
-        var $th3=$('<th>毕设名称</th>');
-        var $th4=$('<th>申请时间</th>');
-        var $th33=$('<th>申请教师</th>');
-        var $th5=$('<th>详细信息</th>');
-        var $th6=$('<th>当前状态</th>');
-        var $th7=$('<th>操作</th>');
         var $tbody=$('<tbody></tbody>');
-
+        $trs.append($th1);
         $trs.append($th2);
         $trs.append($th3);
-        $trs.append($th33);
         $trs.append($th4);
-
         $trs.append($th5);
-        $trs.append($th6);
-        $trs.append($th7);
         $thead.append($trs);
         $table.append($thead);
         $table.append($tbody);
 
         var count = 0;//表格颜色控制
-        for(var i=0;i<data.length;i++){
+        for(var i=0;i<data.length;i++) {
 
-            if(count%2==0){
-                var $tr=$('<tr></tr>');
-            }else{
-                var $tr=$('<tr class="success"></tr>');
+            if (count % 2 == 0) {
+                var $tr = $('<tr></tr>');
+            } else {
+                var $tr = $('<tr class="success"></tr>');
             }
             $table.append($tr);
 
-            var $td2=$('<td>'+data[i]['designID']+'</td>');
+            var $td1 = $('<td>' + data[i].studentID + '</td>');
+            $tr.append($td1);
+            var $td2 = $('<td>' + data[i].studentName + '</td>');
             $tr.append($td2);
-            var $td3=$('<td>'+data[i]['designName']+'</td>');
+            var $td3 = $('<td>' + data[i].studentID + '</td>');
             $tr.append($td3);
-            var $td33=$('<td>'+data[i]['fileAddress']+'</td>');
-            $tr.append($td33);
-            var $td4=$('<td>'+data[i]['createTime'].substring(0,10)+'</td>');
+            var $td4 = $('<td>' + data[i].studentClass + '</td>');
             $tr.append($td4);
-            var $td5=$('<td>' +
-                '<button  id="'+ data[i]['teacherID'] +'/'+ data[i]['designID'] +'/' +'" name="'+ data[i]['fileName']+'" onclick="Start_Download(this)" type="submit" class="btn btn-small btn-warning" ' +
-                ' title="下载提示" data-container="body" data-toggle="popover" data-placement="right" data-content="文件正在下载" >' +
-                '<i class="glyphicon glyphicon-save">下载</i></button></td>');
+            var $td5 = $('<td>' + data[i].academy + '</td>');
             $tr.append($td5);
 
-
-            var $td6;
-            var $td7;
-
-            switch(data[i]['enableStatus']){
-
-                case -1:{
-                    //被驳回
-                    $td6=$('<td>被驳回</td>');
-                    $td7=$('<td><button id="'+ data[i]['designID'] +'"  onclick="ensure_design(this);" type="submit" class="btn btn-small btn-warning">' +
-                        '<i class="glyphicon glyphicon-ok">重新确定</i>');
-                }break;
-
-                case 0:{
-                    //等待审批
-                    $td6=$('<td>等待审批</td>');
-                    $td7=$('<td>' +
-                                '<button id="'+ data[i]['designID'] +'" type="button" class="btn btn-small btn-warning" data-toggle="tooltip"' +
-                                        'data-placement="left" title="驳回申请" onclick="oppose_design(this);">' +
-                                    '<i class="glyphicon glyphicon-remove"></i>' +
-                                '</button>&nbsp;' +
-                                '<button id="'+ data[i]['designID'] +'" type="button" class="btn btn-small btn-warning" data-toggle="tooltip"' +
-                                        'data-placement="right" title="申请通过" onclick="ensure_design(this);">' +
-                                    '<i class="glyphicon glyphicon-ok"></i>' +
-                                '</button>' +
-                            '</td>');
-                }break;
-
-
-
-            }
-
-            $tr.append($td6);
-            $tr.append($td7);
             count++;
         }
+        $("#en_insert").attr("name","students");
+        $("#en_insert").show();
 
     }
 
-    $(function () { $("[data-toggle='tooltip']").tooltip('show'); });
+    <!-- 生成教师之前注册上传的表格-->
+    function getTeacherTable_Info(data){
 
-    <!--管理员获取老师上传的毕设，只获取 驳回、待申请毕设-->
-    function getTeacherDesignInfo() {
+        $("#table_info").remove();
+        var $table=$('<table class="table table-bordered table-condensed" id="table_info"></table>');
+        $("aaa").append($table);
 
-        var admin_ObjJson = Cookies.get('admin_ObjJson');
+        var $thead=$('<thead></thead>');
 
-        if(admin_ObjJson!=null){
+        var $trs=$('<tr class="info"></tr>');
+        var $th1=$('<th>学号</th>');
+        var $th2=$('<th>姓名</th>');
+        var $th3=$('<th>密码(默认学号)</th>');
+        var $th5=$('<th>院系</th>');
 
-            $.ajax({
-                type:"POST",
-                url: "/lvxz/admin/get_design",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                data: admin_ObjJson,
-                async:true,
-                success: function (response) {
-                    if(response.code == 901){
-                        console.log(response);
-                        getTable_Info(response.data);
-                    } else {
-                        alert(response.msg);
-                    }
-                },
-                error: function (data){
-                    alert("访问失败，请检查网络、路径......");
-                }
-            });
+        var $tbody=$('<tbody></tbody>');
+        $trs.append($th1);
+        $trs.append($th2);
+        $trs.append($th3);
+        $trs.append($th5);
+        $thead.append($trs);
+        $table.append($thead);
+        $table.append($tbody);
 
+        var count = 0;//表格颜色控制
+        for(var i=0;i<data.length;i++) {
 
-        }else{
-            alert("关键输入为空！");
+            if (count % 2 == 0) {
+                var $tr = $('<tr></tr>');
+            } else {
+                var $tr = $('<tr class="success"></tr>');
+            }
+            $table.append($tr);
+
+            var $td1 = $('<td>' + data[i].teacherID + '</td>');
+            $tr.append($td1);
+            var $td2 = $('<td>' + data[i].teacherName + '</td>');
+            $tr.append($td2);
+            var $td3 = $('<td>' + data[i].teacherID + '</td>');
+            $tr.append($td3);
+            var $td5 = $('<td>' + data[i].academy + '</td>');
+            $tr.append($td5);
+
+            count++;
         }
+        $("#en_insert").attr("name","teachers");
+        $("#en_insert").show();
+
     }
 
-    <!-- 获取文件下载url，下载-->
-    function Start_Download(obj) {
+    var all_data;
 
-        var fileURL = obj.id;
-        var fileName = obj.name;
-        var newURL = "http://"+ getLocalIP() +":8081/download/" + fileURL + fileName;
+    <!-- 上传文件表单，后端返回的信息处理-->
+    function testUpload(){
 
-        $("[data-toggle='popover']").popover();
+        $("#form1").ajaxForm(function(response){
+            if(response.code==16){
+                all_data = response.data;
+                console.log(all_data);
 
-        var a = document.createElement('a');
-        a.setAttribute('href', newURL);
-        a.setAttribute('download', fileName);
-        a.click();
-        //设置时间关闭popover
-        setTimeout(function(){$("[data-toggle='popover']").popover('hide');},3500);
+                var userRadio = $('input[name="radio"]:checked').val();
+                if(userRadio == "student"){
+                    getStudentTable_Info(response.data);
+                }else{
+                    getTeacherTable_Info(response.data);
+                }
+
+
+
+            }else{
+                alert(response.msg);
+            }
+        });
     }
-    
-    
-    //确定通过申请
-    function ensure_design(obj) {
 
-        var designID = obj.id;
 
-        if(designID.length!=0 ){
+    function admin_insert() {
+
+        var adminID = $('#user_id').val();
+        var userRadio = $("#en_insert").attr("name");
+
+        var insertURL = "/lvxz/admin/insert2_"+ userRadio;
+
+
+        if(adminID!=null && adminID!=""){
+
             var objJson = {
-                "designID":designID
+                "adminID":adminID,
+                "data": all_data
             };
 
             $.ajax({
                 type:"POST",
-                url: "/lvxz/admin/ensure_design",
+                url: insertURL,
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify(objJson),
                 async:true,
                 success: function (response) {
-                    if(response.code == 802){
-                        alert(response.msg);
 
-                        $('#table_design').remove();
-                        getTeacherDesignInfo();//重新加载教师毕设
-                    } else {
+                    console.log(response);
+
+                    if(response.code == 102){
                         alert(response.msg);
+                    } else {
+                        if(response.code == -102){
+                            var display = "";
+                            if(userRadio == "student"){
+                                for(var i=0;i<response.data.length;i++){
+                                    display = display+" ["+response.data[i].studentID +"-"+ response.data[i].studentName+"]";
+                                }
+                            }else{
+                                for(var i=0;i<response.data.length;i++){
+                                    display = display+" ["+response.data[i].teacherID +"-"+ response.data[i].teacherName+"]";
+                                }
+                            }
+
+                            alert(display + response.msg);
+                        }else{
+                            alert(response.msg);
+                        }
                     }
                 },
                 error: function (data){
                     alert("访问失败，请检查网络、路径......");
                 }
             });
+
+
         }else{
-            alert("提交失败");
-        }
-
-
-        
-    }
-
-    //驳回申请
-    function oppose_design(obj) {
-
-        var designID = obj.id;
-
-        if(designID.length!=0 ){
-            var objJson = {
-                "designID":designID
-            };
-
-            $.ajax({
-                type:"POST",
-                url: "/lvxz/admin/oppose_design",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                data: JSON.stringify(objJson),
-                async:true,
-                success: function (response) {
-                    if(response.code == 803){
-                        alert(response.msg);
-
-                        $('#table_design').remove();
-                        getTeacherDesignInfo();//重新加载教师毕设
-                    } else {
-                        alert(response.msg);
-                    }
-                },
-                error: function (data){
-                    alert("访问失败，请检查网络、路径......");
-                }
-            });
-        }else{
-            alert("提交失败");
+            alert("未登录！");
         }
 
     }
+
+
 
 </script>
 

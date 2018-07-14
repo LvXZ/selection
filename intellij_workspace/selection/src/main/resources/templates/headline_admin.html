@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../static/images/logo.ico" th:href="@{images/logo.ico}" type="image/x-icon"/>
-    <link rel="stylesheet" href="../static/resources/materialize/css/materialize.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.css}">    <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{css/login.css}">
+    <link rel="stylesheet" href="../static/resources/materialize/css/materialize.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{css/login.css}">
     <link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{css/index.css}">
     <script src="../static/js/constant.js" th:src="@{js/constant.js}"></script>
 
@@ -39,8 +40,8 @@
                 <li>
                     <a href="/lvxz/index_admin">首页</a>
                 </li>
-                <li class="active">
-                    <a href="#">审批毕设申请</a>
+                <li>
+                    <a href="/lvxz/inspect_admin">审查毕设申请</a>
                 </li>
                 <li>
                     <a href="/lvxz/insert2_admin">文件导入注册</a>
@@ -48,8 +49,8 @@
                 <li>
                     <a href="/lvxz/block_admin">用户账号冻结</a>
                 </li>
-                <li>
-                    <a href="/lvxz/headline_admin">头条消息发布</a>
+                <li  class="active">
+                    <a href="#">头条消息发布</a>
                 </li>
                 <li class="dropdown pull-right">
                     <input id="user_name" value="未登录" readonly="true"/>
@@ -81,16 +82,27 @@
     </div>
 
     <div class="row clearfix">
-        <div class="col-md-1 column">
+        <div class="col-md-2 column">
         </div>
-        <div class="col-md-10 column">
-            <div class="jumbotron">
-                <bbbb>
+        <div class="col-md-8 column">
+            <div class="login-box-body">
+                <div class="input-group">
+                    <span class="input-group-addon">标题</span>
+                    <input class="form-control" id="head_lvxz" type="text" placeholder="小于20字"/>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">副题</span>
+                    <input class="form-control" id="subhead_lvxz" type="text" placeholder="小于50个字"/>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">正文</span>
+                    <input class="form-control" id="body_lvxz" type="text" placeholder="小于200个字"/>
+                </div>
 
-                </bbbb>
+                <div class="input-group"><button id="login_button" onclick="uploadHeadLine();" type="submit" class="btn btn-primary">发布新头条</button></div>
             </div>
         </div>
-        <div class="col-md-1 column">
+        <div class="col-md-2 column">
 
 
             <!--修改个人信息框-->
@@ -125,6 +137,7 @@
                     </div>
                 </div>
             </div>
+
 
 
             <!--修改密码框-->
@@ -170,7 +183,6 @@
 
 <script>
 
-
     /*网页生成时，验证是否登录的跳传*/
     function jumpLogin() {
 
@@ -180,8 +192,6 @@
         }else{
             var jsonValue = JSON.parse(Cookies.get('admin_ObjJson'));
             getUser(jsonValue);
-
-            getTeacherDesignInfo();
         }
 
     }
@@ -311,179 +321,33 @@
         alert("已注销");
     }
 
+    //上传头条
+    function uploadHeadLine(){
+        var adminID = $('#user_id').val(),
+            head = $('#head_lvxz').val(),
+            subhead = $('#subhead_lvxz').val(),
+            body = $('#body_lvxz').val();
 
+        if(adminID.length!=0  && head.length!=0 && subhead.length!=0 && body.length!=0) {
 
-
-
-    /*生成老师申请毕设的表格,只显示 驳回、待申请毕设*/
-    function getTable_Info(data){
-
-        var $table=$('<table class="table table-bordered  table-condensed" id="table_design"></table>');
-        $("bbbb").append($table);
-
-        var $thead=$('<thead></thead>');
-        var $trs=$('<tr class="info"></tr>');
-
-        var $th2=$('<th>毕设编码</th>');
-        var $th3=$('<th>毕设名称</th>');
-        var $th4=$('<th>申请时间</th>');
-        var $th33=$('<th>申请教师</th>');
-        var $th5=$('<th>详细信息</th>');
-        var $th6=$('<th>当前状态</th>');
-        var $th7=$('<th>操作</th>');
-        var $tbody=$('<tbody></tbody>');
-
-        $trs.append($th2);
-        $trs.append($th3);
-        $trs.append($th33);
-        $trs.append($th4);
-
-        $trs.append($th5);
-        $trs.append($th6);
-        $trs.append($th7);
-        $thead.append($trs);
-        $table.append($thead);
-        $table.append($tbody);
-
-        var count = 0;//表格颜色控制
-        for(var i=0;i<data.length;i++){
-
-            if(count%2==0){
-                var $tr=$('<tr></tr>');
-            }else{
-                var $tr=$('<tr class="success"></tr>');
-            }
-            $table.append($tr);
-
-            var $td2=$('<td>'+data[i]['designID']+'</td>');
-            $tr.append($td2);
-            var $td3=$('<td>'+data[i]['designName']+'</td>');
-            $tr.append($td3);
-            var $td33=$('<td>'+data[i]['fileAddress']+'</td>');
-            $tr.append($td33);
-            var $td4=$('<td>'+data[i]['createTime'].substring(0,10)+'</td>');
-            $tr.append($td4);
-            var $td5=$('<td>' +
-                '<button  id="'+ data[i]['teacherID'] +'/'+ data[i]['designID'] +'/' +'" name="'+ data[i]['fileName']+'" onclick="Start_Download(this)" type="submit" class="btn btn-small btn-warning" ' +
-                ' title="下载提示" data-container="body" data-toggle="popover" data-placement="right" data-content="文件正在下载" >' +
-                '<i class="glyphicon glyphicon-save">下载</i></button></td>');
-            $tr.append($td5);
-
-
-            var $td6;
-            var $td7;
-
-            switch(data[i]['enableStatus']){
-
-                case -1:{
-                    //被驳回
-                    $td6=$('<td>被驳回</td>');
-                    $td7=$('<td><button id="'+ data[i]['designID'] +'"  onclick="ensure_design(this);" type="submit" class="btn btn-small btn-warning">' +
-                        '<i class="glyphicon glyphicon-ok">重新确定</i>');
-                }break;
-
-                case 0:{
-                    //等待审批
-                    $td6=$('<td>等待审批</td>');
-                    $td7=$('<td>' +
-                                '<button id="'+ data[i]['designID'] +'" type="button" class="btn btn-small btn-warning" data-toggle="tooltip"' +
-                                        'data-placement="left" title="驳回申请" onclick="oppose_design(this);">' +
-                                    '<i class="glyphicon glyphicon-remove"></i>' +
-                                '</button>&nbsp;' +
-                                '<button id="'+ data[i]['designID'] +'" type="button" class="btn btn-small btn-warning" data-toggle="tooltip"' +
-                                        'data-placement="right" title="申请通过" onclick="ensure_design(this);">' +
-                                    '<i class="glyphicon glyphicon-ok"></i>' +
-                                '</button>' +
-                            '</td>');
-                }break;
-
-
-
-            }
-
-            $tr.append($td6);
-            $tr.append($td7);
-            count++;
-        }
-
-    }
-
-    $(function () { $("[data-toggle='tooltip']").tooltip('show'); });
-
-    <!--管理员获取老师上传的毕设，只获取 驳回、待申请毕设-->
-    function getTeacherDesignInfo() {
-
-        var admin_ObjJson = Cookies.get('admin_ObjJson');
-
-        if(admin_ObjJson!=null){
-
-            $.ajax({
-                type:"POST",
-                url: "/lvxz/admin/get_design",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                data: admin_ObjJson,
-                async:true,
-                success: function (response) {
-                    if(response.code == 901){
-                        console.log(response);
-                        getTable_Info(response.data);
-                    } else {
-                        alert(response.msg);
-                    }
-                },
-                error: function (data){
-                    alert("访问失败，请检查网络、路径......");
-                }
-            });
-
-
-        }else{
-            alert("关键输入为空！");
-        }
-    }
-
-    <!-- 获取文件下载url，下载-->
-    function Start_Download(obj) {
-
-        var fileURL = obj.id;
-        var fileName = obj.name;
-        var newURL = "http://"+ getLocalIP() +":8081/download/" + fileURL + fileName;
-
-        $("[data-toggle='popover']").popover();
-
-        var a = document.createElement('a');
-        a.setAttribute('href', newURL);
-        a.setAttribute('download', fileName);
-        a.click();
-        //设置时间关闭popover
-        setTimeout(function(){$("[data-toggle='popover']").popover('hide');},3500);
-    }
-    
-    
-    //确定通过申请
-    function ensure_design(obj) {
-
-        var designID = obj.id;
-
-        if(designID.length!=0 ){
             var objJson = {
-                "designID":designID
+                "adminID":parseInt(adminID),
+                "head":head,
+                "subhead":subhead,
+                "body":body
             };
 
             $.ajax({
                 type:"POST",
-                url: "/lvxz/admin/ensure_design",
+                url: "/lvxz/admin/add_head_line",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify(objJson),
                 async:true,
                 success: function (response) {
-                    if(response.code == 802){
+                    if(response.code == 2){
                         alert(response.msg);
 
-                        $('#table_design').remove();
-                        getTeacherDesignInfo();//重新加载教师毕设
                     } else {
                         alert(response.msg);
                     }
@@ -492,51 +356,11 @@
                     alert("访问失败，请检查网络、路径......");
                 }
             });
+
         }else{
-            alert("提交失败");
+            alert("存在输入为空或者未登录");
         }
-
-
-        
     }
-
-    //驳回申请
-    function oppose_design(obj) {
-
-        var designID = obj.id;
-
-        if(designID.length!=0 ){
-            var objJson = {
-                "designID":designID
-            };
-
-            $.ajax({
-                type:"POST",
-                url: "/lvxz/admin/oppose_design",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                data: JSON.stringify(objJson),
-                async:true,
-                success: function (response) {
-                    if(response.code == 803){
-                        alert(response.msg);
-
-                        $('#table_design').remove();
-                        getTeacherDesignInfo();//重新加载教师毕设
-                    } else {
-                        alert(response.msg);
-                    }
-                },
-                error: function (data){
-                    alert("访问失败，请检查网络、路径......");
-                }
-            });
-        }else{
-            alert("提交失败");
-        }
-
-    }
-
 </script>
 
 </html>

@@ -904,3 +904,114 @@
 2018-07-14 15:24:17.537 [http-nio-1314-exec-2] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.AdminController.readHeadLine
 2018-07-14 15:24:17.537 [http-nio-1314-exec-2] INFO  com.njfu.selection.aspect.HttpAspect - args=org.apache.catalina.connector.RequestFacade@75496ca3
 2018-07-14 15:24:17.686 [http-nio-1314-exec-2] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 17:48:33.211 [restartedMain] INFO  com.njfu.selection.SelectionApplication - Starting SelectionApplication on DESKTOP-3QHTQE7 with PID 2340 (D:\OneDrive\WorkStations\intellij_workspace\selection\target\classes started by Lenovo in D:\OneDrive\WorkStations\intellij_workspace\selection)
+2018-07-14 17:48:33.231 [restartedMain] INFO  com.njfu.selection.SelectionApplication - No active profile set, falling back to default profiles: default
+2018-07-14 17:48:50.402 [restartedMain] INFO  com.njfu.selection.SelectionApplication - Started SelectionApplication in 19.261 seconds (JVM running for 23.779)
+2018-07-14 17:49:06.027 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/
+2018-07-14 17:49:06.027 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - method=GET
+2018-07-14 17:49:06.028 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 17:49:06.034 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.HtmlController.login1Page
+2018-07-14 17:49:06.035 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - args={}
+2018-07-14 17:49:06.050 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 17:49:08.972 [http-nio-1314-exec-3] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/admin/read_head_line
+2018-07-14 17:49:08.974 [http-nio-1314-exec-3] INFO  com.njfu.selection.aspect.HttpAspect - method=POST
+2018-07-14 17:49:08.974 [http-nio-1314-exec-3] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 17:49:08.975 [http-nio-1314-exec-3] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.AdminController.readHeadLine
+2018-07-14 17:49:08.975 [http-nio-1314-exec-3] INFO  com.njfu.selection.aspect.HttpAspect - args=org.apache.catalina.connector.RequestFacade@3b3e34f4
+2018-07-14 17:49:09.114 [http-nio-1314-exec-3] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 17:49:34.578 [http-nio-1314-exec-7] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/admin/login
+2018-07-14 17:49:34.578 [http-nio-1314-exec-7] INFO  com.njfu.selection.aspect.HttpAspect - method=POST
+2018-07-14 17:49:34.578 [http-nio-1314-exec-7] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 17:49:34.578 [http-nio-1314-exec-7] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.AdminController.adminLogin
+2018-07-14 17:49:34.578 [http-nio-1314-exec-7] INFO  com.njfu.selection.aspect.HttpAspect - args={"adminID":150804213,"password":"1234"}
+2018-07-14 17:49:34.808 [http-nio-1314-exec-7] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 17:49:36.190 [http-nio-1314-exec-10] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/index_admin
+2018-07-14 17:49:36.190 [http-nio-1314-exec-10] INFO  com.njfu.selection.aspect.HttpAspect - method=GET
+2018-07-14 17:49:36.190 [http-nio-1314-exec-10] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 17:49:36.191 [http-nio-1314-exec-10] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.HtmlController.indexAdminPage
+2018-07-14 17:49:36.193 [http-nio-1314-exec-10] INFO  com.njfu.selection.aspect.HttpAspect - args={}
+2018-07-14 17:49:36.193 [http-nio-1314-exec-10] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 17:49:36.560 [http-nio-1314-exec-3] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/admin/read_head_line
+2018-07-14 17:49:36.560 [http-nio-1314-exec-3] INFO  com.njfu.selection.aspect.HttpAspect - method=POST
+2018-07-14 17:49:36.560 [http-nio-1314-exec-3] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 17:49:36.561 [http-nio-1314-exec-3] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.AdminController.readHeadLine
+2018-07-14 17:49:36.561 [http-nio-1314-exec-3] INFO  com.njfu.selection.aspect.HttpAspect - args=org.apache.catalina.connector.RequestFacade@35c0c2bf
+2018-07-14 17:49:36.571 [http-nio-1314-exec-3] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 17:54:31.491 [restartedMain] INFO  com.njfu.selection.SelectionApplication - Starting SelectionApplication on DESKTOP-3QHTQE7 with PID 6284 (D:\OneDrive\WorkStations\intellij_workspace\selection\target\classes started by Lenovo in D:\OneDrive\WorkStations\intellij_workspace\selection)
+2018-07-14 17:54:31.501 [restartedMain] INFO  com.njfu.selection.SelectionApplication - No active profile set, falling back to default profiles: default
+2018-07-14 17:54:49.834 [restartedMain] INFO  com.njfu.selection.SelectionApplication - Started SelectionApplication in 20.073 seconds (JVM running for 29.259)
+2018-07-14 17:55:09.227 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/index_admin
+2018-07-14 17:55:09.228 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - method=GET
+2018-07-14 17:55:09.229 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 17:55:09.236 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.HtmlController.indexAdminPage
+2018-07-14 17:55:09.236 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - args={}
+2018-07-14 17:55:09.249 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 17:55:10.667 [http-nio-1314-exec-4] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/admin/read_head_line
+2018-07-14 17:55:10.667 [http-nio-1314-exec-4] INFO  com.njfu.selection.aspect.HttpAspect - method=POST
+2018-07-14 17:55:10.668 [http-nio-1314-exec-4] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 17:55:10.668 [http-nio-1314-exec-4] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.AdminController.readHeadLine
+2018-07-14 17:55:10.668 [http-nio-1314-exec-4] INFO  com.njfu.selection.aspect.HttpAspect - args=org.apache.catalina.connector.RequestFacade@169c632
+2018-07-14 17:55:10.830 [http-nio-1314-exec-4] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 17:56:01.176 [http-nio-1314-exec-6] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/headline_admin
+2018-07-14 17:56:01.176 [http-nio-1314-exec-6] INFO  com.njfu.selection.aspect.HttpAspect - method=GET
+2018-07-14 17:56:01.176 [http-nio-1314-exec-6] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 17:56:01.177 [http-nio-1314-exec-6] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.HtmlController.adminHeadLine
+2018-07-14 17:56:01.177 [http-nio-1314-exec-6] INFO  com.njfu.selection.aspect.HttpAspect - args={}
+2018-07-14 17:56:01.177 [http-nio-1314-exec-6] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 17:57:55.258 [restartedMain] INFO  com.njfu.selection.SelectionApplication - Starting SelectionApplication on DESKTOP-3QHTQE7 with PID 7736 (D:\OneDrive\WorkStations\intellij_workspace\selection\target\classes started by Lenovo in D:\OneDrive\WorkStations\intellij_workspace\selection)
+2018-07-14 17:57:55.278 [restartedMain] INFO  com.njfu.selection.SelectionApplication - No active profile set, falling back to default profiles: default
+2018-07-14 17:58:13.129 [restartedMain] INFO  com.njfu.selection.SelectionApplication - Started SelectionApplication in 19.401 seconds (JVM running for 27.314)
+2018-07-14 17:58:19.016 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/index_admin
+2018-07-14 17:58:19.016 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - method=GET
+2018-07-14 17:58:19.017 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 17:58:19.021 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.HtmlController.indexAdminPage
+2018-07-14 17:58:19.022 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - args={}
+2018-07-14 17:58:19.035 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 17:58:20.486 [http-nio-1314-exec-4] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/admin/read_head_line
+2018-07-14 17:58:20.487 [http-nio-1314-exec-4] INFO  com.njfu.selection.aspect.HttpAspect - method=POST
+2018-07-14 17:58:20.487 [http-nio-1314-exec-4] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 17:58:20.487 [http-nio-1314-exec-4] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.AdminController.readHeadLine
+2018-07-14 17:58:20.488 [http-nio-1314-exec-4] INFO  com.njfu.selection.aspect.HttpAspect - args=org.apache.catalina.connector.RequestFacade@eec0301
+2018-07-14 17:58:20.620 [http-nio-1314-exec-4] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 17:58:22.124 [http-nio-1314-exec-5] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/headline_admin
+2018-07-14 17:58:22.124 [http-nio-1314-exec-5] INFO  com.njfu.selection.aspect.HttpAspect - method=GET
+2018-07-14 17:58:22.125 [http-nio-1314-exec-5] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 17:58:22.125 [http-nio-1314-exec-5] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.HtmlController.adminHeadLine
+2018-07-14 17:58:22.125 [http-nio-1314-exec-5] INFO  com.njfu.selection.aspect.HttpAspect - args={}
+2018-07-14 17:58:22.126 [http-nio-1314-exec-5] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 17:58:41.088 [http-nio-1314-exec-6] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/admin/add_head_line
+2018-07-14 17:58:41.089 [http-nio-1314-exec-6] INFO  com.njfu.selection.aspect.HttpAspect - method=POST
+2018-07-14 17:58:41.089 [http-nio-1314-exec-6] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 17:58:41.089 [http-nio-1314-exec-6] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.AdminController.addHeadLine
+2018-07-14 17:58:41.089 [http-nio-1314-exec-6] INFO  com.njfu.selection.aspect.HttpAspect - args={"adminID":150804213,"head":"可怕可怕可怕可怕可怕可怕可怕可怕","subhead":"32343242343242","body":"1242423423423423423423423423423423423423的方式公司的公司的"}
+2018-07-14 17:58:41.430 [http-nio-1314-exec-6] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 17:59:55.740 [restartedMain] INFO  com.njfu.selection.SelectionApplication - Starting SelectionApplication on DESKTOP-3QHTQE7 with PID 4364 (D:\OneDrive\WorkStations\intellij_workspace\selection\target\classes started by Lenovo in D:\OneDrive\WorkStations\intellij_workspace\selection)
+2018-07-14 17:59:55.770 [restartedMain] INFO  com.njfu.selection.SelectionApplication - No active profile set, falling back to default profiles: default
+2018-07-14 18:00:12.907 [restartedMain] INFO  com.njfu.selection.SelectionApplication - Started SelectionApplication in 18.857 seconds (JVM running for 22.272)
+2018-07-14 18:00:24.826 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/admin/add_head_line
+2018-07-14 18:00:24.826 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - method=POST
+2018-07-14 18:00:24.826 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 18:00:24.836 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.AdminController.addHeadLine
+2018-07-14 18:00:24.836 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - args={"adminID":150804213,"head":"可怕可怕可怕可怕可怕可怕可怕可怕","subhead":"32343242343242","body":"1242423423423423423423423423423423423423的方式公司的公司的"}
+2018-07-14 18:00:25.266 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 18:01:03.733 [restartedMain] INFO  com.njfu.selection.SelectionApplication - Starting SelectionApplication on DESKTOP-3QHTQE7 with PID 13532 (D:\OneDrive\WorkStations\intellij_workspace\selection\target\classes started by Lenovo in D:\OneDrive\WorkStations\intellij_workspace\selection)
+2018-07-14 18:01:03.753 [restartedMain] INFO  com.njfu.selection.SelectionApplication - No active profile set, falling back to default profiles: default
+2018-07-14 18:01:20.693 [restartedMain] INFO  com.njfu.selection.SelectionApplication - Started SelectionApplication in 19.05 seconds (JVM running for 22.698)
+2018-07-14 18:01:28.523 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/admin/add_head_line
+2018-07-14 18:01:28.523 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - method=POST
+2018-07-14 18:01:28.523 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 18:01:28.523 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.AdminController.addHeadLine
+2018-07-14 18:01:28.523 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - args={"adminID":150804213,"head":"可怕可怕可怕可怕可怕可怕可怕可怕","subhead":"32343242343242","body":"1242423423423423423423423423423423423423的方式公司的公司的"}
+2018-07-14 18:01:29.003 [http-nio-1314-exec-1] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 18:01:31.942 [http-nio-1314-exec-2] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/index_admin
+2018-07-14 18:01:31.942 [http-nio-1314-exec-2] INFO  com.njfu.selection.aspect.HttpAspect - method=GET
+2018-07-14 18:01:31.943 [http-nio-1314-exec-2] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 18:01:31.943 [http-nio-1314-exec-2] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.HtmlController.indexAdminPage
+2018-07-14 18:01:31.943 [http-nio-1314-exec-2] INFO  com.njfu.selection.aspect.HttpAspect - args={}
+2018-07-14 18:01:31.955 [http-nio-1314-exec-2] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------
+2018-07-14 18:01:33.447 [http-nio-1314-exec-5] INFO  com.njfu.selection.aspect.HttpAspect - URL=http://127.0.0.1:1314/lvxz/admin/read_head_line
+2018-07-14 18:01:33.448 [http-nio-1314-exec-5] INFO  com.njfu.selection.aspect.HttpAspect - method=POST
+2018-07-14 18:01:33.448 [http-nio-1314-exec-5] INFO  com.njfu.selection.aspect.HttpAspect - IP=127.0.0.1
+2018-07-14 18:01:33.448 [http-nio-1314-exec-5] INFO  com.njfu.selection.aspect.HttpAspect - class_method=class com.njfu.selection.controller.AdminController.readHeadLine
+2018-07-14 18:01:33.448 [http-nio-1314-exec-5] INFO  com.njfu.selection.aspect.HttpAspect - args=org.apache.catalina.connector.RequestFacade@7e44bd64
+2018-07-14 18:01:33.457 [http-nio-1314-exec-5] INFO  com.njfu.selection.aspect.HttpAspect - 127.0.0.1------End of the visits------

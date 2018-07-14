@@ -415,7 +415,28 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public ResponseInfoDTO<Object> addHeadLine(String params, HttpServletRequest request, HttpServletResponse response) {
-        return null;
+        logger.debug("<----------addHeadLine---------->");
+
+        HeadLine headLine = JSON.parseObject(params, HeadLine.class);
+
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+        if(adminDao.queryAdminInfoById(headLine.getAdminID()) == null){
+            responseInfoDTO = new ResponseInfoDTO(-9012, "管理员账号不存在");
+        }else{
+            headLineDao.deleteHeadLine();
+            int flag = headLineDao.addHeadLine(headLine);
+            if(flag == 1){
+                responseInfoDTO = new ResponseInfoDTO(2, "发布成功");
+            }else{
+                responseInfoDTO = new ResponseInfoDTO(-2, "发布失败");
+            }
+        }
+
+
+
+        return responseInfoDTO;
     }
 
 

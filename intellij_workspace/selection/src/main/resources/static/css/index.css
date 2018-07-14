@@ -4,6 +4,7 @@
 #root-menu-bar{border:none;background-color:#fff;width:100%;height:6ex;margin-bottom: 0px;}
 #user_name,#user_id{
 
+    background-color: #39221e;
     width: 100px;/*宽度*/
     text-align: center;/*水平居中*/
     border: none;/*划线*/
@@ -28,17 +29,6 @@
     text-align: center;
 }
 
-.jumbotron-version2{
-
-    padding-right: 15px;
-    padding-left: 15px;
-    border-radius: 6px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    margin-bottom: 30px;
-    color: inherit;
-    background-color: #eee;
-}
 
 .top-right-control{color:white;}
 .nav-custom-menu{list-style-type:none;margin:0px;padding:0;overflow:hidden;background-color:white;}

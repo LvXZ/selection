@@ -10,7 +10,7 @@
 
     <delete id="deleteHeadLine">
         DELETE FROM tb_head_line
-        VALUES nid >= 1
+        WHERE nid >= 1
     </delete>
 
     <select id="queryHeadLine" resultType="com.njfu.selection.entity.HeadLine">

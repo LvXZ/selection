@@ -72,4 +72,9 @@ public class HtmlController {
     public String adminBlockUser() {
         return "/block_admin.html";
     }
+
+    @RequestMapping("/headline_admin")
+    public String adminHeadLine() {
+        return "/headline_admin.html";
+    }
 }

@@ -601,3 +601,54 @@
 2018-07-14 15:24:17.597 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - ==>  Preparing: SELECT head, subhead, body, admin_id FROM tb_head_line 
 2018-07-14 15:24:17.637 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - ==> Parameters: 
 2018-07-14 15:24:17.683 [http-nio-1314-exec-2] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - <==      Total: 1
+2018-07-14 17:48:33.221 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-14 17:49:08.989 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------readHeadLine---------->
+2018-07-14 17:49:09.022 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - ==>  Preparing: SELECT head, subhead, body, admin_id FROM tb_head_line 
+2018-07-14 17:49:09.079 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - ==> Parameters: 
+2018-07-14 17:49:09.114 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - <==      Total: 1
+2018-07-14 17:49:34.588 [http-nio-1314-exec-7] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------findAdminPasswordById---------->
+2018-07-14 17:49:34.798 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==>  Preparing: SELECT admin_id, admin_name, password, enable_status FROM tb_admin WHERE admin_id = ? 
+2018-07-14 17:49:34.798 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - ==> Parameters: 150804213(Long)
+2018-07-14 17:49:34.808 [http-nio-1314-exec-7] DEBUG com.njfu.selection.dao.AdminDao.queryAdminPasswordById - <==      Total: 1
+2018-07-14 17:49:36.561 [http-nio-1314-exec-3] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------readHeadLine---------->
+2018-07-14 17:49:36.562 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - ==>  Preparing: SELECT head, subhead, body, admin_id FROM tb_head_line 
+2018-07-14 17:49:36.567 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - ==> Parameters: 
+2018-07-14 17:49:36.570 [http-nio-1314-exec-3] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - <==      Total: 1
+2018-07-14 17:54:31.501 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-14 17:55:10.684 [http-nio-1314-exec-4] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------readHeadLine---------->
+2018-07-14 17:55:10.729 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - ==>  Preparing: SELECT head, subhead, body, admin_id FROM tb_head_line 
+2018-07-14 17:55:10.786 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - ==> Parameters: 
+2018-07-14 17:55:10.827 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - <==      Total: 1
+2018-07-14 17:57:55.268 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-14 17:58:20.490 [http-nio-1314-exec-4] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------readHeadLine---------->
+2018-07-14 17:58:20.530 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - ==>  Preparing: SELECT head, subhead, body, admin_id FROM tb_head_line 
+2018-07-14 17:58:20.590 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - ==> Parameters: 
+2018-07-14 17:58:20.620 [http-nio-1314-exec-4] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - <==      Total: 1
+2018-07-14 17:58:41.090 [http-nio-1314-exec-6] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------addHeadLine---------->
+2018-07-14 17:58:41.277 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.AdminDao.queryAdminInfoById - ==>  Preparing: SELECT admin_id, admin_name, password, profile_img, birthday, gender, phone, enable_status FROM tb_admin WHERE admin_id = ? 
+2018-07-14 17:58:41.277 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.AdminDao.queryAdminInfoById - ==> Parameters: 150804213(Long)
+2018-07-14 17:58:41.277 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.AdminDao.queryAdminInfoById - <==      Total: 1
+2018-07-14 17:58:41.277 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.HeadLineDao.deleteHeadLine - ==>  Preparing: DELETE FROM tb_head_line VALUES nid >= 1 
+2018-07-14 17:58:41.277 [http-nio-1314-exec-6] DEBUG com.njfu.selection.dao.HeadLineDao.deleteHeadLine - ==> Parameters: 
+2018-07-14 17:59:55.760 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-14 18:00:24.856 [http-nio-1314-exec-1] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------addHeadLine---------->
+2018-07-14 18:00:25.046 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.AdminDao.queryAdminInfoById - ==>  Preparing: SELECT admin_id, admin_name, password, profile_img, birthday, gender, phone, enable_status FROM tb_admin WHERE admin_id = ? 
+2018-07-14 18:00:25.096 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.AdminDao.queryAdminInfoById - ==> Parameters: 150804213(Long)
+2018-07-14 18:00:25.126 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.AdminDao.queryAdminInfoById - <==      Total: 1
+2018-07-14 18:00:25.126 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.HeadLineDao.deleteHeadLine - ==>  Preparing: DELETE FROM tb_head_line VALUES nid > 1 
+2018-07-14 18:00:25.126 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.HeadLineDao.deleteHeadLine - ==> Parameters: 
+2018-07-14 18:01:03.753 [restartedMain] DEBUG com.njfu.selection.SelectionApplication - Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-07-14 18:01:28.543 [http-nio-1314-exec-1] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------addHeadLine---------->
+2018-07-14 18:01:28.733 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.AdminDao.queryAdminInfoById - ==>  Preparing: SELECT admin_id, admin_name, password, profile_img, birthday, gender, phone, enable_status FROM tb_admin WHERE admin_id = ? 
+2018-07-14 18:01:28.793 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.AdminDao.queryAdminInfoById - ==> Parameters: 150804213(Long)
+2018-07-14 18:01:28.823 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.AdminDao.queryAdminInfoById - <==      Total: 1
+2018-07-14 18:01:28.833 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.HeadLineDao.deleteHeadLine - ==>  Preparing: DELETE FROM tb_head_line WHERE nid >= 1 
+2018-07-14 18:01:28.833 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.HeadLineDao.deleteHeadLine - ==> Parameters: 
+2018-07-14 18:01:28.893 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.HeadLineDao.deleteHeadLine - <==    Updates: 1
+2018-07-14 18:01:28.893 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.HeadLineDao.addHeadLine - ==>  Preparing: INSERT INTO tb_head_line (head, subhead, body, admin_id) VALUES (?, ?, ?, ?) 
+2018-07-14 18:01:28.903 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.HeadLineDao.addHeadLine - ==> Parameters: 可怕可怕可怕可怕可怕可怕可怕可怕(String), 32343242343242(String), 1242423423423423423423423423423423423423的方式公司的公司的(String), 150804213(Long)
+2018-07-14 18:01:28.993 [http-nio-1314-exec-1] DEBUG com.njfu.selection.dao.HeadLineDao.addHeadLine - <==    Updates: 1
+2018-07-14 18:01:33.449 [http-nio-1314-exec-5] DEBUG com.njfu.selection.service.impl.AdminServiceImpl - <----------readHeadLine---------->
+2018-07-14 18:01:33.450 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - ==>  Preparing: SELECT head, subhead, body, admin_id FROM tb_head_line 
+2018-07-14 18:01:33.452 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - ==> Parameters: 
+2018-07-14 18:01:33.455 [http-nio-1314-exec-5] DEBUG com.njfu.selection.dao.HeadLineDao.queryHeadLine - <==      Total: 1

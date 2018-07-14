@@ -28,6 +28,18 @@
     text-align: center;
 }
 
+.jumbotron-version2{
+
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 6px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eee;
+}
+
 .top-right-control{color:white;}
 .nav-custom-menu{list-style-type:none;margin:0px;padding:0;overflow:hidden;background-color:white;}
 .nav-custom-menu a{display:block;color:#777777;text-align:center;padding:10px;text-decoration:none;float:right;font-size:18px;}

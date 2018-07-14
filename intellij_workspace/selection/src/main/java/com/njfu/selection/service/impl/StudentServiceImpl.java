@@ -3,16 +3,10 @@ package com.njfu.selection.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.njfu.selection.dao.DesignDao;
-import com.njfu.selection.dao.ProjectDao;
-import com.njfu.selection.dao.StudentDao;
-import com.njfu.selection.dao.TeacherDao;
+import com.njfu.selection.dao.*;
 import com.njfu.selection.dto.DesignProjectDto;
 import com.njfu.selection.dto.ResponseInfoDTO;
-import com.njfu.selection.entity.Admin;
-import com.njfu.selection.entity.Design;
-import com.njfu.selection.entity.Project;
-import com.njfu.selection.entity.Student;
+import com.njfu.selection.entity.*;
 import com.njfu.selection.service.StudentService;
 import com.njfu.selection.utils.MessageYmlUtil;
 import org.slf4j.Logger;
@@ -57,6 +51,9 @@ public class StudentServiceImpl implements StudentService {
     private ProjectDao projectDao;
 
     @Autowired
+    private LeaveWordsDao leaveWordsDao;
+
+    @Autowired
     private MessageYmlUtil ymlUtil;
 
     @Override
@@ -71,7 +68,14 @@ public class StudentServiceImpl implements StudentService {
         if (getStudent == null) {
             responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_2.code")), ymlUtil.getLogin().get("failure_2.msg"), null);
         } else if (getStudent.getPassword().equals(student.getPassword())) {//消息提示工具类获取key// 正确码,字符型转为整型
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("success.code")), ymlUtil.getLogin().get("success.msg"), getStudent);
+
+            if(getStudent.getEnableStatus() == 1){
+                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("success.code")), ymlUtil.getLogin().get("success.msg"), getStudent);
+            }else{
+                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_3.code")), ymlUtil.getLogin().get("failure_3.msg"));
+            }
+
+
         } else {
             responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_1.code")), ymlUtil.getLogin().get("failure_1.msg"), null);
         }
@@ -369,4 +373,45 @@ public class StudentServiceImpl implements StudentService {
         responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getFile().get("upload.failure_3.code")), ymlUtil.getFile().get("upload.failure_3.msg"));
         return responseInfoDTO;
     }
+
+    @Override
+    public ResponseInfoDTO<Object> studentAddWords(String params, HttpServletRequest request, HttpServletResponse response) {
+        logger.debug("<----------studentAddWords---------->");
+        LeaveWords leaveWords = JSON.parseObject(params, LeaveWords.class);
+
+        leaveWords.setFlag(0);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+
+        int flag = leaveWordsDao.addLeaveWords(leaveWords);
+
+        if(flag == 1){
+            responseInfoDTO = new ResponseInfoDTO(111, "留言成功",leaveWords);
+
+        }else{
+
+            responseInfoDTO = new ResponseInfoDTO(-111, "留言失败");
+        }
+        return responseInfoDTO;
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> studentGetWords(String params, HttpServletRequest request, HttpServletResponse response) {
+        logger.debug("<----------studentAddWords---------->");
+        LeaveWords leaveWords = JSON.parseObject(params, LeaveWords.class);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+
+        List<LeaveWords> leaveWordsList = leaveWordsDao.queryLeaveWordsByTeacherIdAndStudentId(leaveWords);
+        if(leaveWordsList.size() == 0){
+            responseInfoDTO = new ResponseInfoDTO(-112, "无留言");
+        }else{
+            responseInfoDTO = new ResponseInfoDTO(112, "获取留言成功",leaveWordsList);
+        }
+        return responseInfoDTO;
+    }
+
+
 }

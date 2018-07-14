@@ -114,4 +114,21 @@ public interface AdminService {
      */
     ResponseInfoDTO<Object> adminBlockedUser(String params, HttpServletRequest request, HttpServletResponse response);
 
+    /**
+     * 读取头条信息
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> readHeadLine(HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 添加头条信息
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> addHeadLine(String params, HttpServletRequest request, HttpServletResponse response);
+
 }

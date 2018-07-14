@@ -139,5 +139,25 @@ public class AdminController {
         return adminService.adminBlockedUser(params, request, response);
     }
 
+    /**********************************admin读取头条信息，添加头条信息*********************************/
+    /**
+     * 读取头条信息
+     *
+     */
+    @PostMapping(value = "/read_head_line", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> readHeadLine(HttpServletRequest request, HttpServletResponse response) {
+        return adminService.readHeadLine(request, response);
+    }
+
+    /**
+     * 添加头条信息
+     *
+     */
+    @PostMapping(value = "/add_head_line", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> addHeadLine(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return adminService.addHeadLine(params, request, response);
+    }
 
 }

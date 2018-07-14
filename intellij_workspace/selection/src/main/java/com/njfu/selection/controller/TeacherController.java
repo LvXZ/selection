@@ -159,4 +159,26 @@ public class TeacherController {
     }
 
 
+    /**********************************teacher添加留言，查询留言*********************************/
+    /**
+     * 添加留言
+     * studentID,teacherID,words
+     */
+    @PostMapping(value = "/add_words", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> teacherAddWords(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return teacherService.teacherAddWords(params, request, response);
+    }
+
+    /**
+     * 查询留言
+     * studentID,teacherID
+     */
+    @PostMapping(value = "/get_words", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> teacherGetWords(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return teacherService.teacherGetWords(params, request, response);
+    }
+
+
 }

@@ -4,7 +4,7 @@
 <mapper namespace="com.njfu.selection.dao.StudentDao">
 
     <select id="queryStudentPasswordById" parameterType="Long" resultType="com.njfu.selection.entity.Student">
-        SELECT student_id, student_name, password
+        SELECT student_id, student_name, password, enable_status
         FROM tb_student
         WHERE student_id = #{studentID}
     </select>

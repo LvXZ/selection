@@ -4,7 +4,7 @@
 <mapper namespace="com.njfu.selection.dao.AdminDao">
 
     <select id="queryAdminPasswordById" parameterType="Long" resultType="com.njfu.selection.entity.Admin">
-        SELECT admin_id, admin_name, password
+        SELECT admin_id, admin_name, password, enable_status
         FROM tb_admin
         WHERE admin_id = #{adminID}
     </select>

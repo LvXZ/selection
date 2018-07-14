@@ -2,6 +2,7 @@ package com.njfu.selection.service;
 
 import com.njfu.selection.dto.ResponseInfoDTO;
 import com.njfu.selection.entity.Student;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -95,5 +96,21 @@ public interface StudentService {
      * @return
      */
     ResponseInfoDTO<Object> studentUploadProject(HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 添加留言
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> studentAddWords(@RequestBody String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 查询留言
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> studentGetWords(@RequestBody String params, HttpServletRequest request, HttpServletResponse response);
 
 }

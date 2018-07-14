@@ -79,7 +79,7 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
 
-            <div class="jumbotron">
+            <div class="login-box-body">
                 <ddd>
 
 
@@ -152,6 +152,41 @@
                             <div class="input" style="text-align:center">
                                 <button class="btn btn-default btn-center" data-dismiss="modal">取消</button>
                                 <button class="btn btn-primary btn-center" onclick="updateTeacherPassword()">修改</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--留言信息框-->
+            <div class="modal fade" id="modal-container-454545" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 class="modal-title">
+                            留言
+                        </h3>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <input  class="form-control" id="studentID" type="hidden" value="">
+
+                        <bbbb>
+
+
+                        </bbbb>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="login-box-body">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
+                                <input class="form-control" id="words" type="text" placeholder="请输入..."/>
+                                <span class="input-group-addon" style="background-color: #337ab7;border: 3px;">
+                                    <button onclick="chatWithTeacher()" style="background-color: #337ab7;border: none;">发送</button>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -340,13 +375,13 @@
 
         var $th1=$('<th>毕设编码</th>');
         var $th2=$('<th>毕设名称</th>');
-        var $th3=$('<th>毕设管理状态</th>');
+        var $th3=$('<th>管理状态</th>');
         var $th4=$('<th>学生申请时间</th>');
         var $th5=$('<th>留言</th>');
-        var $th6=$('<th>学生申请姓名</th>');
+        var $th6=$('<th>学生姓名</th>');
         var $th7=$('<th>学生毕设状态</th>');
         var $th8=$('<th>操作</th>');
-        var $th9=$('<th>上传文件名称</th>');
+        var $th9=$('<th>文件名称</th>');
         var $th10=$('<th>最近修改时间</th>');
         var $tbody=$('<tbody></tbody>');
 
@@ -401,7 +436,7 @@
             var $td4=$('<td>'+times+'</td>');
             $tr.append($td4);
 
-            var $td5=$('<td><button onclick="" class="btn btn-small btn-primary"><i class="glyphicon glyphicon-comment"></i></button></td>');
+            var $td5=$('<td><button onclick="showChat(this)" class="btn btn-small btn-primary" name="'+ data[i]['project']['studentID'] +'"><i class="glyphicon glyphicon-comment"></i></button></td>');
             $tr.append($td5);
 
             var $td6=$('<td>'+data[i]['teacherName']+'</td>');
@@ -598,6 +633,128 @@
         }
 
     }
+
+
+    //显示留言框
+    function showChat(obj){
+
+        var studentID = obj.name;
+
+        $('#studentID').val(studentID);
+
+        data_deal();
+    }
+
+
+    function data_deal(){
+
+        var teacherID = $('#user_id').val(),
+            studentID = $('#studentID').val();
+
+        var objJson = {
+            "studentID":parseInt(studentID),
+            "teacherID":parseInt(teacherID)
+        };
+
+        $.ajax({
+            type:"POST",
+            url: "/lvxz/teacher/get_words",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(objJson),
+            async:true,
+            success: function (response) {
+                console.log(response);
+                if(response.code == 112){
+                    showChatWords(response.data);
+
+                } else {
+                    alert(response.msg);
+                }
+            },
+            error: function (data){
+                alert("访问失败，请检查网络、路径......");
+            }
+        });
+
+        $('#div_words').remove();
+        $('#modal-container-454545').modal('show');
+
+    }
+
+    //处理留言框
+    function showChatWords(data){
+
+        var $div=$('<div class="login-box-body" id="div_words"></div>');
+        $("bbbb").append($div);
+
+
+        for(var i=0;i<data.length;i++){
+
+            if(data[i]['flag'] == 1){
+                var $label=$('<div style="float:right; text-align:right"><label style="background-color: #337ab7;display: initial">'+data[i]['words']+'</label></div><br>');
+                $div.append($label);
+            }else{
+                var $label=$('<div style="float:left; text-align:left"><label style="background-color: white;display: initial">'+data[i]['words']+'</label></div><br>');
+                $div.append($label);
+            }
+
+        }
+
+
+    }
+
+
+    //留言
+    function chatWithTeacher() {
+
+        var teacherID = $('#user_id').val(),
+            studentID = $('#studentID').val(),
+            words = $('#words').val();
+
+        if(words.length!=0){
+
+            var objJson = {
+                "studentID":parseInt(studentID),
+                "teacherID":parseInt(teacherID),
+                "words":words
+            };
+
+            $.ajax({
+                type:"POST",
+                url: "/lvxz/teacher/add_words",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(objJson),
+                async:true,
+                success: function (response) {
+                    console.log(response);
+                    if(response.code == 111){
+
+                        alert(response.msg);
+                        $('#words').val("");
+
+                        data_deal();
+
+
+
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function (data){
+                    alert("访问失败，请检查网络、路径......");
+                }
+            });
+
+
+        }else{
+            alert("留言填写未空");
+        }
+
+
+    }
+
 
 </script>
 

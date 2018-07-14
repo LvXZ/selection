@@ -120,5 +120,27 @@ public class StudentController {
         return studentService.studentUploadProject(request, response);
     }
 
+    /**********************************student添加留言，查询留言*********************************/
+    /**
+     * 添加留言
+     * studentID,teacherID,words
+     */
+    @PostMapping(value = "/add_words", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> studentAddWords(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return studentService.studentAddWords(params, request, response);
+    }
+
+    /**
+     * 查询留言
+     * studentID,teacherID
+     */
+    @PostMapping(value = "/get_words", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> studentGetWords(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return studentService.studentGetWords(params, request, response);
+    }
+
+
 
 }

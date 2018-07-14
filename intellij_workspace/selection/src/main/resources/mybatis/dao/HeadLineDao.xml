@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.njfu.selection.dao.HeadLineDao">
+
+    <insert id="addHeadLine" parameterType="com.njfu.selection.entity.HeadLine">
+        INSERT INTO tb_head_line (head, subhead, body, admin_id)
+        VALUES (#{head}, #{subhead}, #{body}, #{adminID})
+    </insert>
+
+    <delete id="deleteHeadLine">
+        DELETE FROM tb_head_line
+        VALUES nid >= 1
+    </delete>
+
+    <select id="queryHeadLine" resultType="com.njfu.selection.entity.HeadLine">
+        SELECT head, subhead, body, admin_id
+        FROM tb_head_line
+    </select>
+
+</mapper>

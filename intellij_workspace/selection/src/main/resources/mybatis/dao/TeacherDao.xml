@@ -10,7 +10,7 @@
     </select>
 
     <select id="queryTeacherPasswordById" parameterType="Long" resultType="com.njfu.selection.entity.Teacher">
-        SELECT teacher_id, teacher_name, password
+        SELECT teacher_id, teacher_name, password, enable_status
         FROM tb_teacher
         WHERE teacher_id = #{teacherID}
     </select>

@@ -68,10 +68,10 @@ a:hover {
 
 .login-box-body {
     background-color: #eeeeee;
-    padding: 20px;
+    padding: 25px;
     border:2px solid #eeeeee;
     border-radius: 8px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 #user_password, #user_id, #block_user_id{
@@ -110,10 +110,6 @@ margin-right: auto;
 border: 1px;
 height: 1rem;
 
-}
-
-.input-group button {
-width: 100px;
 }
 
 

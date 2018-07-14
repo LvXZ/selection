@@ -3,13 +3,11 @@ package com.njfu.selection.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.njfu.selection.dao.DesignDao;
-import com.njfu.selection.dao.ProjectDao;
-import com.njfu.selection.dao.StudentDao;
-import com.njfu.selection.dao.TeacherDao;
+import com.njfu.selection.dao.*;
 import com.njfu.selection.dto.DesignProjectDto;
 import com.njfu.selection.dto.ResponseInfoDTO;
 import com.njfu.selection.entity.Design;
+import com.njfu.selection.entity.LeaveWords;
 import com.njfu.selection.entity.Project;
 import com.njfu.selection.entity.Teacher;
 import com.njfu.selection.service.TeacherService;
@@ -58,6 +56,9 @@ public class TeacherServiceImpl implements TeacherService {
     private ProjectDao projectDao;
 
     @Autowired
+    private LeaveWordsDao leaveWordsDao;
+
+    @Autowired
     private MessageYmlUtil ymlUtil;
 
 
@@ -75,7 +76,14 @@ public class TeacherServiceImpl implements TeacherService {
         } else {
 
             if (getTeacher.getPassword().equals(teacher.getPassword())) {
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("success.code")), ymlUtil.getLogin().get("success.msg"), getTeacher);
+
+                if(getTeacher.getEnableStatus() == 1){
+                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("success.code")), ymlUtil.getLogin().get("success.msg"), getTeacher);
+                }else{
+                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_3.code")), ymlUtil.getLogin().get("failure_3.msg"));
+                }
+
+
             } else {
                 responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_1.code")), ymlUtil.getLogin().get("failure_1.msg"), null);
             }
@@ -432,6 +440,45 @@ public class TeacherServiceImpl implements TeacherService {
             responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getProject().get("update.failure_2.code")), ymlUtil.getProject().get("update.failure_2.msg"));
         }
 
+        return responseInfoDTO;
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> teacherAddWords(String params, HttpServletRequest request, HttpServletResponse response) {
+        logger.debug("<----------teacherAddWords---------->");
+        LeaveWords leaveWords = JSON.parseObject(params, LeaveWords.class);
+
+        leaveWords.setFlag(1);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+
+        int flag = leaveWordsDao.addLeaveWords(leaveWords);
+
+        if(flag == 1){
+            responseInfoDTO = new ResponseInfoDTO(111, "留言成功",leaveWords);
+
+        }else{
+
+            responseInfoDTO = new ResponseInfoDTO(-111, "留言失败");
+        }
+        return responseInfoDTO;
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> teacherGetWords(String params, HttpServletRequest request, HttpServletResponse response) {
+        logger.debug("<----------teacherGetWords---------->");
+        LeaveWords leaveWords = JSON.parseObject(params, LeaveWords.class);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+
+        List<LeaveWords> leaveWordsList = leaveWordsDao.queryLeaveWordsByTeacherIdAndStudentId(leaveWords);
+        if(leaveWordsList.size() == 0){
+            responseInfoDTO = new ResponseInfoDTO(-112, "无留言");
+        }else{
+            responseInfoDTO = new ResponseInfoDTO(112, "获取留言成功",leaveWordsList);
+        }
         return responseInfoDTO;
     }
 

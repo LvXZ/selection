@@ -131,4 +131,22 @@ public interface TeacherService {
      */
     ResponseInfoDTO<Object> opposeStudentProject(String params, HttpServletRequest request, HttpServletResponse response);
 
+    /**
+     * 添加留言
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> teacherAddWords(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 查询留言
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> teacherGetWords(String params, HttpServletRequest request, HttpServletResponse response);
+
 }

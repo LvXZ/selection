@@ -102,7 +102,7 @@
                         <td id="td3">----</td>
                         <td id="td4">----</td>
                         <td>
-                            <button onclick="teacher_delete();" class="btn btn-small btn-primary" data-toggle="tooltip"
+                            <button onclick="showChat();" class="btn btn-small btn-primary" data-toggle="tooltip"
                                     data-placement="right" title="编写留言"> &nbsp;<i class="glyphicon glyphicon-comment">&nbsp;</i></button>
                         </td>
                     </tr>
@@ -244,6 +244,45 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+            <!--留言信息框-->
+            <div class="modal fade" id="modal-container-454545" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 class="modal-title">
+                            留言
+                        </h3>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <input  class="form-control" id="teacherID" type="hidden" value="">
+
+                        <bbbb>
+
+
+                        </bbbb>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="login-box-body">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
+                                <input class="form-control" id="words" type="text" placeholder="请输入..."/>
+                                <span class="input-group-addon" style="background-color: #337ab7;border: 3px;">
+                                    <button onclick="chatWithTeacher()" style="background-color: #337ab7;border: none;">发送</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
 
 
@@ -506,6 +545,9 @@
         $('#td7').html(data['project']['fileName']);
         $('#td8').html(times);
 
+
+        $('#teacherID').val(data['teacherID']);
+
     }
 
     /*学生删除申请、取消申请*/
@@ -588,6 +630,115 @@
         });
     }
 
+
+
+
+    //显示留言框
+    function showChat(){
+
+        var studentID = $('#user_id').val(),
+            teacherID = $('#teacherID').val();
+
+
+        var objJson = {
+            "studentID":parseInt(studentID),
+            "teacherID":parseInt(teacherID)
+        };
+
+        $.ajax({
+            type:"POST",
+            url: "/lvxz/student/get_words",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(objJson),
+            async:true,
+            success: function (response) {
+                console.log(response);
+                if(response.code == 112){
+                    showChatWords(response.data);
+
+                } else {
+                    alert(response.msg);
+                }
+            },
+            error: function (data){
+                alert("访问失败，请检查网络、路径......");
+            }
+        });
+
+        $('#div_words').remove();
+        $('#modal-container-454545').modal('show');
+
+    }
+
+    //处理留言框
+    function showChatWords(data){
+
+        var $div=$('<div class="login-box-body" id="div_words"></div>');
+        $("bbbb").append($div);
+
+
+        for(var i=0;i<data.length;i++){
+
+            if(data[i]['flag'] == 0){
+                var $label=$('<div style="float:right; text-align:right"><label style="background-color: #337ab7;display: initial">'+data[i]['words']+'</label></div><br>');
+                $div.append($label);
+            }else{
+                var $label=$('<div style="float:left; text-align:left"><label style="background-color: white;display: initial">'+data[i]['words']+'</label></div><br>');
+                $div.append($label);
+            }
+
+        }
+
+
+    }
+
+
+    //留言
+    function chatWithTeacher() {
+
+        var studentID = $('#user_id').val(),
+            teacherID = $('#teacherID').val(),
+            words = $('#words').val();
+
+        if(words.length!=0){
+
+            var objJson = {
+                "studentID":parseInt(studentID),
+                "teacherID":parseInt(teacherID),
+                "words":words
+            };
+
+            $.ajax({
+                type:"POST",
+                url: "/lvxz/student/add_words",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(objJson),
+                async:true,
+                success: function (response) {
+                    console.log(response);
+                    if(response.code == 111){
+
+                        alert(response.msg);
+                        $('#words').val("");
+
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function (data){
+                    alert("访问失败，请检查网络、路径......");
+                }
+            });
+
+
+        }else{
+            alert("留言填写未空");
+        }
+
+
+    }
 
 </script>
 

@@ -3,18 +3,12 @@ package com.njfu.selection.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.njfu.selection.dao.AdminDao;
-import com.njfu.selection.dao.DesignDao;
-import com.njfu.selection.dao.StudentDao;
-import com.njfu.selection.dao.TeacherDao;
+import com.njfu.selection.dao.*;
 import com.njfu.selection.dto.AdminStudentDto;
 import com.njfu.selection.dto.AdminTeacherDto;
 import com.njfu.selection.dto.RequestInfoDTO;
 import com.njfu.selection.dto.ResponseInfoDTO;
-import com.njfu.selection.entity.Admin;
-import com.njfu.selection.entity.Design;
-import com.njfu.selection.entity.Student;
-import com.njfu.selection.entity.Teacher;
+import com.njfu.selection.entity.*;
 import com.njfu.selection.service.AdminService;
 import com.njfu.selection.utils.MessageYmlUtil;
 import com.njfu.selection.utils.POIUtil;
@@ -54,6 +48,9 @@ public class AdminServiceImpl implements AdminService {
     private StudentDao studentDao;
 
     @Autowired
+    private HeadLineDao headLineDao;
+
+    @Autowired
     private MessageYmlUtil ymlUtil;
 
     @Override
@@ -69,7 +66,13 @@ public class AdminServiceImpl implements AdminService {
             responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_2.code")), ymlUtil.getLogin().get("failure_2.msg"));
         } else {
             if (getAdmin.getPassword().equals(admin.getPassword())) {
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("success.code")), ymlUtil.getLogin().get("success.msg"), getAdmin);
+
+                if(getAdmin.getEnableStatus() == 1){
+                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("success.code")), ymlUtil.getLogin().get("success.msg"), getAdmin);
+                }else{
+                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_3.code")), ymlUtil.getLogin().get("failure_3.msg"));
+                }
+
             } else {
                 responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_1.code")), ymlUtil.getLogin().get("failure_1.msg"));
             }
@@ -393,6 +396,29 @@ public class AdminServiceImpl implements AdminService {
 
         return responseInfoDTO;
     }
+
+    @Override
+    public ResponseInfoDTO<Object> readHeadLine(HttpServletRequest request, HttpServletResponse response) {
+        logger.debug("<----------readHeadLine---------->");
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+        HeadLine headLine = headLineDao.queryHeadLine();
+        if(headLine == null){
+            responseInfoDTO = new ResponseInfoDTO(-1, "访问失败");
+        }else{
+            responseInfoDTO = new ResponseInfoDTO(1, "访问失败",headLine);
+        }
+        return responseInfoDTO;
+
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> addHeadLine(String params, HttpServletRequest request, HttpServletResponse response) {
+        return null;
+    }
+
+
 
 
     public ResponseInfoDTO<Object> readStudentExcel(MultipartFile file){//读取学生excel文件中的用户信息

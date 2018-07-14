@@ -41,7 +41,7 @@
 
     <title>登录界面</title>
 </head>
-<body style="background-color: #39221e">
+<body onload="getHead()" style="background-color: #39221e">
 
     <div class="container">
         <div class="row clearfix">
@@ -58,17 +58,14 @@
             <div class="row clearfix">
                 <div class="col-md-8 column">
                     <div class="jumbotron">
-                        <h2>
+                        <h2 id="head">
                             2018届毕业论文选题啦......快来呀！
                         </h2>
-                        <h3 class="text-right">
+                        <h3 class="text-right" id="subhead">
                             [5月20号截止......]
                         </h3>
-                        <p>
+                        <p id="body">
                             This is a template for a simple marketing or informational website.  created by lvxz
-                        </p>
-                        <p>
-                            <a class="btn btn-primary" href="#">Learn more</a>
                         </p>
                     </div>
                 </div>
@@ -103,6 +100,34 @@
 
 
     <script>
+
+        function getHead(){
+
+            $.ajax({
+                type:"POST",
+                url: "/lvxz/admin/read_head_line",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                async:true,
+                success: function (response) {
+                    if(response.code == 1){
+
+                        $('#head').html(response.data.head);
+                        $('#subhead').html(response.data.subhead);
+                        $('#body').html(response.data.body);
+
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function (data){
+                    alert("访问失败，请检查网络、路径......");
+                }
+            });
+
+        }
+
+
         $(document).ready(function(){
             $("#user_id").keydown(function(event){
                 if(event.which === 13)

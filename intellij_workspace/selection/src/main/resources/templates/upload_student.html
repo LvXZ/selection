@@ -544,7 +544,14 @@
 
 
         $('#td7').html(data['project']['fileName']);
-        $('#td8').html(times);
+
+        if(data['project']['lastEditTime'].length != 0){
+            var d2 = new Date(data['project']['lastEditTime']);
+            var times2=d2.getFullYear() + '-' + (d2.getMonth() + 1) + '-' + d2.getDate() + ' ' + d2.getHours() + ':' + d2.getMinutes() + ':' + d2.getSeconds();
+
+            $('#td8').html(times2);
+        }
+
 
 
         $('#teacherID').val(data['teacherID']);

@@ -72,20 +72,20 @@ public class TeacherServiceImpl implements TeacherService {
         response.setHeader("Access-Control-Allow-Methods", "POST");
         ResponseInfoDTO responseInfoDTO;
         if (getTeacher == null) {
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_2.code")), ymlUtil.getLogin().get("failure_2.msg"), null);
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getLogin().get("failure_2.msg"), null);
         } else {
 
             if (getTeacher.getPassword().equals(teacher.getPassword())) {
 
                 if(getTeacher.getEnableStatus() == 1){
-                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("success.code")), ymlUtil.getLogin().get("success.msg"), getTeacher);
+                    responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getLogin().get("success.msg"), getTeacher);
                 }else{
-                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_3.code")), ymlUtil.getLogin().get("failure_3.msg"));
+                    responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getLogin().get("failure_3.msg"));
                 }
 
 
             } else {
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_1.code")), ymlUtil.getLogin().get("failure_1.msg"), null);
+                responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getLogin().get("failure_1.msg"), null);
             }
         }
         return responseInfoDTO;
@@ -114,17 +114,17 @@ public class TeacherServiceImpl implements TeacherService {
                 newTeacher.setPassword(new_password);
                 int flag = teacherDao.updateTeacherPasswordById(newTeacher);
                 if(flag == 1){
-                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getUpdate().get("password.success.code")), ymlUtil.getUpdate().get("password.success.msg"), newTeacher);
+                    responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getUpdate().get("password.success.msg"), newTeacher);
                 } else {
-                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getMysql_error().get("success.code")), ymlUtil.getUpdate().get("success.msg"), null);
+                    responseInfoDTO = new ResponseInfoDTO(-1, ymlUtil.getUpdate().get("success.msg"));
                 }
 
             } else{
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getUpdate().get("password.failure_2.code")), ymlUtil.getUpdate().get("password.failure_2.msg"), null);
+                responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getUpdate().get("password.failure_2.msg"));
             }
 
         } else{
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getUpdate().get("password.failure_1.code")), ymlUtil.getUpdate().get("password.failure_1.msg"), null);
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getUpdate().get("password.failure_1.msg"));
         }
         return responseInfoDTO;
     }
@@ -139,9 +139,9 @@ public class TeacherServiceImpl implements TeacherService {
 
         int flag = teacherDao.updateTeacherInfoById(teacher);
         if(flag == 1){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getUpdate().get("info.success.code")), ymlUtil.getUpdate().get("info.success.msg"), teacher);
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getUpdate().get("info.success.msg"), teacher);
         } else {
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getMysql_error().get("code")), ymlUtil.getUpdate().get("msg"), null);
+            responseInfoDTO = new ResponseInfoDTO(-1, ymlUtil.getUpdate().get("msg"));
         }
         return responseInfoDTO;
     }
@@ -157,9 +157,9 @@ public class TeacherServiceImpl implements TeacherService {
 
         int flag = teacherDao.updateTeacherPasswordByOther(teacher);
         if(flag == 1){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getUpdate().get("password.success.code")), ymlUtil.getUpdate().get("password.success.msg"), teacher);
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getUpdate().get("password.success.msg"), teacher);
         } else {
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getUpdate().get("password.failure_3.code")), ymlUtil.getUpdate().get("password.failure_3.msg"), null);
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getUpdate().get("password.failure_3.msg"));
         }
         return responseInfoDTO;
     }
@@ -170,7 +170,7 @@ public class TeacherServiceImpl implements TeacherService {
     public ResponseInfoDTO<Object> teacherApplyDesign(HttpServletRequest request, HttpServletResponse response) {
         logger.debug("<----------teacherApplyDesign---------->");
 
-        String designName = request.getParameter("designName");
+        String designName = request.getParameter("designName2");
         String teacherID = request.getParameter("teacherID");
         //获取多个文件，此处默认接收一个打包文件
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
@@ -214,25 +214,25 @@ public class TeacherServiceImpl implements TeacherService {
                             stream.write(bytes);
                             stream.close();
 
-                            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getFile().get("upload.success.code")), ymlUtil.getFile().get("upload.success.msg"),addDesign);
+                            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getFile().get("upload.success.msg"),addDesign);
                             return responseInfoDTO;
                         } else {
-                            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getFile().get("upload.failure_6.code")), ymlUtil.getFile().get("upload.failure_6.msg"));
+                            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getFile().get("upload.failure_6.msg"));
                             return responseInfoDTO;
                         }
 
                     } catch (Exception e) {
                         e.printStackTrace();
-                        responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getFile().get("upload.failure_1.code")), ymlUtil.getFile().get("upload.failure_1.msg") + e.getStackTrace());
+                        responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getFile().get("upload.failure_1.msg") + e.getStackTrace());
                         return responseInfoDTO;
                     }
                 } else {
-                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getFile().get("upload.failure_2.code")), ymlUtil.getFile().get("upload.failure_2.msg"));
+                    responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getFile().get("upload.failure_2.msg"));
                     return responseInfoDTO;
                 }
             }
         }
-        responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getFile().get("upload.failure_3.code")), ymlUtil.getFile().get("upload.failure_3.msg"));
+        responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getFile().get("upload.failure_3.msg"));
         return responseInfoDTO;
     }
 
@@ -248,9 +248,9 @@ public class TeacherServiceImpl implements TeacherService {
         int flag = designDao.deleteDesignByDesignIdAndTeacherID(design);
         if(flag == 1){
             //缺删除响应文件
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("delete.success.code")), ymlUtil.getDesign().get("delete.success.msg"));
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getDesign().get("delete.success.msg"));
         } else {
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("delete.failure.code")), ymlUtil.getDesign().get("delete.failure.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getDesign().get("delete.failure.msg"));
         }
         return responseInfoDTO;
     }
@@ -270,10 +270,10 @@ public class TeacherServiceImpl implements TeacherService {
         int flag = designDao.updateDesignEnableStatusByDesignId(design);
 
         if(flag == 1){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.success_3.code")), ymlUtil.getDesign().get("update.success_3.msg"));
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getDesign().get("update.success_3.msg"));
 
         }else{
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.failure_3.code")), ymlUtil.getDesign().get("update.failure_3.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getDesign().get("update.failure_3.msg"));
         }
 
         return responseInfoDTO;
@@ -289,9 +289,9 @@ public class TeacherServiceImpl implements TeacherService {
         List<Design> designList = designDao.queryAllDesignByTeacherId(teacher.getTeacherID());
 
         if(designList.size() == 0){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("teacher.failure.code")), ymlUtil.getHelp().get("teacher.failure.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getHelp().get("teacher.failure.msg"));
         }else{
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("teacher.success.code")), ymlUtil.getHelp().get("teacher.success.msg"),designList);
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getHelp().get("teacher.success.msg"),designList);
         }
         return responseInfoDTO;
     }
@@ -308,10 +308,10 @@ public class TeacherServiceImpl implements TeacherService {
         int flag = designDao.updateDesignEnableStatusByDesignId(design);
 
         if(flag == 1){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.success_4.code")), ymlUtil.getDesign().get("update.success_4.msg"));
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getDesign().get("update.success_4.msg"));
 
         }else{
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.failure_4.code")), ymlUtil.getDesign().get("update.failure_4.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getDesign().get("update.failure_4.msg"));
         }
 
         return responseInfoDTO;
@@ -333,10 +333,10 @@ public class TeacherServiceImpl implements TeacherService {
         int flag2 = projectDao.updateProjectEnableStatusByDesignId(project);
 
         if(flag == 1 && flag2 ==1){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.success_5.code")), ymlUtil.getDesign().get("update.success_5.msg"));
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getDesign().get("update.success_5.msg"));
 
         }else{
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.failure_5.code")), ymlUtil.getDesign().get("update.failure_5.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getDesign().get("update.failure_5.msg"));
         }
 
         return responseInfoDTO;
@@ -352,7 +352,7 @@ public class TeacherServiceImpl implements TeacherService {
         List<Design> designList = designDao.queryAllDesignByTeacherIDAndEnableStatus234(teacher.getTeacherID());
 
         if(designList.size() == 0){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("teacher.failure.code")), ymlUtil.getHelp().get("teacher.failure.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getHelp().get("teacher.failure.msg"));
             return responseInfoDTO;
         }else{
 
@@ -385,10 +385,10 @@ public class TeacherServiceImpl implements TeacherService {
             }
 
             if(designProjectDtoList.size() == 0){
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("teacher.failure_1.code")), ymlUtil.getHelp().get("teacher.failure_1.msg"));
+                responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getHelp().get("teacher.failure_1.msg"));
                 return responseInfoDTO;
             }else{
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("teacher.success_1.code")), ymlUtil.getHelp().get("teacher.success_1.msg"),designProjectDtoList);
+                responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getHelp().get("teacher.success_1.msg"),designProjectDtoList);
                 return responseInfoDTO;
             }
 
@@ -411,10 +411,10 @@ public class TeacherServiceImpl implements TeacherService {
         int flag = projectDao.updateProjectEnableStatusByProjectId(project);
 
         if(flag == 1){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getProject().get("update.success_1.code")), ymlUtil.getProject().get("update.success_1.msg"));
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getProject().get("update.success_1.msg"));
 
         }else{
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getProject().get("update.failure_1.code")), ymlUtil.getProject().get("update.failure_1.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getProject().get("update.failure_1.msg"));
         }
 
         return responseInfoDTO;
@@ -434,10 +434,10 @@ public class TeacherServiceImpl implements TeacherService {
         int flag = projectDao.updateProjectEnableStatusByProjectId(project);
 
         if(flag == 1){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getProject().get("update.success_2.code")), ymlUtil.getProject().get("update.success_2.msg"));
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getProject().get("update.success_2.msg"));
 
         }else{
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getProject().get("update.failure_2.code")), ymlUtil.getProject().get("update.failure_2.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getProject().get("update.failure_2.msg"));
         }
 
         return responseInfoDTO;
@@ -456,11 +456,11 @@ public class TeacherServiceImpl implements TeacherService {
         int flag = leaveWordsDao.addLeaveWords(leaveWords);
 
         if(flag == 1){
-            responseInfoDTO = new ResponseInfoDTO(111, "留言成功",leaveWords);
+            responseInfoDTO = new ResponseInfoDTO(1, "留言成功",leaveWords);
 
         }else{
 
-            responseInfoDTO = new ResponseInfoDTO(-111, "留言失败");
+            responseInfoDTO = new ResponseInfoDTO(0, "留言失败");
         }
         return responseInfoDTO;
     }
@@ -475,9 +475,9 @@ public class TeacherServiceImpl implements TeacherService {
 
         List<LeaveWords> leaveWordsList = leaveWordsDao.queryLeaveWordsByTeacherIdAndStudentId(leaveWords);
         if(leaveWordsList.size() == 0){
-            responseInfoDTO = new ResponseInfoDTO(-112, "无留言");
+            responseInfoDTO = new ResponseInfoDTO(0, "无留言");
         }else{
-            responseInfoDTO = new ResponseInfoDTO(112, "获取留言成功",leaveWordsList);
+            responseInfoDTO = new ResponseInfoDTO(1, "获取留言成功",leaveWordsList);
         }
         return responseInfoDTO;
     }

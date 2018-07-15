@@ -41,6 +41,10 @@
     height: 2rem;
 }
 
+#designName2{
+    text-indent: 10px;
+}
+
 
 #update_PasswordId, #update_InfoId,  #update_userId, #birthday,#phone,#qq,#old_password,#new_password,#words{
     text-indent: 10px;

@@ -111,14 +111,17 @@
                                 <div class="input">
                                     <input  class="form-control" id="update_InfoId" type="text" value="未登录" readonly="true"/>
                                 </div>
-
-                                <div class="input">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                     <input class="form-control" id="birthday" type="date" placeholder="出生日期"/>
                                 </div>
-                                <div class="input">
+
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
                                     <input  class="form-control" id="phone" type="number" placeholder="手机"/>
                                 </div>
-                                <div class="input">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="iconfont">&#xe630;</i></span>
                                     <input  class="form-control" id="qq" type="number" placeholder="QQ"/>
                                 </div>
 
@@ -148,10 +151,12 @@
                                     <input  class="form-control" id="update_PasswordId" type="text" value="未登录" readonly="true"/>
                                 </div>
 
-                                <div class="input">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="iconfont">&#xe62f;</i></span>
                                     <input class="form-control" id="old_password" type="password" placeholder="旧密码"/>
                                 </div>
-                                <div class="input">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                     <input  class="form-control" id="new_password" type="password" placeholder="新密码"/>
                                 </div>
 
@@ -193,7 +198,7 @@
                         alert(response.msg);
                     }
                 },
-                error: function (data){
+                error: function (){
                     alert("访问失败，请检查网络、路径......");
                 }
             });
@@ -254,7 +259,7 @@
                     data: JSON.stringify(objJson),
                     async:true,
                     success: function (response) {
-                        if(response.code == 104){
+                        if(response.code == 1){
                             alert(response.msg);
                             location.reload();//重新加载
                         } else {
@@ -302,7 +307,7 @@
                     data: JSON.stringify(objJson),
                     async:true,
                     success: function (response) {
-                        if(response.code == 103){
+                        if(response.code == 1){
                             alert(response.msg);
                             location.reload();//重新加载
                         } else {
@@ -330,9 +335,8 @@
 
         /*退出登录，消除cookies*/
         function deleteCookies() {
-            //Cookies.remove('s_id', { path: '' });
-            //Cookies.remove('s_account', { path: '' });
-            //window.open('login.html','_self');
+            Cookies.remove('teacher_ObjJson', { path: '' });
+            window.open("/lvxz/login",'_self');
             alert("已注销");
         }
 

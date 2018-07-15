@@ -95,15 +95,16 @@
                         <input  class="form-control" id="now_date" type="text" value="" readonly="true"/>
                     </div>
 
-                    <div class="input">
-                        <input  class="form-control" id="designName" name="designName" type="text" placeholder="毕业设计名称">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                        <input class="form-control" id="designName2" name="designName2" type="text" placeholder="毕业设计名称"/>
                     </div>
 
                     <div class="input">
                         <input  class="form-control" id="teacherID" name="teacherID" type="hidden" value="">
                     </div>
 
-                    <div class="form-group">
+                    <div class="input-group">
                         <input name="file" id="file" type="file" accept="application/x-zip-compressed,application/x-rar-compressed" value="选择压缩包" data-toggle="tooltip"
                                data-placement="left" title="仅支持zip、rar压缩包，且小于1M"/></div>
                     <div class="input-group" style="padding:16px;margin-left:auto;margin-right:auto;">
@@ -132,14 +133,17 @@
                             <div class="input">
                                 <input  class="form-control" id="update_InfoId" type="text" value="未登录" readonly="true"/>
                             </div>
-
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                 <input class="form-control" id="birthday" type="date" placeholder="出生日期"/>
                             </div>
-                            <div class="input">
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
                                 <input  class="form-control" id="phone" type="number" placeholder="手机"/>
                             </div>
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="iconfont">&#xe630;</i></span>
                                 <input  class="form-control" id="qq" type="number" placeholder="QQ"/>
                             </div>
 
@@ -169,10 +173,12 @@
                                 <input  class="form-control" id="update_PasswordId" type="text" value="未登录" readonly="true"/>
                             </div>
 
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="iconfont">&#xe62f;</i></span>
                                 <input class="form-control" id="old_password" type="password" placeholder="旧密码"/>
                             </div>
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                 <input  class="form-control" id="new_password" type="password" placeholder="新密码"/>
                             </div>
 
@@ -264,7 +270,7 @@
                 data: JSON.stringify(objJson),
                 async:true,
                 success: function (response) {
-                    if(response.code == 104){
+                    if(response.code == 1){
                         alert(response.msg);
                         location.reload();//重新加载
                     } else {
@@ -312,7 +318,7 @@
                 data: JSON.stringify(objJson),
                 async:true,
                 success: function (response) {
-                    if(response.code == 103){
+                    if(response.code == 1){
                         alert(response.msg);
                         location.reload();//重新加载
                     } else {
@@ -340,17 +346,10 @@
 
     /*退出登录，消除cookies*/
     function deleteCookies() {
-        //Cookies.remove('s_id', { path: '' });
-        //Cookies.remove('s_account', { path: '' });
-        //window.open('login.html','_self');
+        Cookies.remove('teacher_ObjJson', { path: '' });
+        window.open("/lvxz/login",'_self');
         alert("已注销");
     }
-
-
-
-
-
-
 
 
 
@@ -461,7 +460,7 @@
 
         //alert("testUpload");
         $("#form1").ajaxForm(function(response){
-            if(response.code==601){
+            if(response.code==1){
                 alert(response.msg);
 
                 $('#table_design').remove();
@@ -489,7 +488,7 @@
                 data: teacher_ObjJson,
                 async:true,
                 success: function (response) {
-                    if(response.code == 900){
+                    if(response.code == 1){
                         console.log(response);
                         getTable_Info(response.data);
                     } else {
@@ -527,7 +526,7 @@
             data: JSON.stringify(objJson),
             async:true,
             success: function (response) {
-                if(response.code == 801){
+                if(response.code == 1){
                     console.log(response);
 
                     $('#table_design').remove();
@@ -564,7 +563,7 @@
             data: JSON.stringify(objJson),
             async:true,
             success: function (response) {
-                if(response.code == 804){
+                if(response.code == 1){
                     console.log(response);
 
                     $('#table_design').remove();
@@ -599,7 +598,7 @@
             data: JSON.stringify(objJson),
             async:true,
             success: function (response) {
-                if(response.code == 805){
+                if(response.code == 1){
                     console.log(response);
 
                     $('#table_design').remove();
@@ -634,7 +633,7 @@
             data: JSON.stringify(objJson),
             async:true,
             success: function (response) {
-                if(response.code == 806){
+                if(response.code == 1){
                     console.log(response);
 
                     $('#table_design').remove();

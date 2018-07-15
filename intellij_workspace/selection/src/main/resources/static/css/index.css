@@ -34,3 +34,18 @@
 .nav-custom-menu{list-style-type:none;margin:0px;padding:0;overflow:hidden;background-color:white;}
 .nav-custom-menu a{display:block;color:#777777;text-align:center;padding:10px;text-decoration:none;float:right;font-size:18px;}
 
+#update_PasswordId, #update_InfoId, #update_userId, #designName, #now_date{
+    border: none;
+    text-align: right;
+    font-size: 15px;/*字体大小*/
+    height: 2rem;
+}
+
+
+#update_PasswordId, #update_InfoId,  #update_userId, #birthday,#phone,#qq,#old_password,#new_password,#words{
+    text-indent: 10px;
+}
+
+#old_password, #new_password, #birthday, #phone, #qq, #designName{
+    font-size: 15px;/*字体大小*/
+}

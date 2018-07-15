@@ -51,4 +51,6 @@ public interface AdminDao {
 
 
     int updateAdminEnableStatusByAdmin_AdminID(Admin admin);
+
+    int addAdmin(Admin admin);
 }

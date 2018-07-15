@@ -88,6 +88,33 @@ public interface AdminService {
     ResponseInfoDTO<Object> adminReadExcel(MultipartFile file, HttpServletRequest request, HttpServletResponse response);
 
     /**
+     * 单个注册学生
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> adminInsert1Student(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 单个注册教师
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> adminInsert1Teacher(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 单个注册管理员
+     * @param params
+     * @param request
+     * @param response
+     * @return
+     */
+    ResponseInfoDTO<Object> adminInsert1Admin(String params, HttpServletRequest request, HttpServletResponse response);
+
+    /**
      * 文件注册学生
      * @param params
      * @param request

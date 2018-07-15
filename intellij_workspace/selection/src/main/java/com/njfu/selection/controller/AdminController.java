@@ -98,7 +98,7 @@ public class AdminController {
 
 
 
-    /**********************************admin读取excel表格,文件注册学生,文件注册老师,冻结解冻用户账号*********************************/
+    /**********************************admin读取excel表格,单个注册学生,单个注册教师,单个注册管理员,文件注册学生,文件注册老师,冻结解冻用户账号*********************************/
     /**
      * 读取excel表格
      * radio, file
@@ -107,6 +107,36 @@ public class AdminController {
     @CrossOrigin(allowCredentials = "false")
     public ResponseInfoDTO<Object> readExcel(@RequestParam("file") MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
         return adminService.adminReadExcel(file, request, response);
+    }
+
+    /**
+     * 单个注册学生
+     * adminID, students
+     */
+    @PostMapping(value = "/insert1_student", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> adminInsert1Student(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return adminService.adminInsert1Student(params, request, response);
+    }
+
+    /**
+     * 单个注册管理员
+     * adminID, students
+     */
+    @PostMapping(value = "/insert1_admin", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> adminInsert1Admin(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return adminService.adminInsert1Admin(params, request, response);
+    }
+
+    /**
+     * 单个注册教师
+     * adminID, students
+     */
+    @PostMapping(value = "/insert1_teacher", produces = "application/json;charset=UTF-8")
+    @CrossOrigin(allowCredentials = "false")
+    public ResponseInfoDTO<Object> adminInsert1Teacher(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+        return adminService.adminInsert1Teacher(params, request, response);
     }
 
     /**

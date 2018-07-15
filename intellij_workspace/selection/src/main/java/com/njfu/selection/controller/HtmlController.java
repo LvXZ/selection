@@ -63,6 +63,11 @@ public class HtmlController {
         return "/inspect_teacher.html";
     }
 
+    @RequestMapping("/insert1_admin")
+    public String insert1AdminPage() {
+        return "/insert1_admin.html";
+    }
+
     @RequestMapping("/insert2_admin")
     public String insert2AdminPage() {
         return "/insert2_admin.html";

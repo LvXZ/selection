@@ -20,26 +20,6 @@
     <script src="../static/js/js.cookie.js" th:src="@{js/js.cookie.js}"></script>
 
     <title>管理员界面</title>
-
-    <style>
-        @font-face {
-            font-family: 'iconfont';  /* project id 738044 */
-            src: url('//at.alicdn.com/t/font_738044_t4gao2pkol.eot');
-            src: url('//at.alicdn.com/t/font_738044_t4gao2pkol.eot?#iefix') format('embedded-opentype'),
-            url('//at.alicdn.com/t/font_738044_t4gao2pkol.woff') format('woff'),
-            url('//at.alicdn.com/t/font_738044_t4gao2pkol.ttf') format('truetype'),
-            url('//at.alicdn.com/t/font_738044_t4gao2pkol.svg#iconfont') format('svg');
-        }
-
-        .iconfont {/*对阿里图标进行修饰*/
-            /*color: #c12e2a;*/
-            font-family:"iconfont" !important;
-            font-style:normal;
-            /* font-weight: bold;!*加粗*!*/
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-    </style>
 </head>
 
 <body onload="jumpLogin()" style="background-color:#39221e">
@@ -62,14 +42,14 @@
                 <li>
                     <a href="/lvxz/inspect_admin">审查毕设申请</a>
                 </li>
-                <li>
-                    <a href="/lvxz/insert1_admin">单个用户注册</a>
+                <li class="active">
+                    <a href="#">单个用户注册</a>
                 </li>
                 <li>
                     <a href="/lvxz/insert2_admin">文件导入注册</a>
                 </li>
-                <li class="active">
-                    <a href="#">用户账号冻结</a>
+                <li>
+                    <a href="/lvxz/block_admin">用户账号冻结</a>
                 </li>
                 <li>
                     <a href="/lvxz/headline_admin">头条消息发布</a>
@@ -104,43 +84,42 @@
     </div>
 
     <div class="row clearfix">
-        <div class="col-md-2 column">
+        <div class="col-md-3 column">
         </div>
-        <div class="col-md-8 column">
-            <div class="jumbotron">
+        <div class="col-md-6 column">
+            <div class="login-box-body">
+                <div class="input-group">
+                    <span class="input-group-addon">学号</span>
+                    <input class="form-control" id="insert_id" type="number"/>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">姓名</span>
+                    <input class="form-control" id="insert_name" type="text"/>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">班级</span>
+                    <input class="form-control" id="insert_class" type="text"/>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">院系</span>
+                    <input class="form-control" id="insert_academy" type="text"/>
+                </div>
 
-                <form id="form1" role="form" method="POST" enctype="multipart/form-data" action="/lvxz/admin/read_excel" class="navbar-form navbar-left">
-                    <div class="radio">
-                        <label class="radio-inline">
-                            <input type="radio" name="radio" id="radio1" value="student" checked> 学生
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="radio" id="radio2"  value="teacher"> 老师
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="radio" id="radio3"  value="admin"> 管理员
-                        </label>
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input class="form-control" id="block_user_id" type="number" placeholder="ID"/>
-                    </div>
-                    <button type="button" class="btn btn-small btn-primary" onclick="block_user()">
-                        <i class="iconfont">&#xe616;</i>冻结
-                    </button>
-                    <button type="button" class="btn btn-small btn-primary" onclick="unblock_user()">
-                        <i class="iconfont">&#xe6a0;</i>解冻
-                    </button>
-                </form>
-
-                <br/><br/><br/>
-                <aaa>
-
-                </aaa>
-                <button type="button" onclick="admin_insert()" id="en_insert" name="" style="display:none" class="btn btn-warning pull-right" data-toggle="tooltip" data-placement="left" title="请确定是否一一对应"><i class="glyphicon glyphicon-ok">确定添加</i></button>
+                <div class="input-group">
+                    <label class="radio-inline">
+                        <input type="radio" name="radio" id="radio1" value="student" checked> 学生
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="radio" id="radio2"  value="teacher"> 老师
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="radio" id="radio3"  value="admin"> 管理员
+                    </label>
+                </div>
+                <div class="input-group"><button id="login_button" onclick="userInsert();" type="submit" class="btn btn-primary">注册</button></div>
             </div>
         </div>
-        <div class="col-md-2 column">
+        <div class="col-md-3 column">
 
 
             <!--修改个人信息框-->
@@ -221,8 +200,36 @@
 
 <script>
 
+    $("input:radio[name='radio']").change(function (){
+        var userRadio = $("input:radio[name='radio']:checked").val();
+
+        switch (userRadio) {
+            case "student":{
+                $('#insert_class').show();
+                $('#insert_academy').show();
+            }break;
+
+            case "teacher":{
+                $('#insert_class').hide();
+                $('#insert_academy').show();
+            }break;
+
+            case "admin":{
+                $('#insert_class').hide();
+                $('#insert_academy').hide();
+            }break;
+
+        }
+        $("#pic").removeClass();
+        $("#pic").addClass("img"+opt);
+        $("#tip").text($("input[name='style']:checked").next("label").text());
+        $("#tip").css("color","red");
+    });
+
     /*网页生成时，验证是否登录的跳传*/
     function jumpLogin() {
+
+        getHead();
 
         if(!Cookies.get('admin_ObjJson')){
             alert("您还未登陆！请登陆");
@@ -231,6 +238,32 @@
             var jsonValue = JSON.parse(Cookies.get('admin_ObjJson'));
             getUser(jsonValue);
         }
+
+    }
+
+    function getHead(){
+
+        $.ajax({
+            type:"POST",
+            url: "/lvxz/admin/read_head_line",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            async:true,
+            success: function (response) {
+                if(response.code == 1){
+
+                    $('#head').html(response.data.head);
+                    $('#subhead').html(response.data.subhead);
+                    $('#body').html(response.data.body);
+
+                } else {
+                    alert(response.msg);
+                }
+            },
+            error: function (data){
+                alert("访问失败，请检查网络、路径......");
+            }
+        });
 
     }
 
@@ -359,42 +392,43 @@
         alert("已注销");
     }
 
+    //注册用户
+    function userInsert() {
 
-    //冻结
-    function block_user() {
-
-        var userID = $('#user_id').val(),
-            blockUserID = $('#block_user_id').val(),
+        var insertID = $('#insert_id').val(),
+            insertName = $('#insert_name').val(),
+            insertClass = $('#insert_class').val(),
+            insertAcademy = $('#insert_academy').val(),
             userRadio = $('input[name="radio"]:checked').val();
 
 
-        if(userID.length!=0) {
+        if(insertID.length!=0 && insertName.length!=0 && insertClass.length!=0 && insertAcademy.length!=0){
 
-            var blockURL = "/lvxz/admin/blocked_user";
+            var insertURL = "/lvxz/admin/insert1_" + userRadio;
             var objJson;
 
             switch (userRadio) {
                 case "student":{
                     objJson = {
-                        "radio":"student",
-                        "studentID":parseInt(blockUserID),
-                        "enableStatus":"0"
+                        "studentID":parseInt(insertID),
+                        "studentName":insertName,
+                        "studentClass":insertClass,
+                        "academy":insertAcademy
                     };
                 }break;
 
                 case "teacher":{
                     objJson = {
-                        "radio":"teacher",
-                        "teacherID":parseInt(blockUserID),
-                        "enableStatus":"0"
+                        "teacherID":parseInt(insertID),
+                        "teacherName":insertName,
+                        "academy":insertAcademy
                     };
                 }break;
 
                 case "admin":{
                     objJson = {
-                        "radio":"admin",
-                        "adminID":parseInt(blockUserID),
-                        "enableStatus":"0"
+                        "adminID":parseInt(insertID),
+                        "adminName":insertName
                     };
                 }break;
 
@@ -402,17 +436,20 @@
 
             $.ajax({
                 type:"POST",
-                url: blockURL,
+                url: insertURL,
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify(objJson),
                 async:true,
                 success: function (response) {
-                    if(response.code == 1051){
-                        alert(response.msg);
 
-                    } else {
+                    console.log(response);
+
+                    if(response.code == 102){
                         alert(response.msg);
+                    } else {
+
+                            alert(response.msg);
                     }
                 },
                 error: function (data){
@@ -421,78 +458,11 @@
             });
 
 
-        } else {
-            alert("存在输入为空！");
+        }else{
+            alert("未登录！");
         }
 
     }
-
-    //解冻
-    function unblock_user() {
-        var userID = $('#user_id').val(),
-            blockUserID = $('#block_user_id').val(),
-            userRadio = $('input[name="radio"]:checked').val();
-
-
-        if(userID.length!=0) {
-
-            var blockURL = "/lvxz/admin/blocked_user";
-            var objJson;
-
-            switch (userRadio) {
-                case "student":{
-                    objJson = {
-                        "radio":"student",
-                        "studentID":parseInt(blockUserID),
-                        "enableStatus":"1"
-                    };
-                }break;
-
-                case "teacher":{
-                    objJson = {
-                        "radio":"teacher",
-                        "teacherID":parseInt(blockUserID),
-                        "enableStatus":"1"
-                    };
-                }break;
-
-                case "admin":{
-                    objJson = {
-                        "radio":"admin",
-                        "adminID":parseInt(blockUserID),
-                        "enableStatus":"1"
-                    };
-                }break;
-
-            }
-
-            $.ajax({
-                type:"POST",
-                url: blockURL,
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                data: JSON.stringify(objJson),
-                async:true,
-                success: function (response) {
-                    if(response.code == 1051){
-                        alert(response.msg);
-
-                    } else {
-                        alert(response.msg);
-                    }
-                },
-                error: function (data){
-                    alert("访问失败，请检查网络、路径......");
-                }
-            });
-
-
-        } else {
-            alert("存在输入为空！");
-        }
-    }
-
-
 </script>
 
 </html>

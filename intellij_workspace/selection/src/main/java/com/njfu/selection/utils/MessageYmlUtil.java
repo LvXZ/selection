@@ -19,6 +19,10 @@ public class MessageYmlUtil {
 
     private Map<String, String> mysql_error = new HashMap<>();
 
+
+
+
+
     private Map<String, String> login = new HashMap<>();
 
     private Map<String, String> add = new HashMap<>();
@@ -43,6 +47,7 @@ public class MessageYmlUtil {
     public void setMysql_error(Map<String, String> mysql_error) {
         this.mysql_error = mysql_error;
     }
+
 
     public Map<String, String> getLogin() {
         return login;

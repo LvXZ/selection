@@ -41,7 +41,7 @@
     <div class="row clearfix" >
         <div class="col-md-12 column">
             <ul class="nav nav-pills">
-                <li class="active">
+                <li>
                     <a href="/lvxz/index_student">首页</a>
                 </li>
                 <li>
@@ -155,9 +155,15 @@
                         <div class="modal-body">
                             <div class="login-box-body">
 
-                                <input id="update_userId" type="text" value="未登录" readonly="true"/>
-                                <input id="designName" type="text" readonly="true">
-                                <input id="now_date" type="text" value="" readonly="true"/>
+                                <div class="input">
+                                    <input  class="form-control" id="update_userId" type="text" value="未登录" readonly="true"/>
+                                </div>
+                                <div class="input">
+                                    <input  class="form-control" id="designName" type="text" readonly="true"/>
+                                </div>
+                                <div class="input">
+                                    <input  class="form-control" id="now_date" type="text" readonly="true"/>
+                                </div>
 
                                 <input  class="form-control" id="studentID" name="studentID" type="hidden" value="">
                                 <input  class="form-control" id="projectID" name="projectID" type="hidden" value="">
@@ -192,13 +198,17 @@
                             <div class="input">
                                 <input  class="form-control" id="update_InfoId" type="text" value="未登录" readonly="true"/>
                             </div>
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                 <input class="form-control" id="birthday" type="date" placeholder="出生日期"/>
                             </div>
-                            <div class="input">
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
                                 <input  class="form-control" id="phone" type="number" placeholder="手机"/>
                             </div>
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="iconfont">&#xe630;</i></span>
                                 <input  class="form-control" id="qq" type="number" placeholder="QQ"/>
                             </div>
 
@@ -229,10 +239,12 @@
                                 <input  class="form-control" id="update_PasswordId" type="text" value="未登录" readonly="true"/>
                             </div>
 
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="iconfont">&#xe62f;</i></span>
                                 <input class="form-control" id="old_password" type="password" placeholder="旧密码"/>
                             </div>
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                 <input  class="form-control" id="new_password" type="password" placeholder="新密码"/>
                             </div>
 
@@ -244,9 +256,6 @@
                     </div>
                 </div>
             </div>
-
-
-
 
 
             <!--留言信息框-->
@@ -283,9 +292,6 @@
                 </div>
             </div>
 
-
-
-
         </div>
     </div>
 </div>
@@ -298,8 +304,6 @@
 
 
     $(function () { $("[data-toggle='tooltip']").tooltip(); });
-
-
 
 
     /*网页生成时，验证是否登录的跳传*/
@@ -361,7 +365,7 @@
                 data: JSON.stringify(objJson),
                 async:true,
                 success: function (response) {
-                    if(response.code == 104){
+                    if(response.code == 1){
                         alert(response.msg);
                         location.reload();//重新加载
                     } else {
@@ -411,7 +415,7 @@
                 data: JSON.stringify(objJson),
                 async:true,
                 success: function (response) {
-                    if(response.code == 103){
+                    if(response.code == 1){
                         alert(response.msg);
                         location.reload();//重新加载
                     } else {
@@ -440,13 +444,10 @@
 
     /*退出登录，消除cookies*/
     function deleteCookies() {
-        //Cookies.remove('s_id', { path: '' });
-        //Cookies.remove('s_account', { path: '' });
-        //window.open('login.html','_self');
+        Cookies.remove('student_ObjJson', { path: '' });
+        window.open("/lvxz/login",'_self');
         alert("已注销");
     }
-
-
 
 
 
@@ -466,7 +467,7 @@
                 async:true,
                 success: function (response) {
                     console.log(response);
-                    if(response.code == 703){
+                    if(response.code == 1){
                         changeTable_Info(response.data);
                     } else {
                         alert(response.msg);
@@ -574,7 +575,7 @@
                 async:true,
                 success: function (response) {
                     console.log(response);
-                    if(response.code == 702){
+                    if(response.code == 1){
 
                         $('#table_design').remove();
                         changeTable_Info(response.data);
@@ -616,12 +617,9 @@
     function studentUpload(){
 
         $("#form1").ajaxForm(function(response){
-            if(response.code==601){
+            if(response.code==1){
                 alert(response.msg);
 
-                /*$('#modal-container-3338888').modal('hide');
-                $('#table_design').remove();
-                getMyselfProjectInfo();*/
                 location.reload();//重新加载
 
             }else{
@@ -632,13 +630,11 @@
 
 
 
-
     //显示留言框
     function showChat(){
 
         var studentID = $('#user_id').val(),
             teacherID = $('#teacherID').val();
-
 
         var objJson = {
             "studentID":parseInt(studentID),
@@ -654,7 +650,7 @@
             async:true,
             success: function (response) {
                 console.log(response);
-                if(response.code == 112){
+                if(response.code == 1){
                     showChatWords(response.data);
 
                 } else {
@@ -671,12 +667,12 @@
 
     }
 
+
     //处理留言框
     function showChatWords(data){
 
         var $div=$('<div class="login-box-body" id="div_words"></div>');
         $("bbbb").append($div);
-
 
         for(var i=0;i<data.length;i++){
 
@@ -689,8 +685,6 @@
             }
 
         }
-
-
     }
 
 
@@ -718,10 +712,12 @@
                 async:true,
                 success: function (response) {
                     console.log(response);
-                    if(response.code == 111){
+                    if(response.code == 1){
 
                         alert(response.msg);
                         $('#words').val("");
+
+                        showChat();
 
                     } else {
                         alert(response.msg);
@@ -736,7 +732,6 @@
         }else{
             alert("留言填写未空");
         }
-
 
     }
 

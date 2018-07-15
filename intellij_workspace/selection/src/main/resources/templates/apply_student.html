@@ -5,7 +5,8 @@
 
 
     <link rel="shortcut icon" href="../static/images/logo.ico" th:href="@{images/logo.ico}" type="image/x-icon"/>
-    <link rel="stylesheet" href="../static/resources/materialize/css/materialize.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.css}">    <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{css/login.css}">
+    <link rel="stylesheet" href="../static/resources/materialize/css/materialize.css" media="screen,projection" th:href="@{resources/materialize/css/materialize.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{css/login.css}">
     <link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{css/index.css}">
     <script src="../static/js/constant.js" th:src="@{js/constant.js}"></script>
 
@@ -18,10 +19,11 @@
     <link rel="stylesheet" type="text/css" href="../static/resources/bootstrap-3.3.7/css/bootstrap.min.css" th:href="@{resources/bootstrap-3.3.7/css/bootstrap.min.css}">
     <script src="../static/js/jquery-3.2.1.min.js" th:src="@{js/jquery-3.2.1.min.js}"></script>
     <script src="../static/resources/bootstrap-3.3.7/js/bootstrap.min.js" th:src="@{resources/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
-
     <script src="../static/js/js.cookie.js" th:src="@{js/js.cookie.js}"></script>
 
     <title>学生界面</title>
+
+
 </head>
 
 <body onload="jumpLogin()" style="background-color:#39221e">
@@ -106,13 +108,17 @@
                             <div class="input">
                                 <input  class="form-control" id="update_InfoId" type="text" value="未登录" readonly="true"/>
                             </div>
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                 <input class="form-control" id="birthday" type="date" placeholder="出生日期"/>
                             </div>
-                            <div class="input">
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
                                 <input  class="form-control" id="phone" type="number" placeholder="手机"/>
                             </div>
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="iconfont">&#xe630;</i></span>
                                 <input  class="form-control" id="qq" type="number" placeholder="QQ"/>
                             </div>
 
@@ -143,24 +149,23 @@
                                 <input  class="form-control" id="update_PasswordId" type="text" value="未登录" readonly="true"/>
                             </div>
 
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="iconfont">&#xe62f;</i></span>
                                 <input class="form-control" id="old_password" type="password" placeholder="旧密码"/>
                             </div>
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                 <input  class="form-control" id="new_password" type="password" placeholder="新密码"/>
                             </div>
 
-                            <div class="input-group">
+                            <div class="input" style="text-align:center">
                                 <button class="btn btn-default btn-center" data-dismiss="modal">取消</button>
-                                &nbsp;<button class="btn btn-primary btn-center" onclick="updateStudentPassword()">修改</button>
+                                <button class="btn btn-primary btn-center" onclick="updateStudentPassword()">修改</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
 
 
         </div>
@@ -201,7 +206,6 @@
     function showStudentInfo() {
 
         $('#update_InfoId').val($('#user_id').val()+"   "+$('#user_name').val());
-
         $('#modal-container-287888').modal('show');
     }
 
@@ -231,7 +235,7 @@
                 data: JSON.stringify(objJson),
                 async:true,
                 success: function (response) {
-                    if(response.code == 104){
+                    if(response.code == 1){
                         alert(response.msg);
                         location.reload();//重新加载
                     } else {
@@ -281,7 +285,7 @@
                 data: JSON.stringify(objJson),
                 async:true,
                 success: function (response) {
-                    if(response.code == 103){
+                    if(response.code == 1){
                         alert(response.msg);
                         location.reload();//重新加载
                     } else {
@@ -310,9 +314,8 @@
 
     /*退出登录，消除cookies*/
     function deleteCookies() {
-        //Cookies.remove('s_id', { path: '' });
-        //Cookies.remove('s_account', { path: '' });
-        //window.open('login.html','_self');
+        Cookies.remove('student_ObjJson', { path: '' });
+        window.open("/lvxz/login",'_self');
         alert("已注销");
     }
 
@@ -428,7 +431,6 @@
     function getTeacherDesignInfo() {
 
         var student_ObjJson = Cookies.get('student_ObjJson');
-
         if(student_ObjJson!=null){
 
             $.ajax({
@@ -439,7 +441,7 @@
                 data: student_ObjJson,
                 async:true,
                 success: function (response) {
-                    if(response.code == 902){
+                    if(response.code == 1){
                         console.log(response);
                         getTable_Info(response.data);
                     } else {
@@ -474,7 +476,7 @@
             data: JSON.stringify(objJson),
             async:true,
             success: function (response) {
-                if(response.code == 701){
+                if(response.code == 1){
                     console.log(response);
                     alert(response.msg);
 

@@ -49,213 +49,160 @@ logging:
 
   # 后端配置获取常量配置
 message:
+
   mysql_error:
-    code: -9999
+    code: -9
     msg: 数据库操作发生错误，等待恢复
+
+
+
 
   login:
     success:
-      code: 101
       msg: 登录成功
     failure_1:
-      code: -1011
       msg: 登录失败，密码存在错误，请重新输入
     failure_2:
-      code: -1012
       msg: 登录失败，用户不存在
     failure_3:
-      code: -1013
       msg: 登录失败，你的账户已被冻结
 
   add:
     success:
-      code: 102
       msg: 添加成功
     failure:
-      code: -102
       msg: 添加失败，账号已存在
 
   update:
     password:
       success:
-        code: 103
         msg: 更新密码成功
       failure_1:
-        code: -1031
         msg: 更新密码失败，用户不存在
       failure_2:
-        code: -1032
         msg: 更新密码失败，原密码错误
       failure_3:
-        code: -1033
         msg: 更新密码失败，输入验证资料有误
     info:
       success:
-        code: 104
         msg: 更新信息成功
       failure:
-        code: -104
         msg: 更新信息失败，用户不存在
 
   enable:
     success_1:
-      code: 1051
       msg: 冻结成功
     failure_1:
-      code: -1051
       msg: 解冻失败
     success_2:
-      code: 1052
       msg: 解冻成功
     failure_2:
-      code: -1052
       msg: 解冻失败
 
 
   file:
     upload:
       success:
-        code: 601
         msg: 上传成功
       failure_1:
-        code: -601
         msg: 上传失败，
       failure_2:
-        code: -602
         msg: 上传失败，文件为空
       failure_3:
-        code: -603
         msg: 上传失败，文件不存在
       failure_4:
-        code: -604
         msg: 上传失败，老师账号不存在
       failure_5:
-        code: -605
         msg: 上传失败，学生账号不存在
       failure_6:
-        code: -606
         msg: 上传失败，执行dao错误
 
   design:
     update:
       success_1:
-        code: 802
         msg: 确定通过成功
       failure_1:
-        code: -802
         msg: 确定通过失败，申请已经不存在
       success_2:
-        code: 803
         msg: 驳回申请成功
       failure_2:
-        code: -803
         msg: 驳回申请失败，申请已经不存在
 
       success_3:
-        code: 804
         msg: 正式发布成功
       failure_3:
-        code: -804
         msg: 正式发布失败，申请已经不存在
 
       success_4:
-        code: 805
         msg: 禁止选择成功
       failure_4:
-        code: -805
         msg: 禁止选择失败
 
       success_5:
-        code: 806
         msg: 完结毕设成功
       failure_5:
-        code: -806
         msg: 完结毕设失败
 
     delete:
       success:
-        code: 801
         msg: 删除毕设成功
       failure_1:
-        code: -801
         msg: 删除毕设失败
 
 
   project:
     insert:
       success:
-        code: 701
         msg: 申请毕设操作成功
       failure_1:
-        code: -7011
         msg: 申请毕设操作失败，教师自己没有发布毕设
       failure_2:
-        code: -7012
         msg: 申请毕设操作失败，你的毕设已存在
       failure_3:
-        code: -7013
         msg: 申请毕设操作失败，毕设信息已不存在或者已不在当前正式发布下
     delete:
       success:
-        code: 702
         msg: 删除申请成功
       failure:
-        code: -702
         msg: 删除申请失败，操作存在错误
     select:
       success:
-        code: 703
         msg: 学生毕设信息已接收
       failure:
-        code: -703
         msg: 学生没有毕设项目信息
     update:
       success_1:
-        code: 7051
         msg: 确定通过成功
       failure_1:
-        code: -7051
         msg: 确定通过失败，申请已经不存在
       success_2:
-        code: 7052
         msg: 驳回申请成功
       failure_2:
-        code: -7052
         msg: 驳回申请失败，申请已经不存在
 
   help:
     teacher:
       success:
-        code: 900
         msg: 教师自己毕设信息已接收
       success_1:
-        code: 9001
         msg: 学生申请毕设信息已接收
       failure:
-        code: -900
         msg: 教师自己没有毕设信息
       failure_1:
-        code: -9001
         msg: 没有学生申请毕设信息
 
     admin:
       success:
-        code: 901
         msg: 教师毕设信息已接收
       failure_1:
-        code: -9011
         msg: 教师没有毕设申请信息
       failure_2:
-        code: -9012
         msg: 管理员不存在
 
     student:
       success:
-        code: 902
         msg: 教师毕设信息已接收
       failure_1:
-        code: -9021
         msg: 教师没有毕设发布信息
       failure_2:
-        code: -9022
         msg: 学生不存在

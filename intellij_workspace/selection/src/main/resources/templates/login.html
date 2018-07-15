@@ -19,29 +19,10 @@
 
     <script src="../static/js/js.cookie.js" th:src="@{js/js.cookie.js}"></script>
 
-    <style>
-        @font-face {
-            font-family: 'iconfont';  /* project id 738044 */
-            src: url('//at.alicdn.com/t/font_738044_t4gao2pkol.eot');
-            src: url('//at.alicdn.com/t/font_738044_t4gao2pkol.eot?#iefix') format('embedded-opentype'),
-            url('//at.alicdn.com/t/font_738044_t4gao2pkol.woff') format('woff'),
-            url('//at.alicdn.com/t/font_738044_t4gao2pkol.ttf') format('truetype'),
-            url('//at.alicdn.com/t/font_738044_t4gao2pkol.svg#iconfont') format('svg');
-        }
-
-        .iconfont {/*对阿里图标进行修饰*/
-            /*color: #c12e2a;*/
-            font-family:"iconfont" !important;
-            font-style:normal;
-            /* font-weight: bold;!*加粗*!*/
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-    </style>
 
     <title>登录界面</title>
 </head>
-<body onload="getHead()" style="background-color: #39221e">
+<body onload="jumpLogin()" style="background-color: #39221e">
 
     <div class="container">
         <div class="row clearfix">
@@ -101,8 +82,24 @@
 
     <script>
 
-        function getHead(){
+        $(document).ready(function(){
+            $("#user_id").keydown(function(event){
+                if(event.which === 13)
+                    $("#user_password")[0].focus();
+            });
+            $("#user_password").keydown(function(event){
+                if(event.which === 13)
+                    $("#login_button").click(userLogin());
+            });
+        });
 
+        //数据启动响应
+        function jumpLogin() {
+            getHead();
+        }
+
+
+        function getHead(){
             $.ajax({
                 type:"POST",
                 url: "/lvxz/admin/read_head_line",
@@ -120,24 +117,11 @@
                         alert(response.msg);
                     }
                 },
-                error: function (data){
+                error: function (){
                     alert("访问失败，请检查网络、路径......");
                 }
             });
-
         }
-
-
-        $(document).ready(function(){
-            $("#user_id").keydown(function(event){
-                if(event.which === 13)
-                    $("#user_password")[0].focus();
-            });
-            $("#user_password").keydown(function(event){
-                if(event.which === 13)
-                    $("#login_button").click(userLogin());
-            });
-        });
 
         function userLogin() {
 
@@ -183,24 +167,27 @@
                     data: JSON.stringify(objJson),
                     async:true,
                     success: function (response) {
-                        if(response.code == 101){
+                        if(response.code == 1){
                             alert(response.msg);
-                            Cookies.set(userRadio+"_ObjJson", response.data, { expires: 7, path: '' });
+
+                            var millisecond = new Date().getTime();
+                            var expiresTime = new Date(millisecond + 60 * 1000 * 15);
+
+                            Cookies.set(userRadio+"_ObjJson", response.data, { expires: expiresTime, path: '' });
                             window.open(openURL, "_self");
+
                         } else {
                             alert(response.msg);
                         }
                     },
-                    error: function (data){
+                    error: function (){
                         alert("访问失败，请检查网络、路径......");
                     }
                 });
 
-
             } else {
                 alert("存在输入为空！");
             }
-
         }
 
 

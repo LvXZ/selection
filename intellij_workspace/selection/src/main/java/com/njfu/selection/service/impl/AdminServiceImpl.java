@@ -255,6 +255,82 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public ResponseInfoDTO<Object> adminInsert1Student(String params, HttpServletRequest request, HttpServletResponse response) {
+
+        logger.debug("<----------adminInsert1Student---------->");
+        Student student = JSON.parseObject(params, Student.class);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+        if(studentDao.queryStudentPasswordById(student.getStudentID()) == null){
+            student.setPassword(String.valueOf(student.getStudentID()));
+            student.setEnableStatus(1);
+
+            int flag = studentDao.addStudent(student);//添加student
+            if(flag == 1){
+                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("success.code")), ymlUtil.getAdd().get("success.msg"));
+
+            }else{
+                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getMysql_error().get("code")), ymlUtil.getMysql_error().get("msg"));
+            }
+        }else{
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("failure.code")), ymlUtil.getAdd().get("failure.msg"));
+
+        }
+
+
+
+
+
+
+        return responseInfoDTO;
+
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> adminInsert1Teacher(String params, HttpServletRequest request, HttpServletResponse response) {
+
+        logger.debug("<----------adminInsert1Teacher---------->");
+        Teacher teacher = JSON.parseObject(params, Teacher.class);
+        teacher.setPassword(String.valueOf(teacher.getTeacherID()));
+        teacher.setEnableStatus(1);
+
+        int flag = teacherDao.addTeacher(teacher);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+        if(flag == 1){
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("success.code")), ymlUtil.getAdd().get("success.msg"));
+
+        }else{
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("failure.code")), ymlUtil.getAdd().get("failure.msg"));
+
+        }
+        return responseInfoDTO;
+    }
+
+    @Override
+    public ResponseInfoDTO<Object> adminInsert1Admin(String params, HttpServletRequest request, HttpServletResponse response) {
+        logger.debug("<----------adminInsert1Admin---------->");
+        Admin admin = JSON.parseObject(params, Admin.class);
+        admin.setPassword(String.valueOf(admin.getAdminID()));
+        admin.setEnableStatus(1);
+
+        int flag = adminDao.addAdmin(admin);
+
+        response.setHeader("Access-Control-Allow-Methods", "POST");
+        ResponseInfoDTO responseInfoDTO;
+        if(flag == 1){
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("success.code")), ymlUtil.getAdd().get("success.msg"));
+
+        }else{
+            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("failure.code")), ymlUtil.getAdd().get("failure.msg"));
+
+        }
+        return responseInfoDTO;
+    }
+
+    @Override
     public ResponseInfoDTO<Object> adminInsert2Students(String params, HttpServletRequest request, HttpServletResponse response) {
 
 
@@ -279,6 +355,7 @@ public class AdminServiceImpl implements AdminService {
 
                     adminStudentDto.getData().get(i).setPassword(String.valueOf(adminStudentDto.getData().get(i).getStudentID()));
                     studentDao.addStudent(adminStudentDto.getData().get(i));//添加student
+
                 }else{
                     error_students.add(adminStudentDto.getData().get(i));
                 }

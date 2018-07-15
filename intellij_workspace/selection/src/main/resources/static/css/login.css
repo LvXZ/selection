@@ -15,7 +15,6 @@
     line-height: 60px;
     text-align: center;
     vertical-align: middle;
-
 }
 
 
@@ -82,20 +81,6 @@ a:hover {
     background-color: white;
 }
 
-#old_password, #new_password, #birthday, #phone, #qq, #designName{
-
-    text-align: center;/*水平居中*/
-    font-size: 15px;/*字体大小*/
-
-}
-
-#update_PasswordId, #update_InfoId, #now_date, #update_userId, #designName{
-    border: none;
-    text-align: right;
-    font-size: 15px;/*字体大小*/
-    height: 2rem;
-}
-
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -112,12 +97,28 @@ height: 1rem;
 
 }
 
-
-
 .checkbox {
 padding-left: 20px;
 }
 
 #login-alert {
 display: none;
+}
+
+@font-face {
+    font-family: 'iconfont';  /* project id 738044 */
+    src: url('//at.alicdn.com/t/font_738044_pkcpf74mfy.eot');
+    src: url('//at.alicdn.com/t/font_738044_pkcpf74mfy.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_738044_pkcpf74mfy.woff') format('woff'),
+    url('//at.alicdn.com/t/font_738044_pkcpf74mfy.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_738044_pkcpf74mfy.svg#iconfont') format('svg');
+}
+
+.iconfont {/*对阿里图标进行修饰*/
+    /*color: #c12e2a;*/
+    font-family:"iconfont" !important;
+    font-style:normal;
+    /* font-weight: bold;!*加粗*!*/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

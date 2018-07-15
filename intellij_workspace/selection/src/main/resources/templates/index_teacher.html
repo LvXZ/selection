@@ -81,14 +81,14 @@
             </div>
             <div class="col-md-8 column">
                 <div class="jumbotron">
-                    <h1>
-                        PRD Tech
-                    </h1>
-                    <p>
-                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                    </p>
-                    <p>
-                        <a class="btn" href="#">View details »</a>
+                    <h2 id="head">
+
+                    </h2>
+                    <h3 class="text-right" id="subhead">
+
+                    </h3>
+                    <p id="body">
+
                     </p>
                 </div>
             </div>
@@ -174,8 +174,36 @@
 
     <script>
 
+        function getHead(){
+
+            $.ajax({
+                type:"POST",
+                url: "/lvxz/admin/read_head_line",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                async:true,
+                success: function (response) {
+                    if(response.code == 1){
+
+                        $('#head').html(response.data.head);
+                        $('#subhead').html(response.data.subhead);
+                        $('#body').html(response.data.body);
+
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function (data){
+                    alert("访问失败，请检查网络、路径......");
+                }
+            });
+
+        }
+
         /*网页生成时，验证是否登录的跳传*/
         function jumpLogin() {
+
+            getHead();
 
             if(!Cookies.get('teacher_ObjJson')){
                 alert("您还未登陆！请登陆");

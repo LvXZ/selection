@@ -41,7 +41,7 @@
     height: 2rem;
 }
 
-#designName2{
+#designName2,#insert_id, #insert_name, #insert_class, #insert_academy{
     text-indent: 10px;
 }
 

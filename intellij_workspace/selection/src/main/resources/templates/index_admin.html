@@ -128,7 +128,6 @@
                                     <input  class="form-control" id="phone" type="number" placeholder="手机"/>
                                 </div>
 
-
                                 <div class="input" style="text-align:center">
                                     <button class="btn btn-default btn-center" data-dismiss="modal">取消</button>
                                     <button class="btn btn-primary btn-center" onclick="updateAdminInfo()">修改</button>
@@ -177,7 +176,6 @@
 
             </div>
         </div>
-
 
     </div>
 
@@ -282,12 +280,10 @@
         }
 
 
-
         /*修改密码框出现*/
         function showAdminPassword(){
 
             $('#update_PasswordId').val($('#user_id').val()+"   "+$('#user_name').val());
-
             $('#modal-container-287808').modal('show');
         }
 
@@ -345,11 +341,11 @@
 
         /*退出登录，消除cookies*/
         function deleteCookies() {
-            //Cookies.remove('s_id', { path: '' });
-            //Cookies.remove('s_account', { path: '' });
-            //window.open('login.html','_self');
+            Cookies.remove('admin_ObjJson', { path: '' });
+            window.open("/lvxz/login",'_self');
             alert("已注销");
         }
+
     </script>
 
 </html>

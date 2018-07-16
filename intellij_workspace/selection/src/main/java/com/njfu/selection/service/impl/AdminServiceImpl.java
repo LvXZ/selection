@@ -63,18 +63,18 @@ public class AdminServiceImpl implements AdminService {
         response.setHeader("Access-Control-Allow-Methods", "POST");
         ResponseInfoDTO responseInfoDTO;
         if (getAdmin == null) {
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_2.code")), ymlUtil.getLogin().get("failure_2.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getLogin().get("failure_2.msg"));
         } else {
             if (getAdmin.getPassword().equals(admin.getPassword())) {
 
                 if(getAdmin.getEnableStatus() == 1){
-                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("success.code")), ymlUtil.getLogin().get("success.msg"), getAdmin);
+                    responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getLogin().get("success.msg"), getAdmin);
                 }else{
-                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_3.code")), ymlUtil.getLogin().get("failure_3.msg"));
+                    responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getLogin().get("failure_3.msg"));
                 }
 
             } else {
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getLogin().get("failure_1.code")), ymlUtil.getLogin().get("failure_1.msg"));
+                responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getLogin().get("failure_1.msg"));
             }
         }
         return responseInfoDTO;
@@ -104,17 +104,17 @@ public class AdminServiceImpl implements AdminService {
                 newAdmin.setPassword(new_password);
                 int flag = adminDao.updateAdminPasswordById(newAdmin);
                 if(flag == 1){
-                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getUpdate().get("password.success.code")), ymlUtil.getUpdate().get("password.success.msg"), newAdmin);
+                    responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getUpdate().get("password.success.msg"), newAdmin);
                 } else {
-                    responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getMysql_error().get("success.code")), ymlUtil.getUpdate().get("success.msg"));
+                    responseInfoDTO = new ResponseInfoDTO(-1, ymlUtil.getUpdate().get("success.msg"));
                 }
 
             } else{
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getUpdate().get("password.failure_2.code")), ymlUtil.getUpdate().get("password.failure_2.msg"));
+                responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getUpdate().get("password.failure_2.msg"));
             }
 
         } else{
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getUpdate().get("password.failure_1.code")), ymlUtil.getUpdate().get("password.failure_1.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getUpdate().get("password.failure_1.msg"));
         }
         return responseInfoDTO;
     }
@@ -129,9 +129,9 @@ public class AdminServiceImpl implements AdminService {
 
         int flag = adminDao.updateAdminInfoById(admin);
         if(flag == 1){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getUpdate().get("info.success.code")), ymlUtil.getUpdate().get("info.success.msg"), admin);
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getUpdate().get("info.success.msg"), admin);
         } else {
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getMysql_error().get("code")), ymlUtil.getUpdate().get("msg"));
+            responseInfoDTO = new ResponseInfoDTO(-1, ymlUtil.getUpdate().get("msg"));
         }
         return responseInfoDTO;
     }
@@ -147,9 +147,9 @@ public class AdminServiceImpl implements AdminService {
 
         int flag = adminDao.updateAdminPasswordByOther(admin);
         if(flag == 1){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getUpdate().get("password.success.code")), ymlUtil.getUpdate().get("password.success.msg"), admin);
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getUpdate().get("password.success.msg"), admin);
         } else {
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getUpdate().get("password.failure_3.code")), ymlUtil.getUpdate().get("password.failure_3.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getUpdate().get("password.failure_3.msg"));
         }
         return responseInfoDTO;
     }
@@ -165,19 +165,19 @@ public class AdminServiceImpl implements AdminService {
         response.setHeader("Access-Control-Allow-Methods", "POST");
         ResponseInfoDTO responseInfoDTO;
         if(getAdmin == null){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("admin.failure_2.code")), ymlUtil.getHelp().get("admin.failure_2.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getHelp().get("admin.failure_2.msg"));
         }else{
             List<Design> designList = designDao.queryAllDesignByEnableStatus10();
 
             if(designList.size() == 0){
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("admin.failure_1.code")), ymlUtil.getHelp().get("admin.failure_1.msg"));
+                responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getHelp().get("admin.failure_1.msg"));
             }else{
                 //有缺陷
                 for(Design design:designList){
                     design.setFileAddress(teacherDao.queryTeacherNameById(design.getTeacherID()));
                 }
 
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getHelp().get("admin.success.code")), ymlUtil.getHelp().get("admin.success.msg"),designList);
+                responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getHelp().get("admin.success.msg"),designList);
             }
         }
 
@@ -197,10 +197,10 @@ public class AdminServiceImpl implements AdminService {
         int flag = designDao.updateDesignEnableStatusByDesignId(design);
 
         if(flag == 1){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.success_1.code")), ymlUtil.getDesign().get("update.success_1.msg"));
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getDesign().get("update.success_1.msg"));
 
         }else{
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.failure_1.code")), ymlUtil.getDesign().get("update.failure_1.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getDesign().get("update.failure_1.msg"));
         }
 
         return responseInfoDTO;
@@ -219,10 +219,10 @@ public class AdminServiceImpl implements AdminService {
         int flag = designDao.updateDesignEnableStatusByDesignId(design);
 
         if(flag == 1){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.success_2.code")), ymlUtil.getDesign().get("update.success_2.msg"));
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getDesign().get("update.success_2.msg"));
 
         }else{
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getDesign().get("update.failure_2.code")), ymlUtil.getDesign().get("update.failure_2.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getDesign().get("update.failure_2.msg"));
         }
 
         return responseInfoDTO;
@@ -237,14 +237,14 @@ public class AdminServiceImpl implements AdminService {
         response.setHeader("Access-Control-Allow-Methods", "POST");
         ResponseInfoDTO responseInfoDTO;
         if(file.isEmpty()){
-            responseInfoDTO = new ResponseInfoDTO(-1601, "上传失败,文件不存在！" ,null);
+            responseInfoDTO = new ResponseInfoDTO(0, "上传失败,文件不存在！" ,null);
             return responseInfoDTO;
         }
 
         String fileName = file.getOriginalFilename();//获得文件名
         //判断文件是否是excel文件
         if(!fileName.endsWith("xls") && !fileName.endsWith("xlsx")){
-            responseInfoDTO = new ResponseInfoDTO(-1602, "上传失败,不是excel文件！" ,null);
+            responseInfoDTO = new ResponseInfoDTO(0, "上传失败,不是excel文件！" ,null);
             return responseInfoDTO;
         }
         if(select.equals("student")){
@@ -268,21 +268,14 @@ public class AdminServiceImpl implements AdminService {
 
             int flag = studentDao.addStudent(student);//添加student
             if(flag == 1){
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("success.code")), ymlUtil.getAdd().get("success.msg"));
+                responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getAdd().get("success.msg"));
 
             }else{
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getMysql_error().get("code")), ymlUtil.getMysql_error().get("msg"));
+                responseInfoDTO = new ResponseInfoDTO(-1, ymlUtil.getMysql_error().get("msg"));
             }
         }else{
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("failure.code")), ymlUtil.getAdd().get("failure.msg"));
-
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getAdd().get("failure.msg"));
         }
-
-
-
-
-
-
         return responseInfoDTO;
 
     }
@@ -300,10 +293,10 @@ public class AdminServiceImpl implements AdminService {
         response.setHeader("Access-Control-Allow-Methods", "POST");
         ResponseInfoDTO responseInfoDTO;
         if(flag == 1){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("success.code")), ymlUtil.getAdd().get("success.msg"));
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getAdd().get("success.msg"));
 
         }else{
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("failure.code")), ymlUtil.getAdd().get("failure.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getAdd().get("failure.msg"));
 
         }
         return responseInfoDTO;
@@ -321,10 +314,10 @@ public class AdminServiceImpl implements AdminService {
         response.setHeader("Access-Control-Allow-Methods", "POST");
         ResponseInfoDTO responseInfoDTO;
         if(flag == 1){
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("success.code")), ymlUtil.getAdd().get("success.msg"));
+            responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getAdd().get("success.msg"));
 
         }else{
-            responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("failure.code")), ymlUtil.getAdd().get("failure.msg"));
+            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getAdd().get("failure.msg"));
 
         }
         return responseInfoDTO;
@@ -363,16 +356,16 @@ public class AdminServiceImpl implements AdminService {
 
 
             if(error_students.size() == 0){//没有错误
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("success.code")), ymlUtil.getAdd().get("success.msg"));
+                responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getAdd().get("success.msg"));
                 return responseInfoDTO;
             }else{
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("failure.code")), ymlUtil.getAdd().get("failure.msg"),error_students);
+                responseInfoDTO = new ResponseInfoDTO(-11, ymlUtil.getAdd().get("failure.msg"),error_students);
                 return responseInfoDTO;
             }
 
 
         }else{
-            responseInfoDTO = new ResponseInfoDTO(-9012, "管理员账号不存在");
+            responseInfoDTO = new ResponseInfoDTO(0, "管理员账号不存在");
             return responseInfoDTO;
         }
 
@@ -404,15 +397,15 @@ public class AdminServiceImpl implements AdminService {
             }
 
             if(error_teachers.size() == 0){//没有错误
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("success.code")), ymlUtil.getAdd().get("success.msg"));
+                responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getAdd().get("success.msg"));
                 return responseInfoDTO;
             }else{
-                responseInfoDTO = new ResponseInfoDTO(Integer.valueOf(ymlUtil.getAdd().get("failure.code")), ymlUtil.getAdd().get("failure.msg"),error_teachers);
+                responseInfoDTO = new ResponseInfoDTO(-12, ymlUtil.getAdd().get("failure.msg"),error_teachers);
                 return responseInfoDTO;
             }
 
         }else{
-            responseInfoDTO = new ResponseInfoDTO(-9012, "管理员账号不存在");
+            responseInfoDTO = new ResponseInfoDTO(0, "管理员账号不存在");
             return responseInfoDTO;
         }
 
@@ -454,18 +447,18 @@ public class AdminServiceImpl implements AdminService {
         if(flag == 1){
 
             if(enableStatus.equals("0")){
-                responseInfoDTO = new ResponseInfoDTO(105, "冻结成功");
+                responseInfoDTO = new ResponseInfoDTO(1, "冻结成功");
             }else{
-                responseInfoDTO = new ResponseInfoDTO(105, "解冻成功");
+                responseInfoDTO = new ResponseInfoDTO(1, "解冻成功");
             }
 
 
         }else{
             if(enableStatus.equals("0")){
-                responseInfoDTO = new ResponseInfoDTO(-105, "冻结失败，账号不存在，查看是否选择错误");
+                responseInfoDTO = new ResponseInfoDTO(0, "冻结失败，账号不存在，查看是否选择错误");
 
             }else{
-                responseInfoDTO = new ResponseInfoDTO(-105, "解冻失败，账号不存在，查看是否选择错误");
+                responseInfoDTO = new ResponseInfoDTO(0, "解冻失败，账号不存在，查看是否选择错误");
 
             }
 
@@ -482,7 +475,7 @@ public class AdminServiceImpl implements AdminService {
         ResponseInfoDTO responseInfoDTO;
         HeadLine headLine = headLineDao.queryHeadLine();
         if(headLine == null){
-            responseInfoDTO = new ResponseInfoDTO(-1, "访问失败");
+            responseInfoDTO = new ResponseInfoDTO(0, "访问失败");
         }else{
             responseInfoDTO = new ResponseInfoDTO(1, "访问失败",headLine);
         }
@@ -500,19 +493,16 @@ public class AdminServiceImpl implements AdminService {
         response.setHeader("Access-Control-Allow-Methods", "POST");
         ResponseInfoDTO responseInfoDTO;
         if(adminDao.queryAdminInfoById(headLine.getAdminID()) == null){
-            responseInfoDTO = new ResponseInfoDTO(-9012, "管理员账号不存在");
+            responseInfoDTO = new ResponseInfoDTO(0, "管理员账号不存在");
         }else{
             headLineDao.deleteHeadLine();
             int flag = headLineDao.addHeadLine(headLine);
             if(flag == 1){
-                responseInfoDTO = new ResponseInfoDTO(2, "发布成功");
+                responseInfoDTO = new ResponseInfoDTO(1, "发布成功");
             }else{
-                responseInfoDTO = new ResponseInfoDTO(-2, "发布失败");
+                responseInfoDTO = new ResponseInfoDTO(0, "发布失败");
             }
         }
-
-
-
         return responseInfoDTO;
     }
 
@@ -534,16 +524,16 @@ public class AdminServiceImpl implements AdminService {
                     Student student = new Student(Long.valueOf(users[0]),users[1],users[0],users[3],users[2],1);
                     students.add(student);
                 }catch (Exception e){
-                    responseInfoDTO = new ResponseInfoDTO(-1604, "选择注册对象错误" );
+                    responseInfoDTO = new ResponseInfoDTO(0, "选择注册对象错误" );
                     return responseInfoDTO;
                 }
             }
 
-            responseInfoDTO = new ResponseInfoDTO(16, "上传成功" ,students);
+            responseInfoDTO = new ResponseInfoDTO(1, "上传成功" ,students);
 
         } catch (IOException e) {
             System.out.println("读取excel文件失败");
-            responseInfoDTO = new ResponseInfoDTO(-1603, "读取excel文件失败！" ,null);
+            responseInfoDTO = new ResponseInfoDTO(0, "读取excel文件失败！" ,null);
         }
         return responseInfoDTO;
     }
@@ -560,16 +550,16 @@ public class AdminServiceImpl implements AdminService {
                     Teacher teacher = new Teacher(Long.valueOf(users[0]),users[1],users[0],users[2],1);
                     teachers.add(teacher);
                 }catch (Exception e){
-                    responseInfoDTO = new ResponseInfoDTO(-1604, "选择注册对象错误" );
+                    responseInfoDTO = new ResponseInfoDTO(0, "选择注册对象错误" );
                     return responseInfoDTO;
                 }
 
             }
-            responseInfoDTO = new ResponseInfoDTO(16, "上传成功" ,teachers);
+            responseInfoDTO = new ResponseInfoDTO(1, "上传成功" ,teachers);
 
         } catch (IOException e) {
             System.out.println("读取excel文件失败");
-            responseInfoDTO = new ResponseInfoDTO(-1603, "读取excel文件失败！" ,null);
+            responseInfoDTO = new ResponseInfoDTO(0, "读取excel文件失败！" );
         }
         return responseInfoDTO;
     }

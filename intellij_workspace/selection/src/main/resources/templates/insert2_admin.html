@@ -140,10 +140,13 @@
                             <div class="input">
                                 <input  class="form-control" id="update_InfoId" type="text" value="未登录" readonly="true"/>
                             </div>
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                 <input class="form-control" id="birthday" type="date" placeholder="出生日期"/>
                             </div>
-                            <div class="input">
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
                                 <input  class="form-control" id="phone" type="number" placeholder="手机"/>
                             </div>
 
@@ -176,10 +179,12 @@
                                 <input  class="form-control" id="update_PasswordId" type="text" value="未登录" readonly="true"/>
                             </div>
 
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="iconfont">&#xe62f;</i></span>
                                 <input class="form-control" id="old_password" type="password" placeholder="旧密码"/>
                             </div>
-                            <div class="input">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                 <input  class="form-control" id="new_password" type="password" placeholder="新密码"/>
                             </div>
 
@@ -257,7 +262,7 @@
                 data: JSON.stringify(objJson),
                 async:true,
                 success: function (response) {
-                    if(response.code == 104){
+                    if(response.code == 1){
                         alert(response.msg);
                         location.reload();//重新加载
                     } else {
@@ -309,7 +314,7 @@
                 data: JSON.stringify(objJson),
                 async:true,
                 success: function (response) {
-                    if(response.code == 103){
+                    if(response.code == 1){
                         alert(response.msg);
                         location.reload();//重新加载
                     } else {
@@ -338,9 +343,8 @@
 
     /*退出登录，消除cookies*/
     function deleteCookies() {
-        //Cookies.remove('s_id', { path: '' });
-        //Cookies.remove('s_account', { path: '' });
-        //window.open('login.html','_self');
+        Cookies.remove('admin_ObjJson', { path: '' });
+        window.open("/lvxz/login",'_self');
         alert("已注销");
     }
 
@@ -456,7 +460,7 @@
     function testUpload(){
 
         $("#form1").ajaxForm(function(response){
-            if(response.code==16){
+            if(response.code==1){
                 all_data = response.data;
                 console.log(all_data);
 
@@ -505,18 +509,18 @@
                     if(response.code == 1){
                         alert(response.msg);
                     } else {
-                        if(response.code == -1){
+                        if(response.code == -11){
                             var display = "";
-                            if(userRadio == "student"){
-                                for(var i=0;i<response.data.length;i++){
-                                    display = display+" ["+response.data[i].studentID +"-"+ response.data[i].studentName+"]";
-                                }
-                            }else{
-                                for(var i=0;i<response.data.length;i++){
-                                    display = display+" ["+response.data[i].teacherID +"-"+ response.data[i].teacherName+"]";
-                                }
-                            }
 
+                            for(var i=0;i<response.data.length;i++){
+                                display = display+" ["+response.data[i]['studentID'] +"-"+ response.data[i]['studentName']+"]";
+                            }
+                            alert(display + response.msg);
+                        }else if(response.code == -12){
+                            var display = "";
+                            for(var i=0;i<response.data.length;i++){
+                                display = display+" ["+response.data[i]['teacherID'] +"-"+ response.data[i]['teacherName']+"]";
+                            }
                             alert(display + response.msg);
                         }else{
                             alert(response.msg);

@@ -83,7 +83,6 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
-
         <!--yml,html支持-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -117,8 +116,6 @@
             <artifactId>poi</artifactId>
             <version>3.14-beta1</version>
         </dependency>
-
-
     </dependencies>
 
     <build>
@@ -132,6 +129,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>

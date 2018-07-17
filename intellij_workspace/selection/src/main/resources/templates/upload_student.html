@@ -542,19 +542,16 @@
 
         $('#button1').attr("name",data['project']['projectID']);
 
-
         $('#td7').html(data['project']['fileName']);
 
-        if(data['project']['lastEditTime'].length != 0){
+        $('#teacherID').val(data['teacherID']);
+
+        if(data['project']['lastEditTime'] != null){
             var d2 = new Date(data['project']['lastEditTime']);
             var times2=d2.getFullYear() + '-' + (d2.getMonth() + 1) + '-' + d2.getDate() + ' ' + d2.getHours() + ':' + d2.getMinutes() + ':' + d2.getSeconds();
 
             $('#td8').html(times2);
         }
-
-
-
-        $('#teacherID').val(data['teacherID']);
 
     }
 
@@ -595,7 +592,6 @@
                     alert("访问失败，请检查网络、路径......");
                 }
             });
-
 
         }else{
             alert("获取关键信息失败");
@@ -721,7 +717,7 @@
                     console.log(response);
                     if(response.code == 1){
 
-                        alert(response.msg);
+                        //alert(response.msg);
                         $('#words').val("");
 
                         showChat();

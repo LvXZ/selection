@@ -234,7 +234,6 @@
     function showAdminInfo() {
 
         $('#update_InfoId').val($('#user_id').val()+"   "+$('#user_name').val());
-
         $('#modal-container-287888').modal('show');
     }
 
@@ -471,8 +470,6 @@
                     getTeacherTable_Info(response.data);
                 }
 
-
-
             }else{
                 alert(response.msg);
             }
@@ -484,7 +481,6 @@
 
         var adminID = $('#user_id').val();
         var userRadio = $("#en_insert").attr("name");
-
         var insertURL = "/lvxz/admin/insert2_"+ userRadio;
 
 

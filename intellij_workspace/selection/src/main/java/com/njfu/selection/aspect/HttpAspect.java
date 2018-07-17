@@ -28,7 +28,6 @@ public class HttpAspect {
 
     @Pointcut("execution(public * com.njfu.selection.controller.*.*(..))")
     public void flag() {
-
     }
 
     @Before("flag()")
@@ -56,5 +55,4 @@ public class HttpAspect {
     public void loginAfter() {
         logger.info(IP + "------End of the visits------");
     }
-
 }

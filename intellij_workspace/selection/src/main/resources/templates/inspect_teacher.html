@@ -518,12 +518,7 @@
 
             count++;
         }
-
     }
-
-
-
-
 
 
 
@@ -641,20 +636,15 @@
 
     //显示留言框
     function showChat(obj){
-
         var studentID = obj.name;
-
         $('#studentID').val(studentID);
-
         data_deal();
     }
-
 
     function data_deal(){
 
         var teacherID = $('#user_id').val(),
             studentID = $('#studentID').val();
-
         var objJson = {
             "studentID":parseInt(studentID),
             "teacherID":parseInt(teacherID)
@@ -671,7 +661,6 @@
                 console.log(response);
                 if(response.code == 1){
                     showChatWords(response.data);
-
                 } else {
                     alert(response.msg);
                 }
@@ -680,44 +669,39 @@
                 alert("访问失败，请检查网络、路径......");
             }
         });
-
         $('#div_words').remove();
         $('#modal-container-454545').modal('show');
-
     }
 
     //处理留言框
     function showChatWords(data){
-
         var $div=$('<div class="login-box-body" id="div_words"></div>');
         $("bbbb").append($div);
-
 
         for(var i=0;i<data.length;i++){
 
             if(data[i]['flag'] == 1){
-                var $label=$('<div style="float:right; text-align:right"><label style="background-color: #337ab7;display: initial">'+data[i]['words']+'</label></div><br>');
+                var $label=$('<div style="float:right; text-align:right">' +
+                    '<label style="background-color: #337ab7;display: initial">'+data[i]['words']+'</label>' +
+                    '</div><br>');
                 $div.append($label);
             }else{
-                var $label=$('<div style="float:left; text-align:left"><label style="background-color: white;display: initial">'+data[i]['words']+'</label></div><br>');
+                var $label=$('<div style="float:left; text-align:left">' +
+                    '<label style="background-color: white;display: initial">'+data[i]['words']+'</label>' +
+                    '</div><br>');
                 $div.append($label);
             }
-
         }
-
-
     }
 
 
     //留言
     function chatWithTeacher() {
-
         var teacherID = $('#user_id').val(),
             studentID = $('#studentID').val(),
             words = $('#words').val();
 
         if(words.length!=0){
-
             var objJson = {
                 "studentID":parseInt(studentID),
                 "teacherID":parseInt(teacherID),
@@ -734,14 +718,8 @@
                 success: function (response) {
                     console.log(response);
                     if(response.code == 1){
-
-                        alert(response.msg);
                         $('#words').val("");
-
                         data_deal();
-
-
-
                     } else {
                         alert(response.msg);
                     }
@@ -750,13 +728,9 @@
                     alert("访问失败，请检查网络、路径......");
                 }
             });
-
-
         }else{
             alert("留言填写未空");
         }
-
-
     }
 
 

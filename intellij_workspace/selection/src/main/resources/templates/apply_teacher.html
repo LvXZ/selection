@@ -88,32 +88,29 @@
         </div>
         <div class="col-md-4 column">
 
+            <!--上传文件-->
             <form id="form1" role="form" method="POST" enctype="multipart/form-data" action="/lvxz/teacher/apply_design">
                 <div class="jumbotron">
-
                     <div class="input">
                         <input  class="form-control" id="now_date" type="text" value="" readonly="true"/>
                     </div>
-
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
                         <input class="form-control" id="designName2" name="designName2" type="text" placeholder="毕业设计名称"/>
                     </div>
-
                     <div class="input">
                         <input  class="form-control" id="teacherID" name="teacherID" type="hidden" value="">
                     </div>
-
                     <div class="input-group">
-                        <input name="file" id="file" type="file" accept="application/x-zip-compressed,application/x-rar-compressed" value="选择压缩包" data-toggle="tooltip"
-                               data-placement="left" title="仅支持zip、rar压缩包，且小于1M"/></div>
+                        <input name="file" id="file" type="file" accept="application/x-zip-compressed,application/x-rar-compressed"
+                               value="选择压缩包" data-toggle="tooltip" data-placement="left" title="仅支持zip、rar压缩包，且小于1M"/>
+                    </div>
                     <div class="input-group" style="padding:16px;margin-left:auto;margin-right:auto;">
                         <button type="submit" class="btn btn-primary" id="login_button" onclick="applyUpload()">
                             <i class="glyphicon glyphicon-cloud-upload">申请发布</i>
                         </button>
                     </div>
                 </div>
-
             </form>
 
 
@@ -462,7 +459,6 @@
         $("#form1").ajaxForm(function(response){
             if(response.code==1){
                 alert(response.msg);
-
                 $('#table_design').remove();
                 getUpload_Info();//重新加载教师毕设
 

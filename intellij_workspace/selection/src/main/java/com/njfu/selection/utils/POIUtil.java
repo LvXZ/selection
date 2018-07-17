@@ -1,10 +1,4 @@
 package com.njfu.selection.utils;
-
-/**
- * Introduction: excel读写工具类
- * Created by  LvXZ  on 2018/3/24.
- */
-
 import com.njfu.selection.service.impl.AdminServiceImpl;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -21,6 +15,10 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Introduction: excel读写工具类
+ * Created by  LvXZ  on 2018/3/24.
+ */
 
 public class POIUtil {
 
@@ -75,8 +73,6 @@ public class POIUtil {
         return list;
     }
 
-
-
     public static Workbook getWorkBook(MultipartFile file) {
         //获得文件名
         String fileName = file.getOriginalFilename();
@@ -98,7 +94,6 @@ public class POIUtil {
         }
         return workbook;
     }
-
 
     public static String getCellValue(Cell cell){
         String cellValue = "";

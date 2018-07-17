@@ -281,14 +281,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public ResponseInfoDTO<Object> studentUploadProject(HttpServletRequest request, HttpServletResponse response) {
-
         logger.debug("<----------studentUploadProject---------->");
 
         String projectID = request.getParameter("projectID");
         String studentID = request.getParameter("studentID");
         //获取多个文件，此处默认接收一个打包文件
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
-
 
         response.setHeader("Access-Control-Allow-Methods", "POST");
         ResponseInfoDTO responseInfoDTO;
@@ -299,9 +297,7 @@ public class StudentServiceImpl implements StudentService {
             responseInfoDTO = new ResponseInfoDTO(-1, "不存在该project");
             return responseInfoDTO;
         }
-
         Long teacherID = designDao.queryTeacherIDByDesignId(getProject.getDesignID());
-
 
         MultipartFile file;
         BufferedOutputStream stream;
@@ -315,20 +311,17 @@ public class StudentServiceImpl implements StudentService {
         }
 
         if (files.size() > 0) {
-
             for (int i = 0; i < files.size(); ++i) {
                 file = files.get(i);
 
                 if (!file.isEmpty()) {
                     System.out.println(file.getOriginalFilename());
                     try {
-
                         //是否存在文件
                         if(getProject.getEnableStatus() != 1){
                             File testFile = new File(getProject.getFileAddress());
                             testFile.delete();//删除文件
                         }
-
 
                         byte[] bytes = file.getBytes();
                         String fileName = file.getOriginalFilename();

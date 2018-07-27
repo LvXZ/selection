@@ -1,5 +1,6 @@
 package com.njfu.selection.controller;
 
+import com.njfu.selection.dto.ResponseDTO;
 import com.njfu.selection.dto.ResponseInfoDTO;
 import com.njfu.selection.entity.Student;
 import com.njfu.selection.service.StudentService;
@@ -29,7 +30,7 @@ public class StudentController {
      */
     @PostMapping(value = "/login", produces = "application/json;charset=UTF-8")
     @CrossOrigin(allowCredentials = "false")
-    public ResponseInfoDTO<Student> studentLogin(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+    public ResponseDTO<Student> studentLogin(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
         return studentService.findStudentPasswordById(params, request, response);
     }
 

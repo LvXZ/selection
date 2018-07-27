@@ -1,5 +1,6 @@
 package com.njfu.selection.service;
 
+import com.njfu.selection.dto.ResponseDTO;
 import com.njfu.selection.dto.ResponseInfoDTO;
 import com.njfu.selection.entity.Student;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +23,7 @@ public interface StudentService {
      * @param response 返回响应
      * @return Student 用户对象类
      */
-    ResponseInfoDTO<Student> findStudentPasswordById(String params, HttpServletRequest request, HttpServletResponse response);
+    ResponseDTO<Student> findStudentPasswordById(String params, HttpServletRequest request, HttpServletResponse response);
 
     /**
      * 更新密码

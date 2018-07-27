@@ -15,71 +15,71 @@ public class HtmlController {
 
     @RequestMapping("/")
     public String login1Page() {
-        return "/login.html";
+        return "login.html";
     }
 
     @RequestMapping("/login")
     public String login2Page() {
-        return "/login.html";
+        return "login.html";
     }
 
     @RequestMapping("/index_student")
     public String indexStudentPage() {
-        return "/index_student.html";
+        return "index_student.html";
     }
 
     @RequestMapping("/index_teacher")
     public String indexTeacherPage() {
-        return "/index_teacher.html";
+        return "index_teacher.html";
     }
 
     @RequestMapping("/index_admin")
     public String indexAdminPage() {
-        return "/index_admin.html";
+        return "index_admin.html";
     }
 
     @RequestMapping("/apply_teacher")
     public String applyTeacherPage() {
-        return "/apply_teacher.html";
+        return "apply_teacher.html";
     }
 
     @RequestMapping("/inspect_admin")
     public String inspectAdminPage() {
-        return "/inspect_admin.html";
+        return "inspect_admin.html";
     }
 
     @RequestMapping("/apply_student")
     public String applyStudentPage() {
-        return "/apply_student.html";
+        return "apply_student.html";
     }
 
     @RequestMapping("/upload_student")
     public String uploadStudentPage() {
-        return "/upload_student.html";
+        return "upload_student.html";
     }
 
     @RequestMapping("/inspect_teacher")
     public String inspectTeacherPage() {
-        return "/inspect_teacher.html";
+        return "inspect_teacher.html";
     }
 
     @RequestMapping("/insert1_admin")
     public String insert1AdminPage() {
-        return "/insert1_admin.html";
+        return "insert1_admin.html";
     }
 
     @RequestMapping("/insert2_admin")
     public String insert2AdminPage() {
-        return "/insert2_admin.html";
+        return "insert2_admin.html";
     }
 
     @RequestMapping("/block_admin")
     public String adminBlockUser() {
-        return "/block_admin.html";
+        return "block_admin.html";
     }
 
     @RequestMapping("/headline_admin")
     public String adminHeadLine() {
-        return "/headline_admin.html";
+        return "headline_admin.html";
     }
 }

@@ -353,7 +353,8 @@
 
         var fileURL = obj.id;
         var fileName = obj.name;
-        var newURL = "http://"+ getLocalIP() +":8081/download/" + fileURL + fileName;
+        var newURL = "http://"+ getLocalIP() +":8080/download/" + fileURL + fileName;//ubuntu
+        //var newURL = "http://"+ getLocalIP() +":8081/download/" + fileURL + fileName;//windows
         console.log(newURL);
 
         $("[data-toggle='popover']").popover();

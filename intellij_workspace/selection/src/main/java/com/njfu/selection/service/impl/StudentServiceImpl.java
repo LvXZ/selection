@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.njfu.selection.dao.*;
 import com.njfu.selection.dto.DesignProjectDto;
+import com.njfu.selection.dto.MessageDTO;
+import com.njfu.selection.dto.ResponseDTO;
 import com.njfu.selection.dto.ResponseInfoDTO;
 import com.njfu.selection.entity.*;
 import com.njfu.selection.service.StudentService;
@@ -57,27 +59,25 @@ public class StudentServiceImpl implements StudentService {
     private MessageYmlUtil ymlUtil;
 
     @Override
-    public ResponseInfoDTO<Student> findStudentPasswordById(String params, HttpServletRequest request, HttpServletResponse response) {
+    public ResponseDTO<Student> findStudentPasswordById(String params, HttpServletRequest request, HttpServletResponse response) {
 
-        logger.debug("<----------findStudentPasswordById---------->");
         Student student = JSON.parseObject(params, Student.class);
         Student getStudent = studentDao.queryStudentPasswordById(student.getStudentID());
 
         response.setHeader("Access-Control-Allow-Methods", "POST");
-        ResponseInfoDTO responseInfoDTO;
         if (getStudent == null) {
-            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getLogin().get("failure_2.msg"));
+            return ResponseDTO.fail(MessageDTO.LOGIN_FAIL_2);
         } else if (getStudent.getPassword().equals(student.getPassword())) {//消息提示工具类获取key// 正确码,字符型转为整型
 
             if(getStudent.getEnableStatus() == 1){
-                responseInfoDTO = new ResponseInfoDTO(1, ymlUtil.getLogin().get("success.msg"), getStudent);
+                return ResponseDTO.success(getStudent);
             }else{
-                responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getLogin().get("failure_3.msg"));
+                return ResponseDTO.fail(MessageDTO.LOGIN_FAIL_3);
             }
         } else {
-            responseInfoDTO = new ResponseInfoDTO(0, ymlUtil.getLogin().get("failure_1.msg"));
+            return ResponseDTO.fail(MessageDTO.LOGIN_FAIL_1);
         }
-        return responseInfoDTO;
+
     }
 
     @Override

@@ -43,8 +43,19 @@ mybatis:
     mapUnderscoreToCamelCase: true
     useColumnLabel: true
 
+redis:
+  host: 127.0.0.1
+  port: 6379
+  timeout: 3
+  poolMaxTotal: 10
+  poolMaxIdle: 10
+  poolMaxWait: 3
+
 logging:
   config: classpath:logback.xml
+
+
+
 
 
   # 后端配置获取常量配置

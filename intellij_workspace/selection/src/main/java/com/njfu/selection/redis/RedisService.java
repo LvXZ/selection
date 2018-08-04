@@ -100,6 +100,8 @@ public class RedisService {
 			  returnToPool(jedis);
 		 }
 	}
+
+
 	
 	private <T> String beanToString(T value) {
 		if(value == null) {

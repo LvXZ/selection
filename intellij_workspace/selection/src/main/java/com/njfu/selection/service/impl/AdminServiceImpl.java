@@ -4,11 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.njfu.selection.dao.*;
-import com.njfu.selection.dto.AdminStudentDto;
-import com.njfu.selection.dto.AdminTeacherDto;
-import com.njfu.selection.dto.RequestInfoDTO;
-import com.njfu.selection.dto.ResponseInfoDTO;
+import com.njfu.selection.dto.*;
 import com.njfu.selection.entity.*;
+import com.njfu.selection.redis.RedisService;
+import com.njfu.selection.redis.key.HeadLineKey;
+import com.njfu.selection.redis.key.StudentKey;
 import com.njfu.selection.service.AdminService;
 import com.njfu.selection.utils.MessageYmlUtil;
 import com.njfu.selection.utils.POIUtil;
@@ -49,6 +49,9 @@ public class AdminServiceImpl implements AdminService {
 
     @Autowired
     private HeadLineDao headLineDao;
+
+    @Autowired
+    private RedisService redisService;
 
     @Autowired
     private MessageYmlUtil ymlUtil;
@@ -468,42 +471,62 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public ResponseInfoDTO<Object> readHeadLine(HttpServletRequest request, HttpServletResponse response) {
-        logger.debug("<----------readHeadLine---------->");
+    public ResponseDTO<Object> readHeadLine(HttpServletRequest request, HttpServletResponse response) {
 
         response.setHeader("Access-Control-Allow-Methods", "POST");
-        ResponseInfoDTO responseInfoDTO;
-        HeadLine headLine = headLineDao.queryHeadLine();
-        if(headLine == null){
-            responseInfoDTO = new ResponseInfoDTO(0, "访问失败");
+
+        String key = "";
+        HeadLine headLine;
+        int flag_redis = 0;
+
+        if(!redisService.exists(HeadLineKey.getByHead,key)){//redis不存在该用户缓存，调用数据库
+            headLine = headLineDao.queryHeadLine();
+            System.out.println("set redis");
+            flag_redis = 1;//标记登录成功后，将用户信息存入redis缓存
         }else{
-            responseInfoDTO = new ResponseInfoDTO(1, "访问失败",headLine);
+            System.out.println("get redis");
+            headLine = redisService.get(HeadLineKey.getByHead,key,HeadLine.class);
         }
-        return responseInfoDTO;
+
+        if (headLine == null) {
+            return ResponseDTO.fail(MessageDTO.HEADLINE_FAIL);
+        } else {
+
+            if(flag_redis == 1){//存放headline于redis
+                redisService.set(HeadLineKey.getByHead,key,headLine);
+            }
+            return ResponseDTO.success(headLine);
+        }
+
 
     }
 
     @Override
-    public ResponseInfoDTO<Object> addHeadLine(String params, HttpServletRequest request, HttpServletResponse response) {
-        logger.debug("<----------addHeadLine---------->");
+    public ResponseDTO<Object> addHeadLine(String params, HttpServletRequest request, HttpServletResponse response) {
 
         HeadLine headLine = JSON.parseObject(params, HeadLine.class);
-
-
         response.setHeader("Access-Control-Allow-Methods", "POST");
-        ResponseInfoDTO responseInfoDTO;
+
+        String key = "";
+
+
         if(adminDao.queryAdminInfoById(headLine.getAdminID()) == null){
-            responseInfoDTO = new ResponseInfoDTO(0, "管理员账号不存在");
+
+            return ResponseDTO.fail(MessageDTO.ADMIN_FAIL);
         }else{
-            headLineDao.deleteHeadLine();
+            headLineDao.deleteHeadLine();//删除之前数据库的头条信息
+            //redisService.del(HeadLineKey.getByHead,key);//删除之前redis的头条信息
+
             int flag = headLineDao.addHeadLine(headLine);
             if(flag == 1){
-                responseInfoDTO = new ResponseInfoDTO(1, "发布成功");
+                redisService.set(HeadLineKey.getByHead,key,headLine);
+                System.out.println("set redis");
+                return ResponseDTO.success(headLine);
+                //responseInfoDTO = new ResponseInfoDTO(1, "发布成功");
             }else{
-                responseInfoDTO = new ResponseInfoDTO(0, "发布失败");
+                return ResponseDTO.fail(MessageDTO.HEADLINE_FAIL_2);
             }
         }
-        return responseInfoDTO;
     }
 
 

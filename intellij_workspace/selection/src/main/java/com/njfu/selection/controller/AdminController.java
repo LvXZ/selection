@@ -1,5 +1,6 @@
 package com.njfu.selection.controller;
 
+import com.njfu.selection.dto.ResponseDTO;
 import com.njfu.selection.dto.ResponseInfoDTO;
 import com.njfu.selection.entity.Admin;
 import com.njfu.selection.service.AdminService;
@@ -176,7 +177,7 @@ public class AdminController {
      */
     @PostMapping(value = "/read_head_line", produces = "application/json;charset=UTF-8")
     @CrossOrigin(allowCredentials = "false")
-    public ResponseInfoDTO<Object> readHeadLine(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseDTO<Object> readHeadLine(HttpServletRequest request, HttpServletResponse response) {
         return adminService.readHeadLine(request, response);
     }
 
@@ -186,7 +187,7 @@ public class AdminController {
      */
     @PostMapping(value = "/add_head_line", produces = "application/json;charset=UTF-8")
     @CrossOrigin(allowCredentials = "false")
-    public ResponseInfoDTO<Object> addHeadLine(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
+    public ResponseDTO<Object> addHeadLine(@RequestBody String params, HttpServletRequest request, HttpServletResponse response) {
         return adminService.addHeadLine(params, request, response);
     }
 

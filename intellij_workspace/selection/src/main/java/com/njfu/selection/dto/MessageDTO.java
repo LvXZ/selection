@@ -22,9 +22,14 @@ public class MessageDTO {
     //login
     //public static MessageDTO LOGIN_SUCCESS = new MessageDTO(-505,"server_error");
     public static MessageDTO LOGIN_FAIL_1 = new MessageDTO(-101,MessageYmlUtil.login.get("failure_1.msg"));
-    public static MessageDTO LOGIN_FAIL_2 = new MessageDTO(-102,"更新密码失败，原密码错误");
-    public static MessageDTO LOGIN_FAIL_3 = new MessageDTO(-103,"更新密码失败，输入验证资料有误");
+    public static MessageDTO LOGIN_FAIL_2 = new MessageDTO(-102,"登录失败，用户不存在");
+    public static MessageDTO LOGIN_FAIL_3 = new MessageDTO(-103,"登录失败，你的账户已被冻结");
     //
+
+
+    public static MessageDTO HEADLINE_FAIL = new MessageDTO(0,"获取头条失败");
+    public static MessageDTO ADMIN_FAIL = new MessageDTO(0,"管理员不存在");
+    public static MessageDTO HEADLINE_FAIL_2 = new MessageDTO(0,"发布头条失败");
 
     private MessageDTO(int code, String msg) {
         this.code = code;

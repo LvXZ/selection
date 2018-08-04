@@ -9,6 +9,8 @@ import com.njfu.selection.dto.MessageDTO;
 import com.njfu.selection.dto.ResponseDTO;
 import com.njfu.selection.dto.ResponseInfoDTO;
 import com.njfu.selection.entity.*;
+import com.njfu.selection.redis.RedisService;
+import com.njfu.selection.redis.key.StudentKey;
 import com.njfu.selection.service.StudentService;
 import com.njfu.selection.utils.MessageYmlUtil;
 import org.slf4j.Logger;
@@ -56,21 +58,44 @@ public class StudentServiceImpl implements StudentService {
     private LeaveWordsDao leaveWordsDao;
 
     @Autowired
+    private RedisService redisService;
+
+
+
+    @Autowired
     private MessageYmlUtil ymlUtil;
 
     @Override
     public ResponseDTO<Student> findStudentPasswordById(String params, HttpServletRequest request, HttpServletResponse response) {
 
         Student student = JSON.parseObject(params, Student.class);
-        Student getStudent = studentDao.queryStudentPasswordById(student.getStudentID());
-
         response.setHeader("Access-Control-Allow-Methods", "POST");
+
+        String key = String.valueOf(student.getStudentID());
+        Student getStudent;
+        int flag_redis = 0;
+
+        if(!redisService.exists(StudentKey.getById,key)){//redis不存在该用户缓存，调用数据库
+            getStudent = studentDao.queryStudentPasswordById(student.getStudentID());
+            System.out.println("set redis");
+            flag_redis = 1;//标记登录成功后，将用户信息存入redis缓存
+        }else{
+            System.out.println("get redis");
+            getStudent = redisService.get(StudentKey.getById,key,Student.class);
+        }
+
         if (getStudent == null) {
             return ResponseDTO.fail(MessageDTO.LOGIN_FAIL_2);
         } else if (getStudent.getPassword().equals(student.getPassword())) {//消息提示工具类获取key// 正确码,字符型转为整型
 
             if(getStudent.getEnableStatus() == 1){
+
+                if(flag_redis == 1){//存放用户信息于redis
+                    redisService.set(StudentKey.getById,key, getStudent);
+                }
+
                 return ResponseDTO.success(getStudent);
+
             }else{
                 return ResponseDTO.fail(MessageDTO.LOGIN_FAIL_3);
             }
@@ -83,7 +108,6 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public ResponseInfoDTO<Student> updateStudentPasswordById(String params, HttpServletRequest request, HttpServletResponse response) {
 
-        logger.debug("<----------updateStudentPasswordById---------->");
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode paramJson = null;
         try {
@@ -120,7 +144,6 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public ResponseInfoDTO<Student> updateStudentInfoById(String params, HttpServletRequest request, HttpServletResponse response) {
 
-        logger.debug("<----------updateStudentInfoById---------->");
         Student student = JSON.parseObject(params, Student.class);
         response.setHeader("Access-Control-Allow-Methods", "POST");
         ResponseInfoDTO responseInfoDTO;
@@ -137,7 +160,6 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public ResponseInfoDTO<Student> updateStudentPasswordByOther(String params, HttpServletRequest request, HttpServletResponse response) {
 
-        logger.debug("<----------updateStudentPasswordByOther---------->");
         Student student = JSON.parseObject(params, Student.class);
 
         response.setHeader("Access-Control-Allow-Methods", "POST");
@@ -155,7 +177,6 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public ResponseInfoDTO<Object> studentGetTeacherDesignInfo(String params, HttpServletRequest request, HttpServletResponse response) {
 
-        logger.debug("<----------studentGetTeacherDesignInfo---------->");
         Student student = JSON.parseObject(params, Student.class);
 
         Student getStudent = studentDao.queryStudentPasswordById(student.getStudentID());
@@ -185,7 +206,6 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public ResponseInfoDTO<Object> studentApplyTeacherDesignInfo(String params, HttpServletRequest request, HttpServletResponse response) {
 
-        logger.debug("<----------studentApplyTeacherDesignInfo---------->");
         Project project = JSON.parseObject(params, Project.class);
 
         Project getProject = projectDao.queryProjectByStudentID(project.getStudentID());
@@ -225,7 +245,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public ResponseInfoDTO<Object> studentGetMyselfProjectInfo(String params, HttpServletRequest request, HttpServletResponse response) {
-        logger.debug("<----------studentGetTeacherDesignInfo---------->");
+
         Student student = JSON.parseObject(params, Student.class);
 
         Student getStudent = studentDao.queryStudentPasswordById(student.getStudentID());
@@ -263,7 +283,6 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public ResponseInfoDTO<Object> studentDeleteApplyDesignInfo(String params, HttpServletRequest request, HttpServletResponse response) {
 
-        logger.debug("<----------studentDeleteApplyDesignInfo---------->");
         Project project = JSON.parseObject(params, Project.class);
 
         response.setHeader("Access-Control-Allow-Methods", "POST");
@@ -281,7 +300,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public ResponseInfoDTO<Object> studentUploadProject(HttpServletRequest request, HttpServletResponse response) {
-        logger.debug("<----------studentUploadProject---------->");
 
         String projectID = request.getParameter("projectID");
         String studentID = request.getParameter("studentID");
@@ -364,7 +382,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public ResponseInfoDTO<Object> studentAddWords(String params, HttpServletRequest request, HttpServletResponse response) {
-        logger.debug("<----------studentAddWords---------->");
+
         LeaveWords leaveWords = JSON.parseObject(params, LeaveWords.class);
 
         leaveWords.setFlag(0);
@@ -386,7 +404,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public ResponseInfoDTO<Object> studentGetWords(String params, HttpServletRequest request, HttpServletResponse response) {
-        logger.debug("<----------studentAddWords---------->");
+
         LeaveWords leaveWords = JSON.parseObject(params, LeaveWords.class);
 
         response.setHeader("Access-Control-Allow-Methods", "POST");

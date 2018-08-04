@@ -1,5 +1,6 @@
 package com.njfu.selection.service;
 
+import com.njfu.selection.dto.ResponseDTO;
 import com.njfu.selection.dto.ResponseInfoDTO;
 import com.njfu.selection.entity.Admin;
 import org.springframework.web.multipart.MultipartFile;
@@ -147,7 +148,7 @@ public interface AdminService {
      * @param response
      * @return
      */
-    ResponseInfoDTO<Object> readHeadLine(HttpServletRequest request, HttpServletResponse response);
+    ResponseDTO<Object> readHeadLine(HttpServletRequest request, HttpServletResponse response);
 
     /**
      * 添加头条信息
@@ -156,6 +157,6 @@ public interface AdminService {
      * @param response
      * @return
      */
-    ResponseInfoDTO<Object> addHeadLine(String params, HttpServletRequest request, HttpServletResponse response);
+    ResponseDTO<Object> addHeadLine(String params, HttpServletRequest request, HttpServletResponse response);
 
 }

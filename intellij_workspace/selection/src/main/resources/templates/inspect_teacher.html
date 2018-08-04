@@ -39,10 +39,10 @@
         <div class="col-md-12 column">
             <ul class="nav nav-pills">
                 <li>
-                    <a href="/lvxz/index_teacher">首页</a>
+                    <a href="/index_teacher">首页</a>
                 </li>
                 <li>
-                    <a href="/lvxz/apply_teacher">毕业设计管理</a>
+                    <a href="/apply_teacher">毕业设计管理</a>
                 </li>
                 <li class="active">
                     <a href="#">学生申请管理</a>
@@ -213,7 +213,7 @@
 
         if(!Cookies.get('teacher_ObjJson')){
             alert("您还未登陆！请登陆");
-            window.open("/lvxz/login",'_self');
+            window.open("/login",'_self');
         }else{
             var jsonValue = JSON.parse(Cookies.get('teacher_ObjJson'));
             getUser(jsonValue);
@@ -246,7 +246,7 @@
 
         if(teacherID.length!=0){
 
-            var updatePasswordURL = "/lvxz/teacher/update_info";
+            var updatePasswordURL = "/teacher/update_info";
             var objJson = {
                 "teacherID":parseInt(teacherID),
                 "birthday":birthday,
@@ -294,7 +294,7 @@
 
         if(teacherID.length!=0  && oldPassword.length!=0 && newPassword.length!=0) {
 
-            var updatePasswordURL = "/lvxz/teacher/update_password";
+            var updatePasswordURL = "/teacher/update_password";
 
             var objJson = {
                 "teacherID":parseInt(teacherID),
@@ -339,7 +339,7 @@
     /*退出登录，消除cookies*/
     function deleteCookies() {
         Cookies.remove('teacher_ObjJson', { path: '' });
-        window.open("/lvxz/login",'_self');
+        window.open("/login",'_self');
         alert("已注销");
     }
 
@@ -532,7 +532,7 @@
 
             $.ajax({
                 type:"POST",
-                url: "/lvxz/teacher/get_student_project",
+                url: "/teacher/get_student_project",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 data: teacher_ObjJson,
@@ -570,7 +570,7 @@
 
             $.ajax({
                 type:"POST",
-                url: "/lvxz/teacher/ensure_project",
+                url: "/teacher/ensure_project",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify(objJson),
@@ -609,7 +609,7 @@
 
             $.ajax({
                 type:"POST",
-                url: "/lvxz/teacher/oppose_project",
+                url: "/teacher/oppose_project",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify(objJson),
@@ -653,7 +653,7 @@
 
         $.ajax({
             type:"POST",
-            url: "/lvxz/teacher/get_words",
+            url: "/teacher/get_words",
             contentType: "application/json;charset=utf-8",
             dataType: "json",
             data: JSON.stringify(objJson),
@@ -711,7 +711,7 @@
 
             $.ajax({
                 type:"POST",
-                url: "/lvxz/teacher/add_words",
+                url: "/teacher/add_words",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify(objJson),

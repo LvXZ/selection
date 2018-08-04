@@ -102,7 +102,7 @@
         function getHead(){
             $.ajax({
                 type:"POST",
-                url: "/lvxz/admin/read_head_line",
+                url: "/admin/read_head_line",
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 async:true,
@@ -131,8 +131,8 @@
 
             if(userID.length!=0  && userPassword.length!=0 ) {
 
-                var loginURL = "/lvxz/"+ userRadio +"/login";
-                var openURL = "/lvxz/index_"+ userRadio;
+                var loginURL = "/"+ userRadio +"/login";
+                var openURL = "/index_"+ userRadio;
                 var objJson;
 
                 switch (userRadio) {

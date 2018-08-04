@@ -39,22 +39,22 @@
         <div class="col-md-12 column">
             <ul class="nav nav-pills">
                 <li>
-                    <a href="/lvxz/index_admin">首页</a>
+                    <a href="/index_admin">首页</a>
                 </li>
                 <li>
-                    <a href="/lvxz/inspect_admin">审查毕设申请</a>
+                    <a href="/inspect_admin">审查毕设申请</a>
                 </li>
                 <li>
-                    <a href="/lvxz/insert1_admin">单个用户注册</a>
+                    <a href="/insert1_admin">单个用户注册</a>
                 </li>
                 <li class="active">
                     <a href="#">文件导入注册</a>
                 </li>
                 <li>
-                    <a href="/lvxz/block_admin">用户账号冻结</a>
+                    <a href="/block_admin">用户账号冻结</a>
                 </li>
                 <li>
-                    <a href="/lvxz/headline_admin">头条消息发布</a>
+                    <a href="/headline_admin">头条消息发布</a>
                 </li>
                 <li class="dropdown pull-right">
                     <input id="user_name" value="未登录" readonly="true"/>
@@ -216,7 +216,7 @@
 
         if(!Cookies.get('admin_ObjJson')){
             alert("您还未登陆！请登陆");
-            window.open("/lvxz/login",'_self');
+            window.open("/login",'_self');
         }else{
             var jsonValue = JSON.parse(Cookies.get('admin_ObjJson'));
             getUser(jsonValue);
@@ -246,7 +246,7 @@
 
         if(adminID.length!=0){
 
-            var updatePasswordURL = "/lvxz/admin/update_info";
+            var updatePasswordURL = "/admin/update_info";
             var objJson = {
                 "adminID":parseInt(adminID),
                 "birthday":birthday,
@@ -297,7 +297,7 @@
 
         if(adminID.length!=0  && oldPassword.length!=0 && newPassword.length!=0) {
 
-            var updatePasswordURL = "/lvxz/admin/update_password";
+            var updatePasswordURL = "/admin/update_password";
 
             var objJson = {
                 "adminID":parseInt(adminID),
@@ -343,7 +343,7 @@
     /*退出登录，消除cookies*/
     function deleteCookies() {
         Cookies.remove('admin_ObjJson', { path: '' });
-        window.open("/lvxz/login",'_self');
+        window.open("/login",'_self');
         alert("已注销");
     }
 
@@ -481,7 +481,7 @@
 
         var adminID = $('#user_id').val();
         var userRadio = $("#en_insert").attr("name");
-        var insertURL = "/lvxz/admin/insert2_"+ userRadio;
+        var insertURL = "/admin/insert2_"+ userRadio;
 
 
         if(adminID!=null && adminID!=""){

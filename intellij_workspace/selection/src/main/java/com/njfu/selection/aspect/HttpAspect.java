@@ -24,6 +24,9 @@ public class HttpAspect {
     private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
 
     private String IP;
+
+    long startTime;
+
     @Pointcut("execution(public * com.njfu.selection.controller.*.*(..))")
     public void flag() {
     }
@@ -31,6 +34,8 @@ public class HttpAspect {
     @Before("flag()")
     //对文件名下的函数进行调用Before拦截
     public void httpBefore(JoinPoint jP) {
+        // 获取开始时间
+        startTime = System.currentTimeMillis();
         //记录http请求//URL//method//IP//类方法//参数
         //强制转换
         ServletRequestAttributes SRattributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -52,7 +57,9 @@ public class HttpAspect {
     //对文件名下的函数进行结束After拦截
     @After("flag()")
     public void httpAfter() {
-        logger.info("{}:End of the visit",IP);
+        // 获取结束时间
+        long runTime = System.currentTimeMillis();
+        logger.info(" End of the [{}] visit, the running time:[{}ms]",IP,runTime-startTime);
     }
 
 
